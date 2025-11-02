@@ -1,0 +1,4 @@
+This folder includes several only resources used to design the Presentation about using APIs in R: 
+
+- 01 R API Key concepts.docx
+- R API online resources.docx
