@@ -34,11 +34,11 @@ This communication enables us to `collect data` from `various sources`, such as 
 
 ##  Key concepts using APIs in R {.smaller background="#43464B"}
 
-**`HTTP Requests`**: R communicates with APIs mainly through `HTTP methods` like GET, POST, PUT and DELETE using packages like httr or curl.
+**`HTTP Requests`**: R communicates with APIs mainly through `HTTP methods` like GET, POST, PUT and DELETE using packages like httr or curl.
     
 **`Authentication`**: Many APIs require API keys, tokens or OAuth for access , these are included in the request headers or parameters.
     
-**`Data Formats`**: APIs usually return data in formats like JSON or XML, which can be easily parsed in R using packages like jsonlite or XML.
+**`Data Formats`**: APIs usually return data in formats like JSON or XML, which can be easily parsed in R using packages like jsonlite or XML.
     
 **`Rate Limits`**: APIs often limit how many requests you can make in a given time. It’s important to stay within these limits to avoid getting blocked.
     

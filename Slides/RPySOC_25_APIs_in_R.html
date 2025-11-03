@@ -149,10 +149,10 @@
 <li>This presentations describes how to use <strong>APIs</strong> in R to obtain socio-economic indicators.</li>
 </ul>
 </section>
-<section id="main-topics" class="slide level2 smaller" data-background="#43464B">
-<h2>Main topics</h2>
-<p>APIs stands for <strong>Application Programming Interface</strong>. They are set of <strong>protocols</strong> that enable <strong>communication</strong> between different software systems. And this can be the building blocks for software applications.</p>
-<p>This communication enables us to <strong>collect data</strong> from <strong>various sources</strong>, such as social network sites, news websites, online marketplaces or international organisations such as the OECD. Providing us <strong>access</strong> to multiple <strong>health and social indicators</strong> that we can download and query in an <strong>automated way</strong>.</p>
+<section id="what-are-apis" class="slide level2 smaller" data-background="#43464B">
+<h2>What are APIs</h2>
+<p><code>APIs</code> stands for <code>Application Programming Interface</code>. They are set of <code>protocols</code> that enable <code>communication</code> between different software systems. And this can be the building blocks for software applications.</p>
+<p>This communication enables us to <code>collect data</code> from <code>various sources</code>, such as social network sites, news websites, online marketplaces or international organisations such as the OECD. Providing us <code>access</code> to multiple <code>health and social indicators</code> that we can download and query in an <code>automated way</code>.</p>
 <p><strong>APIs save time</strong> avoiding the physical download of Excel or CSV files <strong>facilitating</strong> up the <strong>data wrangling</strong> process and also providing <strong>real time data</strong> that can be <strong>made accessible</strong> to online <strong>apps</strong> or <strong>dashboards</strong>. It can also be consumed by <strong>predictive models</strong> to provide latest data to time series or clustering models.</p>
 </section>
 <section id="key-concepts-using-apis-in-r" class="slide level2 smaller" data-background="#43464B">
@@ -161,7 +161,7 @@
 <p><strong><code>Authentication</code></strong>: Many APIs require API keys, tokens or OAuth for access , these are included in the request headers or parameters.</p>
 <p><strong><code>Data Formats</code></strong>: APIs usually return data in formats like JSON or XML, which can be easily parsed in R using packages like&nbsp;jsonlite&nbsp;or&nbsp;XML.</p>
 <p><strong><code>Rate Limits</code></strong>: APIs often limit how many requests you can make in a given time. It’s important to stay within these limits to avoid getting blocked.</p>
-<p><strong><code>Error Handling</code></strong>: Always handle potential issues like server errors, bad input or network failures. R packages provide tools to check and manage these gracefully</p>
+<p><strong><code>Error Handling</code></strong>: Always handle potential issues like server errors, bad input or network failures. R packages provide tools to check and manage these gracefully.</p>
 </section>
 <section id="r-packages-to-setup-apis" class="slide level2 smaller" data-background="#43464B">
 <h2>R packages to setup APIS</h2>
