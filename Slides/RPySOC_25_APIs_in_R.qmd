@@ -7,7 +7,7 @@ editor: visual
 format:
   revealjs:
     smaller: true 
-    theme: simple
+    theme: dark
     slide-number: true
     chalkboard: 
       buttons: false
@@ -19,16 +19,36 @@ resources:
   - demo.pdf
 ---
 
-## Introduction {.smaller}
+## Introduction {.smaller background="#43464B"}
 
-- This presentations describes how to use **APIs** in R to obtain socio-economic indicators.
+-   This presentations describes how to use **APIs** in R to obtain socio-economic indicators.
 
-## Main topics {.smaller}
+## What are APIs {.smaller background="#43464B"}
 
-- What are APIS?
+`APIs` stands for  `Application Programming Interface`. They are set of `protocols` that enable `communication` between different software systems. And this can be the building blocks for software applications.
 
-- Packages in R to setup APIs
+This communication enables us to `collect data` from `various sources`, such as social network sites, news websites, online marketplaces or international organisations such as the OECD. Providing us `access` to multiple `health and social indicators` that we can download and query in an `automated way`. 
 
-- Configure an API query 
+**APIs save time** avoiding the physical download of Excel or CSV files **facilitating** up the **data wrangling** process and also providing **real time data** that can be **made accessible** to online **apps** or **dashboards**. It can also be consumed by **predictive models** to provide latest data to time series or clustering models. 
 
-- Obtain Official Statistics data from organisations such as OECD
+
+##  Key concepts using APIs in R {.smaller background="#43464B"}
+
+**`HTTP Requests`**: R communicates with APIs mainly through `HTTP methods` like GET, POST, PUT and DELETE using packages like httr or curl.
+    
+**`Authentication`**: Many APIs require API keys, tokens or OAuth for access , these are included in the request headers or parameters.
+    
+**`Data Formats`**: APIs usually return data in formats like JSON or XML, which can be easily parsed in R using packages like jsonlite or XML.
+    
+**`Rate Limits`**: APIs often limit how many requests you can make in a given time. It’s important to stay within these limits to avoid getting blocked.
+    
+**`Error Handling`**: Always handle potential issues like server errors, bad input or network failures. R packages provide tools to check and manage these gracefully.
+    
+
+## R packages to setup APIS  {.smaller background="#43464B"}
+
+## Configure an API query  {.smaller background="#43464B"}
+
+## Obtain OECD official statistics using an API  {.smaller background="#43464B"}
+
+## Questions {.smaller background="#43464B"}

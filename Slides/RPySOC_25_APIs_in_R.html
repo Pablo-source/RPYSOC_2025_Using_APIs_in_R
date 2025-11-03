@@ -6,12 +6,12 @@
 <script src="RPySOC_25_APIs_in_R_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="RPySOC_25_APIs_in_R_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="RPySOC_25_APIs_in_R_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="RPySOC_25_APIs_in_R_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="RPySOC_25_APIs_in_R_files/libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Pablo Leon-Rodenas|Data and Analytics|NHSE|RPySOC25">
   <meta name="dcterms.date" content="2025-11-13">
-  <title>Obtaining Health indicators Using APIs in R to create interacive visualizations</title>
+  <title>Using APIs in R to obtain Health indicators for interactive visualizations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="RPySOC_25_APIs_in_R_files/libs/revealjs/dist/theme/quarto-2c1b5f745a11cfad616ebade4a4a7d24.css">
+  <link rel="stylesheet" href="RPySOC_25_APIs_in_R_files/libs/revealjs/dist/theme/quarto-091ebfb71d12db7fc524ec91495e1509.css">
   <link rel="stylesheet" href="styles.css">
   <link href="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -126,12 +126,12 @@
     }
   </style>
 </head>
-<body class="quarto-light">
+<body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Obtaining Health indicators Using APIs in R to create interacive visualizations</h1>
+  <h1 class="title">Using APIs in R to obtain Health indicators for interactive visualizations</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -143,20 +143,37 @@
 
   <p class="date">November 13, 2025</p>
 </section>
-<section id="introduction" class="slide level2 smaller">
+<section id="introduction" class="slide level2 smaller" data-background="#43464B">
 <h2>Introduction</h2>
 <ul>
 <li>This presentations describes how to use <strong>APIs</strong> in R to obtain socio-economic indicators.</li>
 </ul>
 </section>
-<section id="main-topics" class="slide level2 smaller">
-<h2>Main topics</h2>
-<ul>
-<li><p>What are APIS?</p></li>
-<li><p>Packages in R to setup APIs</p></li>
-<li><p>Configure an API query</p></li>
-<li><p>Obtain Official Statistics data from organisations such as OECD</p></li>
-</ul>
+<section id="what-are-apis" class="slide level2 smaller" data-background="#43464B">
+<h2>What are APIs</h2>
+<p><code>APIs</code> stands for <code>Application Programming Interface</code>. They are set of <code>protocols</code> that enable <code>communication</code> between different software systems. And this can be the building blocks for software applications.</p>
+<p>This communication enables us to <code>collect data</code> from <code>various sources</code>, such as social network sites, news websites, online marketplaces or international organisations such as the OECD. Providing us <code>access</code> to multiple <code>health and social indicators</code> that we can download and query in an <code>automated way</code>.</p>
+<p><strong>APIs save time</strong> avoiding the physical download of Excel or CSV files <strong>facilitating</strong> up the <strong>data wrangling</strong> process and also providing <strong>real time data</strong> that can be <strong>made accessible</strong> to online <strong>apps</strong> or <strong>dashboards</strong>. It can also be consumed by <strong>predictive models</strong> to provide latest data to time series or clustering models.</p>
+</section>
+<section id="key-concepts-using-apis-in-r" class="slide level2 smaller" data-background="#43464B">
+<h2>Key concepts using APIs in R</h2>
+<p><strong><code>HTTP Requests</code></strong>: R communicates with APIs mainly through <code>HTTP methods</code> like GET, POST, PUT and DELETE using packages like&nbsp;httr&nbsp;or&nbsp;curl.</p>
+<p><strong><code>Authentication</code></strong>: Many APIs require API keys, tokens or OAuth for access , these are included in the request headers or parameters.</p>
+<p><strong><code>Data Formats</code></strong>: APIs usually return data in formats like JSON or XML, which can be easily parsed in R using packages like&nbsp;jsonlite&nbsp;or&nbsp;XML.</p>
+<p><strong><code>Rate Limits</code></strong>: APIs often limit how many requests you can make in a given time. It’s important to stay within these limits to avoid getting blocked.</p>
+<p><strong><code>Error Handling</code></strong>: Always handle potential issues like server errors, bad input or network failures. R packages provide tools to check and manage these gracefully.</p>
+</section>
+<section id="r-packages-to-setup-apis" class="slide level2 smaller" data-background="#43464B">
+<h2>R packages to setup APIS</h2>
+</section>
+<section id="configure-an-api-query" class="slide level2 smaller" data-background="#43464B">
+<h2>Configure an API query</h2>
+</section>
+<section id="obtain-oecd-official-statistics-using-an-api" class="slide level2 smaller" data-background="#43464B">
+<h2>Obtain OECD official statistics using an API</h2>
+</section>
+<section id="questions" class="slide level2 smaller" data-background="#43464B">
+<h2>Questions</h2>
 
 </section>
     </div>
