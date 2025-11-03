@@ -1,0 +1,34 @@
+---
+title: "Using APIs in R to obtain Health indicators for interactive visualizations"
+author: "`Pablo Leon-Rodenas|Data and Analytics|NHSE|RPySOC25`" 
+date: 11/13/2025
+date-format: long
+editor: visual
+format:
+  revealjs:
+    smaller: true 
+    theme: simple
+    slide-number: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    logo: figures/quarto.png
+    css: styles.css
+    footer: <https://github.com/Pablo-source>
+resources:
+  - demo.pdf
+---
+
+## Introduction {.smaller}
+
+- This presentations describes how to use **APIs** in R to obtain socio-economic indicators.
+
+## Main topics {.smaller}
+
+- What are APIS?
+
+- Packages in R to setup APIs
+
+- Configure an API query 
+
+- Obtain Official Statistics data from organisations such as OECD
