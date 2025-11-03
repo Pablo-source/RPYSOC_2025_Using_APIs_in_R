@@ -1,6 +1,6 @@
 ---
-title: "RPySOC_24_APIs_in_R.qmd"
-author: "`Pablo Leon-Rodenas|Data and Analytics|NHSE|RPySOC24`" 
+title: "Using APIs in R to obtain Health indicators for interactive visualizations"
+author: "`Pablo Leon-Rodenas|Data and Analytics|NHSE|RPySOC25`" 
 date: 11/13/2025
 date-format: long
 editor: visual
