@@ -42,7 +42,7 @@ This communication enables us to `collect data` from `various sources`, such as 
     
 **`Rate Limits`**: APIs often limit how many requests you can make in a given time. It’s important to stay within these limits to avoid getting blocked.
     
-**`Error Handling`**: Always handle potential issues like server errors, bad input or network failures. R packages provide tools to check and manage these gracefully
+**`Error Handling`**: Always handle potential issues like server errors, bad input or network failures. R packages provide tools to check and manage these gracefully.
     
 
 ## R packages to setup APIS  {.smaller background="#43464B"}
