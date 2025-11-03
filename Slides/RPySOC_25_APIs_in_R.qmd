@@ -25,30 +25,71 @@ resources:
 
 ## What are APIs {.smaller background="#43464B"}
 
-`APIs` stands for  `Application Programming Interface`. They are set of `protocols` that enable `communication` between different software systems. And this can be the building blocks for software applications.
+`APIs` stands for `Application Programming Interface`. They are set of `protocols` that enable `communication` between different software systems. And this can be the building blocks for software applications.
 
-This communication enables us to `collect data` from `various sources`, such as social network sites, news websites, online marketplaces or international organisations such as the OECD. Providing us `access` to multiple `health and social indicators` that we can download and query in an `automated way`. 
+This communication enables us to `collect data` from `various sources`, such as social network sites, news websites, online marketplaces or international organisations such as the OECD. Providing us `access` to multiple `health and social indicators` that we can download and query in an `automated way`.
 
-**APIs save time** avoiding the physical download of Excel or CSV files **facilitating** up the **data wrangling** process and also providing **real time data** that can be **made accessible** to online **apps** or **dashboards**. It can also be consumed by **predictive models** to provide latest data to time series or clustering models. 
+**APIs save time** avoiding the physical download of Excel or CSV files **facilitating** up the **data wrangling** process and also providing **real time data** that can be **made accessible** to online **apps** or **dashboards**. It can also be consumed by **predictive models** to provide latest data to time series or clustering models.
 
-
-##  Key concepts using APIs in R {.smaller background="#43464B"}
+## Key concepts using APIs in R {.smaller background="#43464B"}
 
 **`HTTP Requests`**: R communicates with APIs mainly through `HTTP methods` like GET, POST, PUT and DELETE using packages like httr or curl.
-    
+
 **`Authentication`**: Many APIs require API keys, tokens or OAuth for access , these are included in the request headers or parameters.
-    
+
 **`Data Formats`**: APIs usually return data in formats like JSON or XML, which can be easily parsed in R using packages like jsonlite or XML.
-    
+
 **`Rate Limits`**: APIs often limit how many requests you can make in a given time. It’s important to stay within these limits to avoid getting blocked.
-    
+
 **`Error Handling`**: Always handle potential issues like server errors, bad input or network failures. R packages provide tools to check and manage these gracefully.
-    
 
-## R packages to setup APIS  {.smaller background="#43464B"}
+## R packages to setup APIS {.smaller background="#43464B"}
 
-## Configure an API query  {.smaller background="#43464B"}
+- We will start by using `{httr}` and `{jsonlite}` R libraries. These libraries handle the complexities of API request as functions, that can be easily used.
 
-## Obtain OECD official statistics using an API  {.smaller background="#43464B"}
+```{r load and install httr jsonlite libraries, echo=TRUE}
+# install.packages(c("httr","jsonlite"),dependencies = TRUE)
+library(httr)
+library(jsonlite)
+```
+
+::: columns
+::: {.column width="40%"}
+- After loading required libraries, we make a **request** to the API in R. 
+- The request is sent to the computer that has the API. And I sends back a response
+
+- The most simple request is to ask for data using a **GET** request. It requires a URL 
+:::
+
+::: {.column width="60%"}
+![](figures/03 API request response.png)
+:::
+:::
+
+- We will work with Open Notify API, which allows us to access NASA data.
+```{r GET request, echo=TRUE}
+# Data.gov Utility Rates API
+sample2 <- GET("http://api.data.gov/nrel/utility_rates/v3.json?api_key=sample_key&address=1600+Amphitheatre+Parkway,+Mountain+View,+CA")
+# Examine the GET() output:
+content(sample2)
+```
+
+
+Source: <https://www.dataquest.io/blog/r-api-tutorial/>
+
+## Different Types of APIs requests {.smaller background="#43464B"}
+
+- Different Types of requests
+
+- GET: Asking for data to an API. Using GET() function from {httr} library: <https://httr.r-lib.org/reference/GET.html>
+- POST: It is used to send data to a server to create/update a resource:<https://httr.r-lib.org/reference/POST.html>
+- PUT: is used to send data to a server to create/update a resource:
+<https://httr.r-lib.org/reference/PUT.html?q=PUT#null>
+
+- Calling same PUT request multiple times will always produce the same result, whilst calling a POST request repeatedly have side effects of creating the same resource multiple times
+
+## Configure an API query {.smaller background="#43464B"}
+
+## Obtain OECD official statistics using an API {.smaller background="#43464B"}
 
 ## Questions {.smaller background="#43464B"}
