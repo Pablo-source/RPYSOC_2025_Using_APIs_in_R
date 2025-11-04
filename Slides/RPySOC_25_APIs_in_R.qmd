@@ -1,5 +1,5 @@
 ---
-title: "Using APIs in R to obtain Indicators for interactive visualizations"
+title: "Using APIs in R to obtain Indicators for visualizations"
 author: "`Pablo Leon-Rodenas|Data and Analytics|NHSE|RPySOC25`" 
 date: 11/13/2025
 date-format: long
@@ -327,5 +327,17 @@ detailed_forecast
 
 ## Online resources
 
+- Tidyverse. HTTR2 1.0.0
+<https://tidyverse.org/blog/2023/11/httr2-1-0-0/>
+
+- Key API concepts. Geeksforgeeks
+<https://www.geeksforgeeks.org/r-language/access-collect-data-with-apis-in-r/>
+
 - National Weather Service API
 <https://www.weather.gov/documentation/services-web-api>
+
+- How to Get Data From APIs with R and {httr2}.Author: Albert Rapp
+<https://www.youtube.com/watch?v=hmtE4QGIOuk&t=1347s>
+
+- How to GET data from API using R in RStudio. Author: Dean Chereden
+<https://www.youtube.com/watch?v=AhZ42vSmDmE&t=366s>
