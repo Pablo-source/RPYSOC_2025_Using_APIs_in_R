@@ -313,12 +313,12 @@ detailed_forecast
 - So we can tweak any API we can extract data with to select and choose those fields with relevant information. Automating the data colection process.
 
 - **Shiny App example**
-![](figures/05 Shiny app example.png)
+![](figures/05 Shiny app example.png){width="50%"}
 - <https://github.com/Pablo-source/RPYSOC_2024_Docker_Shiny>
 
 - **Shiny app Using Leaflet and geospatial data **
 - <https://github.com/Pablo-source/Basic-Shiny-app>
-![](figures/06 Geospatial data Shiny app.png)
+![](figures/06 Geospatial data Shiny app.png){width="50%"}
 
 
 - or **Parameterized reports**
@@ -341,3 +341,12 @@ detailed_forecast
 
 - How to GET data from API using R in RStudio. Author: Dean Chereden
 <https://www.youtube.com/watch?v=AhZ42vSmDmE&t=366s>
+
+
+## THANKS ! {.smaller}
+
+-   Any questions?
+
+-   Email: pablo.leonrodenas@nhs.net
+
+-   My GitHub Repo: <https://github.com/Pablo-source>
