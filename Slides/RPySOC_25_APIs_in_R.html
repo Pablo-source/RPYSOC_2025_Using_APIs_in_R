@@ -214,6 +214,14 @@
 <ul>
 <li>This presentations describes how to use <strong>APIs</strong> in R to obtain socio-economic indicators.</li>
 </ul>
+<p>I will cover the following topics:</p>
+<ul>
+<li><p>What are APIs Application Programming Interface</p></li>
+<li><p>Key concepts using APIs: HTTP Requests, Authentication, Data Formats, Rate Limits, Error Handling</p></li>
+<li><p>Libraries required in R to interact and query APIs</p></li>
+<li><p>Using HHTR2 package in R</p></li>
+<li><p>Practical example obtaining weather data using an API</p></li>
+</ul>
 </section>
 <section id="what-are-apis" class="slide level2 smaller" data-background="#43464B">
 <h2>What are APIs</h2>
@@ -848,9 +856,8 @@ $properties$radarStation
 <section id="forecast-data-from-api-response" class="slide level2 smaller" data-background="#43464B">
 <h2>Forecast data from API response</h2>
 <ul>
-<li>Exploring the API request() output with the glipse() function, we can focus on the Hourly ‘forecast data’</li>
-<li>Section: $ properties:List of 17 :</li>
-<li>(‘forecastHourly : chr “https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly”’, $ ‘forecastGridData : chr “https://api.weather.gov/gridpoints/LWX/97,71”’)</li>
+<li>Exploring the <code>API request() output</code> with the <code>glipse()</code> function, we can focus on the Hourly <code>forecast data</code>.</li>
+<li>Section: $ properties:List of 17 : <code>forecastHourly</code> : chr “https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly”‘, $ ’forecastGridData : chr “https://api.weather.gov/gridpoints/LWX/97,71”’)</li>
 </ul>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -949,9 +956,9 @@ $properties$radarStation
  $ properties:List of 7
   ..$ units            : chr "us"
   ..$ forecastGenerator: chr "HourlyForecastGenerator"
-  ..$ generatedAt      : chr "2025-11-04T20:20:10+00:00"
-  ..$ updateTime       : chr "2025-11-04T17:29:58+00:00"
-  ..$ validTimes       : chr "2025-11-04T11:00:00+00:00/P7DT17H"
+  ..$ generatedAt      : chr "2025-11-04T21:21:45+00:00"
+  ..$ updateTime       : chr "2025-11-04T20:29:42+00:00"
+  ..$ validTimes       : chr "2025-11-04T14:00:00+00:00/P7DT14H"
   ..$ elevation        :List of 2
   .. ..$ unitCode: chr "wmoUnit:m"
   .. ..$ value   : num 6.1
@@ -1141,13 +1148,13 @@ $properties$forecastGenerator
 [1] "HourlyForecastGenerator"
 
 $properties$generatedAt
-[1] "2025-11-04T20:20:10+00:00"
+[1] "2025-11-04T21:21:45+00:00"
 
 $properties$updateTime
-[1] "2025-11-04T17:29:58+00:00"
+[1] "2025-11-04T20:29:42+00:00"
 
 $properties$validTimes
-[1] "2025-11-04T11:00:00+00:00/P7DT17H"
+[1] "2025-11-04T14:00:00+00:00/P7DT14H"
 
 $properties$elevation
 $properties$elevation$unitCode
@@ -1166,10 +1173,10 @@ $properties$periods[[1]]$name
 [1] ""
 
 $properties$periods[[1]]$startTime
-[1] "2025-11-04T15:00:00-05:00"
+[1] "2025-11-04T16:00:00-05:00"
 
 $properties$periods[[1]]$endTime
-[1] "2025-11-04T16:00:00-05:00"
+[1] "2025-11-04T17:00:00-05:00"
 
 $properties$periods[[1]]$isDaytime
 [1] TRUE
@@ -1208,7 +1215,7 @@ $properties$periods[[1]]$relativeHumidity$value
 
 
 $properties$periods[[1]]$windSpeed
-[1] "12 mph"
+[1] "10 mph"
 
 $properties$periods[[1]]$windDirection
 [1] "W"
@@ -1231,16 +1238,16 @@ $properties$periods[[2]]$name
 [1] ""
 
 $properties$periods[[2]]$startTime
-[1] "2025-11-04T16:00:00-05:00"
+[1] "2025-11-04T17:00:00-05:00"
 
 $properties$periods[[2]]$endTime
-[1] "2025-11-04T17:00:00-05:00"
+[1] "2025-11-04T18:00:00-05:00"
 
 $properties$periods[[2]]$isDaytime
 [1] TRUE
 
 $properties$periods[[2]]$temperature
-[1] 62
+[1] 59
 
 $properties$periods[[2]]$temperatureUnit
 [1] "F"
@@ -1269,11 +1276,11 @@ $properties$periods[[2]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[2]]$relativeHumidity$value
-[1] 30
+[1] 33
 
 
 $properties$periods[[2]]$windSpeed
-[1] "10 mph"
+[1] "8 mph"
 
 $properties$periods[[2]]$windDirection
 [1] "W"
@@ -1296,16 +1303,16 @@ $properties$periods[[3]]$name
 [1] ""
 
 $properties$periods[[3]]$startTime
-[1] "2025-11-04T17:00:00-05:00"
-
-$properties$periods[[3]]$endTime
 [1] "2025-11-04T18:00:00-05:00"
 
+$properties$periods[[3]]$endTime
+[1] "2025-11-04T19:00:00-05:00"
+
 $properties$periods[[3]]$isDaytime
-[1] TRUE
+[1] FALSE
 
 $properties$periods[[3]]$temperature
-[1] 59
+[1] 57
 
 $properties$periods[[3]]$temperatureUnit
 [1] "F"
@@ -1334,20 +1341,20 @@ $properties$periods[[3]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[3]]$relativeHumidity$value
-[1] 33
+[1] 35
 
 
 $properties$periods[[3]]$windSpeed
-[1] "8 mph"
+[1] "7 mph"
 
 $properties$periods[[3]]$windDirection
 [1] "W"
 
 $properties$periods[[3]]$icon
-[1] "https://api.weather.gov/icons/land/day/few?size=small"
+[1] "https://api.weather.gov/icons/land/night/sct?size=small"
 
 $properties$periods[[3]]$shortForecast
-[1] "Sunny"
+[1] "Partly Cloudy"
 
 $properties$periods[[3]]$detailedForecast
 [1] ""
@@ -1361,16 +1368,16 @@ $properties$periods[[4]]$name
 [1] ""
 
 $properties$periods[[4]]$startTime
-[1] "2025-11-04T18:00:00-05:00"
+[1] "2025-11-04T19:00:00-05:00"
 
 $properties$periods[[4]]$endTime
-[1] "2025-11-04T19:00:00-05:00"
+[1] "2025-11-04T20:00:00-05:00"
 
 $properties$periods[[4]]$isDaytime
 [1] FALSE
 
 $properties$periods[[4]]$temperature
-[1] 57
+[1] 55
 
 $properties$periods[[4]]$temperatureUnit
 [1] "F"
@@ -1383,7 +1390,7 @@ $properties$periods[[4]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[4]]$probabilityOfPrecipitation$value
-[1] 1
+[1] 0
 
 
 $properties$periods[[4]]$dewpoint
@@ -1399,20 +1406,20 @@ $properties$periods[[4]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[4]]$relativeHumidity$value
-[1] 35
+[1] 38
 
 
 $properties$periods[[4]]$windSpeed
-[1] "7 mph"
+[1] "5 mph"
 
 $properties$periods[[4]]$windDirection
 [1] "W"
 
 $properties$periods[[4]]$icon
-[1] "https://api.weather.gov/icons/land/night/sct?size=small"
+[1] "https://api.weather.gov/icons/land/night/few?size=small"
 
 $properties$periods[[4]]$shortForecast
-[1] "Partly Cloudy"
+[1] "Mostly Clear"
 
 $properties$periods[[4]]$detailedForecast
 [1] ""
@@ -1426,16 +1433,16 @@ $properties$periods[[5]]$name
 [1] ""
 
 $properties$periods[[5]]$startTime
-[1] "2025-11-04T19:00:00-05:00"
+[1] "2025-11-04T20:00:00-05:00"
 
 $properties$periods[[5]]$endTime
-[1] "2025-11-04T20:00:00-05:00"
+[1] "2025-11-04T21:00:00-05:00"
 
 $properties$periods[[5]]$isDaytime
 [1] FALSE
 
 $properties$periods[[5]]$temperature
-[1] 55
+[1] 51
 
 $properties$periods[[5]]$temperatureUnit
 [1] "F"
@@ -1448,7 +1455,7 @@ $properties$periods[[5]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[5]]$probabilityOfPrecipitation$value
-[1] 0
+[1] 1
 
 
 $properties$periods[[5]]$dewpoint
@@ -1456,7 +1463,7 @@ $properties$periods[[5]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[5]]$dewpoint$value
-[1] -1.111111
+[1] -0.5555556
 
 
 $properties$periods[[5]]$relativeHumidity
@@ -1464,11 +1471,11 @@ $properties$periods[[5]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[5]]$relativeHumidity$value
-[1] 38
+[1] 46
 
 
 $properties$periods[[5]]$windSpeed
-[1] "5 mph"
+[1] "3 mph"
 
 $properties$periods[[5]]$windDirection
 [1] "W"
@@ -1491,16 +1498,16 @@ $properties$periods[[6]]$name
 [1] ""
 
 $properties$periods[[6]]$startTime
-[1] "2025-11-04T20:00:00-05:00"
+[1] "2025-11-04T21:00:00-05:00"
 
 $properties$periods[[6]]$endTime
-[1] "2025-11-04T21:00:00-05:00"
+[1] "2025-11-04T22:00:00-05:00"
 
 $properties$periods[[6]]$isDaytime
 [1] FALSE
 
 $properties$periods[[6]]$temperature
-[1] 51
+[1] 50
 
 $properties$periods[[6]]$temperatureUnit
 [1] "F"
@@ -1513,7 +1520,7 @@ $properties$periods[[6]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[6]]$probabilityOfPrecipitation$value
-[1] 1
+[1] 0
 
 
 $properties$periods[[6]]$dewpoint
@@ -1529,7 +1536,7 @@ $properties$periods[[6]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[6]]$relativeHumidity$value
-[1] 46
+[1] 48
 
 
 $properties$periods[[6]]$windSpeed
@@ -1539,10 +1546,10 @@ $properties$periods[[6]]$windDirection
 [1] "W"
 
 $properties$periods[[6]]$icon
-[1] "https://api.weather.gov/icons/land/night/few?size=small"
+[1] "https://api.weather.gov/icons/land/night/sct?size=small"
 
 $properties$periods[[6]]$shortForecast
-[1] "Mostly Clear"
+[1] "Partly Cloudy"
 
 $properties$periods[[6]]$detailedForecast
 [1] ""
@@ -1556,16 +1563,16 @@ $properties$periods[[7]]$name
 [1] ""
 
 $properties$periods[[7]]$startTime
-[1] "2025-11-04T21:00:00-05:00"
+[1] "2025-11-04T22:00:00-05:00"
 
 $properties$periods[[7]]$endTime
-[1] "2025-11-04T22:00:00-05:00"
+[1] "2025-11-04T23:00:00-05:00"
 
 $properties$periods[[7]]$isDaytime
 [1] FALSE
 
 $properties$periods[[7]]$temperature
-[1] 50
+[1] 48
 
 $properties$periods[[7]]$temperatureUnit
 [1] "F"
@@ -1586,7 +1593,7 @@ $properties$periods[[7]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[7]]$dewpoint$value
-[1] -0.5555556
+[1] -1.111111
 
 
 $properties$periods[[7]]$relativeHumidity
@@ -1594,14 +1601,14 @@ $properties$periods[[7]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[7]]$relativeHumidity$value
-[1] 48
+[1] 49
 
 
 $properties$periods[[7]]$windSpeed
 [1] "3 mph"
 
 $properties$periods[[7]]$windDirection
-[1] "W"
+[1] "SW"
 
 $properties$periods[[7]]$icon
 [1] "https://api.weather.gov/icons/land/night/sct?size=small"
@@ -1621,10 +1628,10 @@ $properties$periods[[8]]$name
 [1] ""
 
 $properties$periods[[8]]$startTime
-[1] "2025-11-04T22:00:00-05:00"
+[1] "2025-11-04T23:00:00-05:00"
 
 $properties$periods[[8]]$endTime
-[1] "2025-11-04T23:00:00-05:00"
+[1] "2025-11-05T00:00:00-05:00"
 
 $properties$periods[[8]]$isDaytime
 [1] FALSE
@@ -1643,7 +1650,7 @@ $properties$periods[[8]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[8]]$probabilityOfPrecipitation$value
-[1] 0
+[1] 1
 
 
 $properties$periods[[8]]$dewpoint
@@ -1651,7 +1658,7 @@ $properties$periods[[8]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[8]]$dewpoint$value
-[1] -1.111111
+[1] -1.666667
 
 
 $properties$periods[[8]]$relativeHumidity
@@ -1659,7 +1666,7 @@ $properties$periods[[8]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[8]]$relativeHumidity$value
-[1] 49
+[1] 47
 
 
 $properties$periods[[8]]$windSpeed
@@ -1686,16 +1693,16 @@ $properties$periods[[9]]$name
 [1] ""
 
 $properties$periods[[9]]$startTime
-[1] "2025-11-04T23:00:00-05:00"
+[1] "2025-11-05T00:00:00-05:00"
 
 $properties$periods[[9]]$endTime
-[1] "2025-11-05T00:00:00-05:00"
+[1] "2025-11-05T01:00:00-05:00"
 
 $properties$periods[[9]]$isDaytime
 [1] FALSE
 
 $properties$periods[[9]]$temperature
-[1] 48
+[1] 47
 
 $properties$periods[[9]]$temperatureUnit
 [1] "F"
@@ -1724,20 +1731,20 @@ $properties$periods[[9]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[9]]$relativeHumidity$value
-[1] 47
+[1] 49
 
 
 $properties$periods[[9]]$windSpeed
-[1] "3 mph"
+[1] "2 mph"
 
 $properties$periods[[9]]$windDirection
 [1] "SW"
 
 $properties$periods[[9]]$icon
-[1] "https://api.weather.gov/icons/land/night/sct?size=small"
+[1] "https://api.weather.gov/icons/land/night/few?size=small"
 
 $properties$periods[[9]]$shortForecast
-[1] "Partly Cloudy"
+[1] "Mostly Clear"
 
 $properties$periods[[9]]$detailedForecast
 [1] ""
@@ -1751,16 +1758,16 @@ $properties$periods[[10]]$name
 [1] ""
 
 $properties$periods[[10]]$startTime
-[1] "2025-11-05T00:00:00-05:00"
+[1] "2025-11-05T01:00:00-05:00"
 
 $properties$periods[[10]]$endTime
-[1] "2025-11-05T01:00:00-05:00"
+[1] "2025-11-05T02:00:00-05:00"
 
 $properties$periods[[10]]$isDaytime
 [1] FALSE
 
 $properties$periods[[10]]$temperature
-[1] 47
+[1] 46
 
 $properties$periods[[10]]$temperatureUnit
 [1] "F"
@@ -1789,7 +1796,7 @@ $properties$periods[[10]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[10]]$relativeHumidity$value
-[1] 49
+[1] 51
 
 
 $properties$periods[[10]]$windSpeed
@@ -1816,16 +1823,16 @@ $properties$periods[[11]]$name
 [1] ""
 
 $properties$periods[[11]]$startTime
-[1] "2025-11-05T01:00:00-05:00"
+[1] "2025-11-05T02:00:00-05:00"
 
 $properties$periods[[11]]$endTime
-[1] "2025-11-05T02:00:00-05:00"
+[1] "2025-11-05T03:00:00-05:00"
 
 $properties$periods[[11]]$isDaytime
 [1] FALSE
 
 $properties$periods[[11]]$temperature
-[1] 46
+[1] 44
 
 $properties$periods[[11]]$temperatureUnit
 [1] "F"
@@ -1854,14 +1861,14 @@ $properties$periods[[11]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[11]]$relativeHumidity$value
-[1] 51
+[1] 55
 
 
 $properties$periods[[11]]$windSpeed
 [1] "2 mph"
 
 $properties$periods[[11]]$windDirection
-[1] "SW"
+[1] "S"
 
 $properties$periods[[11]]$icon
 [1] "https://api.weather.gov/icons/land/night/few?size=small"
@@ -1881,16 +1888,16 @@ $properties$periods[[12]]$name
 [1] ""
 
 $properties$periods[[12]]$startTime
-[1] "2025-11-05T02:00:00-05:00"
+[1] "2025-11-05T03:00:00-05:00"
 
 $properties$periods[[12]]$endTime
-[1] "2025-11-05T03:00:00-05:00"
+[1] "2025-11-05T04:00:00-05:00"
 
 $properties$periods[[12]]$isDaytime
 [1] FALSE
 
 $properties$periods[[12]]$temperature
-[1] 44
+[1] 43
 
 $properties$periods[[12]]$temperatureUnit
 [1] "F"
@@ -1919,11 +1926,11 @@ $properties$periods[[12]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[12]]$relativeHumidity$value
-[1] 55
+[1] 57
 
 
 $properties$periods[[12]]$windSpeed
-[1] "2 mph"
+[1] "3 mph"
 
 $properties$periods[[12]]$windDirection
 [1] "S"
@@ -1946,16 +1953,16 @@ $properties$periods[[13]]$name
 [1] ""
 
 $properties$periods[[13]]$startTime
-[1] "2025-11-05T03:00:00-05:00"
+[1] "2025-11-05T04:00:00-05:00"
 
 $properties$periods[[13]]$endTime
-[1] "2025-11-05T04:00:00-05:00"
+[1] "2025-11-05T05:00:00-05:00"
 
 $properties$periods[[13]]$isDaytime
 [1] FALSE
 
 $properties$periods[[13]]$temperature
-[1] 43
+[1] 42
 
 $properties$periods[[13]]$temperatureUnit
 [1] "F"
@@ -1976,7 +1983,7 @@ $properties$periods[[13]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[13]]$dewpoint$value
-[1] -1.666667
+[1] -1.111111
 
 
 $properties$periods[[13]]$relativeHumidity
@@ -1984,7 +1991,7 @@ $properties$periods[[13]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[13]]$relativeHumidity$value
-[1] 57
+[1] 62
 
 
 $properties$periods[[13]]$windSpeed
@@ -2011,10 +2018,10 @@ $properties$periods[[14]]$name
 [1] ""
 
 $properties$periods[[14]]$startTime
-[1] "2025-11-05T04:00:00-05:00"
+[1] "2025-11-05T05:00:00-05:00"
 
 $properties$periods[[14]]$endTime
-[1] "2025-11-05T05:00:00-05:00"
+[1] "2025-11-05T06:00:00-05:00"
 
 $properties$periods[[14]]$isDaytime
 [1] FALSE
@@ -2033,7 +2040,7 @@ $properties$periods[[14]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[14]]$probabilityOfPrecipitation$value
-[1] 1
+[1] 0
 
 
 $properties$periods[[14]]$dewpoint
@@ -2041,7 +2048,7 @@ $properties$periods[[14]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[14]]$dewpoint$value
-[1] -1.111111
+[1] -0.5555556
 
 
 $properties$periods[[14]]$relativeHumidity
@@ -2049,7 +2056,7 @@ $properties$periods[[14]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[14]]$relativeHumidity$value
-[1] 62
+[1] 65
 
 
 $properties$periods[[14]]$windSpeed
@@ -2059,10 +2066,10 @@ $properties$periods[[14]]$windDirection
 [1] "S"
 
 $properties$periods[[14]]$icon
-[1] "https://api.weather.gov/icons/land/night/few?size=small"
+[1] "https://api.weather.gov/icons/land/night/skc?size=small"
 
 $properties$periods[[14]]$shortForecast
-[1] "Mostly Clear"
+[1] "Clear"
 
 $properties$periods[[14]]$detailedForecast
 [1] ""
@@ -2076,13 +2083,13 @@ $properties$periods[[15]]$name
 [1] ""
 
 $properties$periods[[15]]$startTime
-[1] "2025-11-05T05:00:00-05:00"
-
-$properties$periods[[15]]$endTime
 [1] "2025-11-05T06:00:00-05:00"
 
+$properties$periods[[15]]$endTime
+[1] "2025-11-05T07:00:00-05:00"
+
 $properties$periods[[15]]$isDaytime
-[1] FALSE
+[1] TRUE
 
 $properties$periods[[15]]$temperature
 [1] 42
@@ -2106,7 +2113,7 @@ $properties$periods[[15]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[15]]$dewpoint$value
-[1] -0.5555556
+[1] 0
 
 
 $properties$periods[[15]]$relativeHumidity
@@ -2114,20 +2121,20 @@ $properties$periods[[15]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[15]]$relativeHumidity$value
-[1] 65
+[1] 67
 
 
 $properties$periods[[15]]$windSpeed
-[1] "3 mph"
+[1] "5 mph"
 
 $properties$periods[[15]]$windDirection
 [1] "S"
 
 $properties$periods[[15]]$icon
-[1] "https://api.weather.gov/icons/land/night/skc?size=small"
+[1] "https://api.weather.gov/icons/land/day/skc?size=small"
 
 $properties$periods[[15]]$shortForecast
-[1] "Clear"
+[1] "Sunny"
 
 $properties$periods[[15]]$detailedForecast
 [1] ""
@@ -2141,10 +2148,10 @@ $properties$periods[[16]]$name
 [1] ""
 
 $properties$periods[[16]]$startTime
-[1] "2025-11-05T06:00:00-05:00"
+[1] "2025-11-05T07:00:00-05:00"
 
 $properties$periods[[16]]$endTime
-[1] "2025-11-05T07:00:00-05:00"
+[1] "2025-11-05T08:00:00-05:00"
 
 $properties$periods[[16]]$isDaytime
 [1] TRUE
@@ -2171,7 +2178,7 @@ $properties$periods[[16]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[16]]$dewpoint$value
-[1] 0
+[1] -0.5555556
 
 
 $properties$periods[[16]]$relativeHumidity
@@ -2179,11 +2186,11 @@ $properties$periods[[16]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[16]]$relativeHumidity$value
-[1] 67
+[1] 65
 
 
 $properties$periods[[16]]$windSpeed
-[1] "5 mph"
+[1] "6 mph"
 
 $properties$periods[[16]]$windDirection
 [1] "S"
@@ -2206,16 +2213,16 @@ $properties$periods[[17]]$name
 [1] ""
 
 $properties$periods[[17]]$startTime
-[1] "2025-11-05T07:00:00-05:00"
+[1] "2025-11-05T08:00:00-05:00"
 
 $properties$periods[[17]]$endTime
-[1] "2025-11-05T08:00:00-05:00"
+[1] "2025-11-05T09:00:00-05:00"
 
 $properties$periods[[17]]$isDaytime
 [1] TRUE
 
 $properties$periods[[17]]$temperature
-[1] 42
+[1] 46
 
 $properties$periods[[17]]$temperatureUnit
 [1] "F"
@@ -2236,7 +2243,7 @@ $properties$periods[[17]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[17]]$dewpoint$value
-[1] -0.5555556
+[1] 0
 
 
 $properties$periods[[17]]$relativeHumidity
@@ -2244,17 +2251,17 @@ $properties$periods[[17]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[17]]$relativeHumidity$value
-[1] 65
+[1] 58
 
 
 $properties$periods[[17]]$windSpeed
-[1] "6 mph"
+[1] "7 mph"
 
 $properties$periods[[17]]$windDirection
 [1] "S"
 
 $properties$periods[[17]]$icon
-[1] "https://api.weather.gov/icons/land/day/skc?size=small"
+[1] "https://api.weather.gov/icons/land/day/few?size=small"
 
 $properties$periods[[17]]$shortForecast
 [1] "Sunny"
@@ -2271,16 +2278,16 @@ $properties$periods[[18]]$name
 [1] ""
 
 $properties$periods[[18]]$startTime
-[1] "2025-11-05T08:00:00-05:00"
+[1] "2025-11-05T09:00:00-05:00"
 
 $properties$periods[[18]]$endTime
-[1] "2025-11-05T09:00:00-05:00"
+[1] "2025-11-05T10:00:00-05:00"
 
 $properties$periods[[18]]$isDaytime
 [1] TRUE
 
 $properties$periods[[18]]$temperature
-[1] 46
+[1] 52
 
 $properties$periods[[18]]$temperatureUnit
 [1] "F"
@@ -2301,7 +2308,7 @@ $properties$periods[[18]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[18]]$dewpoint$value
-[1] 0
+[1] 1.111111
 
 
 $properties$periods[[18]]$relativeHumidity
@@ -2309,17 +2316,17 @@ $properties$periods[[18]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[18]]$relativeHumidity$value
-[1] 58
+[1] 50
 
 
 $properties$periods[[18]]$windSpeed
-[1] "7 mph"
+[1] "9 mph"
 
 $properties$periods[[18]]$windDirection
 [1] "S"
 
 $properties$periods[[18]]$icon
-[1] "https://api.weather.gov/icons/land/day/few?size=small"
+[1] "https://api.weather.gov/icons/land/day/skc?size=small"
 
 $properties$periods[[18]]$shortForecast
 [1] "Sunny"
@@ -2336,16 +2343,16 @@ $properties$periods[[19]]$name
 [1] ""
 
 $properties$periods[[19]]$startTime
-[1] "2025-11-05T09:00:00-05:00"
+[1] "2025-11-05T10:00:00-05:00"
 
 $properties$periods[[19]]$endTime
-[1] "2025-11-05T10:00:00-05:00"
+[1] "2025-11-05T11:00:00-05:00"
 
 $properties$periods[[19]]$isDaytime
 [1] TRUE
 
 $properties$periods[[19]]$temperature
-[1] 52
+[1] 57
 
 $properties$periods[[19]]$temperatureUnit
 [1] "F"
@@ -2366,7 +2373,7 @@ $properties$periods[[19]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[19]]$dewpoint$value
-[1] 1.111111
+[1] 2.222222
 
 
 $properties$periods[[19]]$relativeHumidity
@@ -2374,17 +2381,17 @@ $properties$periods[[19]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[19]]$relativeHumidity$value
-[1] 50
+[1] 45
 
 
 $properties$periods[[19]]$windSpeed
-[1] "9 mph"
+[1] "12 mph"
 
 $properties$periods[[19]]$windDirection
-[1] "S"
+[1] "SW"
 
 $properties$periods[[19]]$icon
-[1] "https://api.weather.gov/icons/land/day/skc?size=small"
+[1] "https://api.weather.gov/icons/land/day/few?size=small"
 
 $properties$periods[[19]]$shortForecast
 [1] "Sunny"
@@ -2401,16 +2408,16 @@ $properties$periods[[20]]$name
 [1] ""
 
 $properties$periods[[20]]$startTime
-[1] "2025-11-05T10:00:00-05:00"
+[1] "2025-11-05T11:00:00-05:00"
 
 $properties$periods[[20]]$endTime
-[1] "2025-11-05T11:00:00-05:00"
+[1] "2025-11-05T12:00:00-05:00"
 
 $properties$periods[[20]]$isDaytime
 [1] TRUE
 
 $properties$periods[[20]]$temperature
-[1] 57
+[1] 60
 
 $properties$periods[[20]]$temperatureUnit
 [1] "F"
@@ -2431,7 +2438,7 @@ $properties$periods[[20]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[20]]$dewpoint$value
-[1] 2.222222
+[1] 3.333333
 
 
 $properties$periods[[20]]$relativeHumidity
@@ -2439,11 +2446,11 @@ $properties$periods[[20]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[20]]$relativeHumidity$value
-[1] 45
+[1] 44
 
 
 $properties$periods[[20]]$windSpeed
-[1] "12 mph"
+[1] "13 mph"
 
 $properties$periods[[20]]$windDirection
 [1] "SW"
@@ -2466,16 +2473,16 @@ $properties$periods[[21]]$name
 [1] ""
 
 $properties$periods[[21]]$startTime
-[1] "2025-11-05T11:00:00-05:00"
+[1] "2025-11-05T12:00:00-05:00"
 
 $properties$periods[[21]]$endTime
-[1] "2025-11-05T12:00:00-05:00"
+[1] "2025-11-05T13:00:00-05:00"
 
 $properties$periods[[21]]$isDaytime
 [1] TRUE
 
 $properties$periods[[21]]$temperature
-[1] 60
+[1] 64
 
 $properties$periods[[21]]$temperatureUnit
 [1] "F"
@@ -2496,7 +2503,7 @@ $properties$periods[[21]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[21]]$dewpoint$value
-[1] 3.333333
+[1] 3.888889
 
 
 $properties$periods[[21]]$relativeHumidity
@@ -2504,11 +2511,11 @@ $properties$periods[[21]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[21]]$relativeHumidity$value
-[1] 44
+[1] 40
 
 
 $properties$periods[[21]]$windSpeed
-[1] "13 mph"
+[1] "14 mph"
 
 $properties$periods[[21]]$windDirection
 [1] "SW"
@@ -2531,16 +2538,16 @@ $properties$periods[[22]]$name
 [1] ""
 
 $properties$periods[[22]]$startTime
-[1] "2025-11-05T12:00:00-05:00"
+[1] "2025-11-05T13:00:00-05:00"
 
 $properties$periods[[22]]$endTime
-[1] "2025-11-05T13:00:00-05:00"
+[1] "2025-11-05T14:00:00-05:00"
 
 $properties$periods[[22]]$isDaytime
 [1] TRUE
 
 $properties$periods[[22]]$temperature
-[1] 64
+[1] 67
 
 $properties$periods[[22]]$temperatureUnit
 [1] "F"
@@ -2561,7 +2568,7 @@ $properties$periods[[22]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[22]]$dewpoint$value
-[1] 3.888889
+[1] 5
 
 
 $properties$periods[[22]]$relativeHumidity
@@ -2569,20 +2576,20 @@ $properties$periods[[22]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[22]]$relativeHumidity$value
-[1] 40
+[1] 39
 
 
 $properties$periods[[22]]$windSpeed
-[1] "14 mph"
+[1] "15 mph"
 
 $properties$periods[[22]]$windDirection
 [1] "SW"
 
 $properties$periods[[22]]$icon
-[1] "https://api.weather.gov/icons/land/day/few?size=small"
+[1] "https://api.weather.gov/icons/land/day/sct?size=small"
 
 $properties$periods[[22]]$shortForecast
-[1] "Sunny"
+[1] "Mostly Sunny"
 
 $properties$periods[[22]]$detailedForecast
 [1] ""
@@ -2596,16 +2603,16 @@ $properties$periods[[23]]$name
 [1] ""
 
 $properties$periods[[23]]$startTime
-[1] "2025-11-05T13:00:00-05:00"
+[1] "2025-11-05T14:00:00-05:00"
 
 $properties$periods[[23]]$endTime
-[1] "2025-11-05T14:00:00-05:00"
+[1] "2025-11-05T15:00:00-05:00"
 
 $properties$periods[[23]]$isDaytime
 [1] TRUE
 
 $properties$periods[[23]]$temperature
-[1] 67
+[1] 70
 
 $properties$periods[[23]]$temperatureUnit
 [1] "F"
@@ -2634,7 +2641,7 @@ $properties$periods[[23]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[23]]$relativeHumidity$value
-[1] 39
+[1] 35
 
 
 $properties$periods[[23]]$windSpeed
@@ -2661,16 +2668,16 @@ $properties$periods[[24]]$name
 [1] ""
 
 $properties$periods[[24]]$startTime
-[1] "2025-11-05T14:00:00-05:00"
+[1] "2025-11-05T15:00:00-05:00"
 
 $properties$periods[[24]]$endTime
-[1] "2025-11-05T15:00:00-05:00"
+[1] "2025-11-05T16:00:00-05:00"
 
 $properties$periods[[24]]$isDaytime
 [1] TRUE
 
 $properties$periods[[24]]$temperature
-[1] 70
+[1] 71
 
 $properties$periods[[24]]$temperatureUnit
 [1] "F"
@@ -2683,7 +2690,7 @@ $properties$periods[[24]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[24]]$probabilityOfPrecipitation$value
-[1] 0
+[1] 1
 
 
 $properties$periods[[24]]$dewpoint
@@ -2691,7 +2698,7 @@ $properties$periods[[24]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[24]]$dewpoint$value
-[1] 5
+[1] 5.555556
 
 
 $properties$periods[[24]]$relativeHumidity
@@ -2703,16 +2710,16 @@ $properties$periods[[24]]$relativeHumidity$value
 
 
 $properties$periods[[24]]$windSpeed
-[1] "15 mph"
+[1] "16 mph"
 
 $properties$periods[[24]]$windDirection
 [1] "SW"
 
 $properties$periods[[24]]$icon
-[1] "https://api.weather.gov/icons/land/day/sct?size=small"
+[1] "https://api.weather.gov/icons/land/day/few?size=small"
 
 $properties$periods[[24]]$shortForecast
-[1] "Mostly Sunny"
+[1] "Sunny"
 
 $properties$periods[[24]]$detailedForecast
 [1] ""
@@ -2726,16 +2733,16 @@ $properties$periods[[25]]$name
 [1] ""
 
 $properties$periods[[25]]$startTime
-[1] "2025-11-05T15:00:00-05:00"
+[1] "2025-11-05T16:00:00-05:00"
 
 $properties$periods[[25]]$endTime
-[1] "2025-11-05T16:00:00-05:00"
+[1] "2025-11-05T17:00:00-05:00"
 
 $properties$periods[[25]]$isDaytime
 [1] TRUE
 
 $properties$periods[[25]]$temperature
-[1] 71
+[1] 70
 
 $properties$periods[[25]]$temperatureUnit
 [1] "F"
@@ -2764,11 +2771,11 @@ $properties$periods[[25]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[25]]$relativeHumidity$value
-[1] 35
+[1] 36
 
 
 $properties$periods[[25]]$windSpeed
-[1] "16 mph"
+[1] "15 mph"
 
 $properties$periods[[25]]$windDirection
 [1] "SW"
@@ -2791,16 +2798,16 @@ $properties$periods[[26]]$name
 [1] ""
 
 $properties$periods[[26]]$startTime
-[1] "2025-11-05T16:00:00-05:00"
+[1] "2025-11-05T17:00:00-05:00"
 
 $properties$periods[[26]]$endTime
-[1] "2025-11-05T17:00:00-05:00"
+[1] "2025-11-05T18:00:00-05:00"
 
 $properties$periods[[26]]$isDaytime
 [1] TRUE
 
 $properties$periods[[26]]$temperature
-[1] 70
+[1] 69
 
 $properties$periods[[26]]$temperatureUnit
 [1] "F"
@@ -2821,7 +2828,7 @@ $properties$periods[[26]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[26]]$dewpoint$value
-[1] 5.555556
+[1] 6.111111
 
 
 $properties$periods[[26]]$relativeHumidity
@@ -2829,11 +2836,11 @@ $properties$periods[[26]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[26]]$relativeHumidity$value
-[1] 36
+[1] 39
 
 
 $properties$periods[[26]]$windSpeed
-[1] "15 mph"
+[1] "14 mph"
 
 $properties$periods[[26]]$windDirection
 [1] "SW"
@@ -2856,16 +2863,16 @@ $properties$periods[[27]]$name
 [1] ""
 
 $properties$periods[[27]]$startTime
-[1] "2025-11-05T17:00:00-05:00"
-
-$properties$periods[[27]]$endTime
 [1] "2025-11-05T18:00:00-05:00"
 
+$properties$periods[[27]]$endTime
+[1] "2025-11-05T19:00:00-05:00"
+
 $properties$periods[[27]]$isDaytime
-[1] TRUE
+[1] FALSE
 
 $properties$periods[[27]]$temperature
-[1] 69
+[1] 66
 
 $properties$periods[[27]]$temperatureUnit
 [1] "F"
@@ -2878,7 +2885,7 @@ $properties$periods[[27]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[27]]$probabilityOfPrecipitation$value
-[1] 1
+[1] 2
 
 
 $properties$periods[[27]]$dewpoint
@@ -2894,20 +2901,20 @@ $properties$periods[[27]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[27]]$relativeHumidity$value
-[1] 39
+[1] 43
 
 
 $properties$periods[[27]]$windSpeed
-[1] "14 mph"
+[1] "13 mph"
 
 $properties$periods[[27]]$windDirection
 [1] "SW"
 
 $properties$periods[[27]]$icon
-[1] "https://api.weather.gov/icons/land/day/few?size=small"
+[1] "https://api.weather.gov/icons/land/night/skc?size=small"
 
 $properties$periods[[27]]$shortForecast
-[1] "Sunny"
+[1] "Clear"
 
 $properties$periods[[27]]$detailedForecast
 [1] ""
@@ -2921,16 +2928,16 @@ $properties$periods[[28]]$name
 [1] ""
 
 $properties$periods[[28]]$startTime
-[1] "2025-11-05T18:00:00-05:00"
+[1] "2025-11-05T19:00:00-05:00"
 
 $properties$periods[[28]]$endTime
-[1] "2025-11-05T19:00:00-05:00"
+[1] "2025-11-05T20:00:00-05:00"
 
 $properties$periods[[28]]$isDaytime
 [1] FALSE
 
 $properties$periods[[28]]$temperature
-[1] 66
+[1] 65
 
 $properties$periods[[28]]$temperatureUnit
 [1] "F"
@@ -2943,7 +2950,7 @@ $properties$periods[[28]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[28]]$probabilityOfPrecipitation$value
-[1] 2
+[1] 0
 
 
 $properties$periods[[28]]$dewpoint
@@ -2951,7 +2958,7 @@ $properties$periods[[28]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[28]]$dewpoint$value
-[1] 6.111111
+[1] 6.666667
 
 
 $properties$periods[[28]]$relativeHumidity
@@ -2959,20 +2966,20 @@ $properties$periods[[28]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[28]]$relativeHumidity$value
-[1] 43
+[1] 46
 
 
 $properties$periods[[28]]$windSpeed
-[1] "13 mph"
+[1] "12 mph"
 
 $properties$periods[[28]]$windDirection
 [1] "SW"
 
 $properties$periods[[28]]$icon
-[1] "https://api.weather.gov/icons/land/night/skc?size=small"
+[1] "https://api.weather.gov/icons/land/night/few?size=small"
 
 $properties$periods[[28]]$shortForecast
-[1] "Clear"
+[1] "Mostly Clear"
 
 $properties$periods[[28]]$detailedForecast
 [1] ""
@@ -2986,16 +2993,16 @@ $properties$periods[[29]]$name
 [1] ""
 
 $properties$periods[[29]]$startTime
-[1] "2025-11-05T19:00:00-05:00"
+[1] "2025-11-05T20:00:00-05:00"
 
 $properties$periods[[29]]$endTime
-[1] "2025-11-05T20:00:00-05:00"
+[1] "2025-11-05T21:00:00-05:00"
 
 $properties$periods[[29]]$isDaytime
 [1] FALSE
 
 $properties$periods[[29]]$temperature
-[1] 65
+[1] 63
 
 $properties$periods[[29]]$temperatureUnit
 [1] "F"
@@ -3016,7 +3023,7 @@ $properties$periods[[29]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[29]]$dewpoint$value
-[1] 6.666667
+[1] 7.222222
 
 
 $properties$periods[[29]]$relativeHumidity
@@ -3024,7 +3031,7 @@ $properties$periods[[29]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[29]]$relativeHumidity$value
-[1] 46
+[1] 52
 
 
 $properties$periods[[29]]$windSpeed
@@ -3034,10 +3041,10 @@ $properties$periods[[29]]$windDirection
 [1] "SW"
 
 $properties$periods[[29]]$icon
-[1] "https://api.weather.gov/icons/land/night/few?size=small"
+[1] "https://api.weather.gov/icons/land/night/skc?size=small"
 
 $properties$periods[[29]]$shortForecast
-[1] "Mostly Clear"
+[1] "Clear"
 
 $properties$periods[[29]]$detailedForecast
 [1] ""
@@ -3051,16 +3058,16 @@ $properties$periods[[30]]$name
 [1] ""
 
 $properties$periods[[30]]$startTime
-[1] "2025-11-05T20:00:00-05:00"
+[1] "2025-11-05T21:00:00-05:00"
 
 $properties$periods[[30]]$endTime
-[1] "2025-11-05T21:00:00-05:00"
+[1] "2025-11-05T22:00:00-05:00"
 
 $properties$periods[[30]]$isDaytime
 [1] FALSE
 
 $properties$periods[[30]]$temperature
-[1] 63
+[1] 62
 
 $properties$periods[[30]]$temperatureUnit
 [1] "F"
@@ -3081,7 +3088,7 @@ $properties$periods[[30]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[30]]$dewpoint$value
-[1] 7.222222
+[1] 8.333333
 
 
 $properties$periods[[30]]$relativeHumidity
@@ -3089,20 +3096,20 @@ $properties$periods[[30]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[30]]$relativeHumidity$value
-[1] 52
+[1] 58
 
 
 $properties$periods[[30]]$windSpeed
-[1] "12 mph"
+[1] "13 mph"
 
 $properties$periods[[30]]$windDirection
-[1] "SW"
+[1] "W"
 
 $properties$periods[[30]]$icon
-[1] "https://api.weather.gov/icons/land/night/skc?size=small"
+[1] "https://api.weather.gov/icons/land/night/few?size=small"
 
 $properties$periods[[30]]$shortForecast
-[1] "Clear"
+[1] "Mostly Clear"
 
 $properties$periods[[30]]$detailedForecast
 [1] ""
@@ -3116,16 +3123,16 @@ $properties$periods[[31]]$name
 [1] ""
 
 $properties$periods[[31]]$startTime
-[1] "2025-11-05T21:00:00-05:00"
+[1] "2025-11-05T22:00:00-05:00"
 
 $properties$periods[[31]]$endTime
-[1] "2025-11-05T22:00:00-05:00"
+[1] "2025-11-05T23:00:00-05:00"
 
 $properties$periods[[31]]$isDaytime
 [1] FALSE
 
 $properties$periods[[31]]$temperature
-[1] 62
+[1] 61
 
 $properties$periods[[31]]$temperatureUnit
 [1] "F"
@@ -3154,11 +3161,11 @@ $properties$periods[[31]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[31]]$relativeHumidity$value
-[1] 58
+[1] 60
 
 
 $properties$periods[[31]]$windSpeed
-[1] "13 mph"
+[1] "14 mph"
 
 $properties$periods[[31]]$windDirection
 [1] "W"
@@ -3181,16 +3188,16 @@ $properties$periods[[32]]$name
 [1] ""
 
 $properties$periods[[32]]$startTime
-[1] "2025-11-05T22:00:00-05:00"
+[1] "2025-11-05T23:00:00-05:00"
 
 $properties$periods[[32]]$endTime
-[1] "2025-11-05T23:00:00-05:00"
+[1] "2025-11-06T00:00:00-05:00"
 
 $properties$periods[[32]]$isDaytime
 [1] FALSE
 
 $properties$periods[[32]]$temperature
-[1] 61
+[1] 60
 
 $properties$periods[[32]]$temperatureUnit
 [1] "F"
@@ -3211,7 +3218,7 @@ $properties$periods[[32]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[32]]$dewpoint$value
-[1] 8.333333
+[1] 7.777778
 
 
 $properties$periods[[32]]$relativeHumidity
@@ -3246,16 +3253,16 @@ $properties$periods[[33]]$name
 [1] ""
 
 $properties$periods[[33]]$startTime
-[1] "2025-11-05T23:00:00-05:00"
+[1] "2025-11-06T00:00:00-05:00"
 
 $properties$periods[[33]]$endTime
-[1] "2025-11-06T00:00:00-05:00"
+[1] "2025-11-06T01:00:00-05:00"
 
 $properties$periods[[33]]$isDaytime
 [1] FALSE
 
 $properties$periods[[33]]$temperature
-[1] 60
+[1] 58
 
 $properties$periods[[33]]$temperatureUnit
 [1] "F"
@@ -3276,7 +3283,7 @@ $properties$periods[[33]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[33]]$dewpoint$value
-[1] 7.777778
+[1] 6.111111
 
 
 $properties$periods[[33]]$relativeHumidity
@@ -3284,14 +3291,14 @@ $properties$periods[[33]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[33]]$relativeHumidity$value
-[1] 60
+[1] 57
 
 
 $properties$periods[[33]]$windSpeed
 [1] "14 mph"
 
 $properties$periods[[33]]$windDirection
-[1] "W"
+[1] "NW"
 
 $properties$periods[[33]]$icon
 [1] "https://api.weather.gov/icons/land/night/few?size=small"
@@ -3311,16 +3318,16 @@ $properties$periods[[34]]$name
 [1] ""
 
 $properties$periods[[34]]$startTime
-[1] "2025-11-06T00:00:00-05:00"
+[1] "2025-11-06T01:00:00-05:00"
 
 $properties$periods[[34]]$endTime
-[1] "2025-11-06T01:00:00-05:00"
+[1] "2025-11-06T02:00:00-05:00"
 
 $properties$periods[[34]]$isDaytime
 [1] FALSE
 
 $properties$periods[[34]]$temperature
-[1] 58
+[1] 56
 
 $properties$periods[[34]]$temperatureUnit
 [1] "F"
@@ -3341,7 +3348,7 @@ $properties$periods[[34]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[34]]$dewpoint$value
-[1] 6.111111
+[1] 5
 
 
 $properties$periods[[34]]$relativeHumidity
@@ -3376,16 +3383,16 @@ $properties$periods[[35]]$name
 [1] ""
 
 $properties$periods[[35]]$startTime
-[1] "2025-11-06T01:00:00-05:00"
+[1] "2025-11-06T02:00:00-05:00"
 
 $properties$periods[[35]]$endTime
-[1] "2025-11-06T02:00:00-05:00"
+[1] "2025-11-06T03:00:00-05:00"
 
 $properties$periods[[35]]$isDaytime
 [1] FALSE
 
 $properties$periods[[35]]$temperature
-[1] 56
+[1] 54
 
 $properties$periods[[35]]$temperatureUnit
 [1] "F"
@@ -3406,7 +3413,7 @@ $properties$periods[[35]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[35]]$dewpoint$value
-[1] 5
+[1] 3.888889
 
 
 $properties$periods[[35]]$relativeHumidity
@@ -3441,16 +3448,16 @@ $properties$periods[[36]]$name
 [1] ""
 
 $properties$periods[[36]]$startTime
-[1] "2025-11-06T02:00:00-05:00"
+[1] "2025-11-06T03:00:00-05:00"
 
 $properties$periods[[36]]$endTime
-[1] "2025-11-06T03:00:00-05:00"
+[1] "2025-11-06T04:00:00-05:00"
 
 $properties$periods[[36]]$isDaytime
 [1] FALSE
 
 $properties$periods[[36]]$temperature
-[1] 54
+[1] 51
 
 $properties$periods[[36]]$temperatureUnit
 [1] "F"
@@ -3471,7 +3478,7 @@ $properties$periods[[36]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[36]]$dewpoint$value
-[1] 3.888889
+[1] 3.333333
 
 
 $properties$periods[[36]]$relativeHumidity
@@ -3479,11 +3486,11 @@ $properties$periods[[36]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[36]]$relativeHumidity$value
-[1] 57
+[1] 61
 
 
 $properties$periods[[36]]$windSpeed
-[1] "14 mph"
+[1] "13 mph"
 
 $properties$periods[[36]]$windDirection
 [1] "NW"
@@ -3506,16 +3513,16 @@ $properties$periods[[37]]$name
 [1] ""
 
 $properties$periods[[37]]$startTime
-[1] "2025-11-06T03:00:00-05:00"
+[1] "2025-11-06T04:00:00-05:00"
 
 $properties$periods[[37]]$endTime
-[1] "2025-11-06T04:00:00-05:00"
+[1] "2025-11-06T05:00:00-05:00"
 
 $properties$periods[[37]]$isDaytime
 [1] FALSE
 
 $properties$periods[[37]]$temperature
-[1] 51
+[1] 49
 
 $properties$periods[[37]]$temperatureUnit
 [1] "F"
@@ -3536,7 +3543,7 @@ $properties$periods[[37]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[37]]$dewpoint$value
-[1] 3.333333
+[1] 2.777778
 
 
 $properties$periods[[37]]$relativeHumidity
@@ -3544,11 +3551,11 @@ $properties$periods[[37]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[37]]$relativeHumidity$value
-[1] 61
+[1] 63
 
 
 $properties$periods[[37]]$windSpeed
-[1] "13 mph"
+[1] "12 mph"
 
 $properties$periods[[37]]$windDirection
 [1] "NW"
@@ -3571,16 +3578,16 @@ $properties$periods[[38]]$name
 [1] ""
 
 $properties$periods[[38]]$startTime
-[1] "2025-11-06T04:00:00-05:00"
+[1] "2025-11-06T05:00:00-05:00"
 
 $properties$periods[[38]]$endTime
-[1] "2025-11-06T05:00:00-05:00"
+[1] "2025-11-06T06:00:00-05:00"
 
 $properties$periods[[38]]$isDaytime
 [1] FALSE
 
 $properties$periods[[38]]$temperature
-[1] 49
+[1] 47
 
 $properties$periods[[38]]$temperatureUnit
 [1] "F"
@@ -3601,7 +3608,7 @@ $properties$periods[[38]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[38]]$dewpoint$value
-[1] 2.777778
+[1] 2.222222
 
 
 $properties$periods[[38]]$relativeHumidity
@@ -3609,11 +3616,11 @@ $properties$periods[[38]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[38]]$relativeHumidity$value
-[1] 63
+[1] 65
 
 
 $properties$periods[[38]]$windSpeed
-[1] "12 mph"
+[1] "10 mph"
 
 $properties$periods[[38]]$windDirection
 [1] "NW"
@@ -3636,16 +3643,16 @@ $properties$periods[[39]]$name
 [1] ""
 
 $properties$periods[[39]]$startTime
-[1] "2025-11-06T05:00:00-05:00"
-
-$properties$periods[[39]]$endTime
 [1] "2025-11-06T06:00:00-05:00"
 
+$properties$periods[[39]]$endTime
+[1] "2025-11-06T07:00:00-05:00"
+
 $properties$periods[[39]]$isDaytime
-[1] FALSE
+[1] TRUE
 
 $properties$periods[[39]]$temperature
-[1] 47
+[1] 46
 
 $properties$periods[[39]]$temperatureUnit
 [1] "F"
@@ -3666,7 +3673,7 @@ $properties$periods[[39]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[39]]$dewpoint$value
-[1] 2.222222
+[1] 1.666667
 
 
 $properties$periods[[39]]$relativeHumidity
@@ -3684,10 +3691,10 @@ $properties$periods[[39]]$windDirection
 [1] "NW"
 
 $properties$periods[[39]]$icon
-[1] "https://api.weather.gov/icons/land/night/few?size=small"
+[1] "https://api.weather.gov/icons/land/day/few?size=small"
 
 $properties$periods[[39]]$shortForecast
-[1] "Mostly Clear"
+[1] "Sunny"
 
 $properties$periods[[39]]$detailedForecast
 [1] ""
@@ -3701,10 +3708,10 @@ $properties$periods[[40]]$name
 [1] ""
 
 $properties$periods[[40]]$startTime
-[1] "2025-11-06T06:00:00-05:00"
+[1] "2025-11-06T07:00:00-05:00"
 
 $properties$periods[[40]]$endTime
-[1] "2025-11-06T07:00:00-05:00"
+[1] "2025-11-06T08:00:00-05:00"
 
 $properties$periods[[40]]$isDaytime
 [1] TRUE
@@ -3731,7 +3738,7 @@ $properties$periods[[40]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[40]]$dewpoint$value
-[1] 1.666667
+[1] 1.111111
 
 
 $properties$periods[[40]]$relativeHumidity
@@ -3739,11 +3746,11 @@ $properties$periods[[40]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[40]]$relativeHumidity$value
-[1] 65
+[1] 63
 
 
 $properties$periods[[40]]$windSpeed
-[1] "10 mph"
+[1] "8 mph"
 
 $properties$periods[[40]]$windDirection
 [1] "NW"
@@ -3766,16 +3773,16 @@ $properties$periods[[41]]$name
 [1] ""
 
 $properties$periods[[41]]$startTime
-[1] "2025-11-06T07:00:00-05:00"
+[1] "2025-11-06T08:00:00-05:00"
 
 $properties$periods[[41]]$endTime
-[1] "2025-11-06T08:00:00-05:00"
+[1] "2025-11-06T09:00:00-05:00"
 
 $properties$periods[[41]]$isDaytime
 [1] TRUE
 
 $properties$periods[[41]]$temperature
-[1] 46
+[1] 48
 
 $properties$periods[[41]]$temperatureUnit
 [1] "F"
@@ -3804,17 +3811,17 @@ $properties$periods[[41]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[41]]$relativeHumidity$value
-[1] 63
+[1] 58
 
 
 $properties$periods[[41]]$windSpeed
-[1] "8 mph"
+[1] "9 mph"
 
 $properties$periods[[41]]$windDirection
 [1] "NW"
 
 $properties$periods[[41]]$icon
-[1] "https://api.weather.gov/icons/land/day/few?size=small"
+[1] "https://api.weather.gov/icons/land/day/skc?size=small"
 
 $properties$periods[[41]]$shortForecast
 [1] "Sunny"
@@ -3831,16 +3838,16 @@ $properties$periods[[42]]$name
 [1] ""
 
 $properties$periods[[42]]$startTime
-[1] "2025-11-06T08:00:00-05:00"
+[1] "2025-11-06T09:00:00-05:00"
 
 $properties$periods[[42]]$endTime
-[1] "2025-11-06T09:00:00-05:00"
+[1] "2025-11-06T10:00:00-05:00"
 
 $properties$periods[[42]]$isDaytime
 [1] TRUE
 
 $properties$periods[[42]]$temperature
-[1] 48
+[1] 50
 
 $properties$periods[[42]]$temperatureUnit
 [1] "F"
@@ -3869,11 +3876,11 @@ $properties$periods[[42]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[42]]$relativeHumidity$value
-[1] 58
+[1] 54
 
 
 $properties$periods[[42]]$windSpeed
-[1] "9 mph"
+[1] "10 mph"
 
 $properties$periods[[42]]$windDirection
 [1] "NW"
@@ -3896,16 +3903,16 @@ $properties$periods[[43]]$name
 [1] ""
 
 $properties$periods[[43]]$startTime
-[1] "2025-11-06T09:00:00-05:00"
+[1] "2025-11-06T10:00:00-05:00"
 
 $properties$periods[[43]]$endTime
-[1] "2025-11-06T10:00:00-05:00"
+[1] "2025-11-06T11:00:00-05:00"
 
 $properties$periods[[43]]$isDaytime
 [1] TRUE
 
 $properties$periods[[43]]$temperature
-[1] 50
+[1] 53
 
 $properties$periods[[43]]$temperatureUnit
 [1] "F"
@@ -3934,7 +3941,7 @@ $properties$periods[[43]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[43]]$relativeHumidity$value
-[1] 54
+[1] 48
 
 
 $properties$periods[[43]]$windSpeed
@@ -3961,16 +3968,16 @@ $properties$periods[[44]]$name
 [1] ""
 
 $properties$periods[[44]]$startTime
-[1] "2025-11-06T10:00:00-05:00"
+[1] "2025-11-06T11:00:00-05:00"
 
 $properties$periods[[44]]$endTime
-[1] "2025-11-06T11:00:00-05:00"
+[1] "2025-11-06T12:00:00-05:00"
 
 $properties$periods[[44]]$isDaytime
 [1] TRUE
 
 $properties$periods[[44]]$temperature
-[1] 53
+[1] 55
 
 $properties$periods[[44]]$temperatureUnit
 [1] "F"
@@ -3991,7 +3998,7 @@ $properties$periods[[44]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[44]]$dewpoint$value
-[1] 1.111111
+[1] 0.5555556
 
 
 $properties$periods[[44]]$relativeHumidity
@@ -3999,17 +4006,17 @@ $properties$periods[[44]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[44]]$relativeHumidity$value
-[1] 48
+[1] 43
 
 
 $properties$periods[[44]]$windSpeed
-[1] "10 mph"
+[1] "12 mph"
 
 $properties$periods[[44]]$windDirection
 [1] "NW"
 
 $properties$periods[[44]]$icon
-[1] "https://api.weather.gov/icons/land/day/skc?size=small"
+[1] "https://api.weather.gov/icons/land/day/few?size=small"
 
 $properties$periods[[44]]$shortForecast
 [1] "Sunny"
@@ -4026,16 +4033,16 @@ $properties$periods[[45]]$name
 [1] ""
 
 $properties$periods[[45]]$startTime
-[1] "2025-11-06T11:00:00-05:00"
+[1] "2025-11-06T12:00:00-05:00"
 
 $properties$periods[[45]]$endTime
-[1] "2025-11-06T12:00:00-05:00"
+[1] "2025-11-06T13:00:00-05:00"
 
 $properties$periods[[45]]$isDaytime
 [1] TRUE
 
 $properties$periods[[45]]$temperature
-[1] 55
+[1] 56
 
 $properties$periods[[45]]$temperatureUnit
 [1] "F"
@@ -4064,7 +4071,7 @@ $properties$periods[[45]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[45]]$relativeHumidity$value
-[1] 43
+[1] 42
 
 
 $properties$periods[[45]]$windSpeed
@@ -4091,16 +4098,16 @@ $properties$periods[[46]]$name
 [1] ""
 
 $properties$periods[[46]]$startTime
-[1] "2025-11-06T12:00:00-05:00"
+[1] "2025-11-06T13:00:00-05:00"
 
 $properties$periods[[46]]$endTime
-[1] "2025-11-06T13:00:00-05:00"
+[1] "2025-11-06T14:00:00-05:00"
 
 $properties$periods[[46]]$isDaytime
 [1] TRUE
 
 $properties$periods[[46]]$temperature
-[1] 56
+[1] 57
 
 $properties$periods[[46]]$temperatureUnit
 [1] "F"
@@ -4121,7 +4128,7 @@ $properties$periods[[46]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[46]]$dewpoint$value
-[1] 0.5555556
+[1] 0
 
 
 $properties$periods[[46]]$relativeHumidity
@@ -4129,11 +4136,11 @@ $properties$periods[[46]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[46]]$relativeHumidity$value
-[1] 42
+[1] 38
 
 
 $properties$periods[[46]]$windSpeed
-[1] "12 mph"
+[1] "10 mph"
 
 $properties$periods[[46]]$windDirection
 [1] "NW"
@@ -4156,16 +4163,16 @@ $properties$periods[[47]]$name
 [1] ""
 
 $properties$periods[[47]]$startTime
-[1] "2025-11-06T13:00:00-05:00"
+[1] "2025-11-06T14:00:00-05:00"
 
 $properties$periods[[47]]$endTime
-[1] "2025-11-06T14:00:00-05:00"
+[1] "2025-11-06T15:00:00-05:00"
 
 $properties$periods[[47]]$isDaytime
 [1] TRUE
 
 $properties$periods[[47]]$temperature
-[1] 57
+[1] 58
 
 $properties$periods[[47]]$temperatureUnit
 [1] "F"
@@ -4186,7 +4193,7 @@ $properties$periods[[47]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[47]]$dewpoint$value
-[1] 0
+[1] -0.5555556
 
 
 $properties$periods[[47]]$relativeHumidity
@@ -4194,7 +4201,7 @@ $properties$periods[[47]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[47]]$relativeHumidity$value
-[1] 38
+[1] 36
 
 
 $properties$periods[[47]]$windSpeed
@@ -4221,16 +4228,16 @@ $properties$periods[[48]]$name
 [1] ""
 
 $properties$periods[[48]]$startTime
-[1] "2025-11-06T14:00:00-05:00"
+[1] "2025-11-06T15:00:00-05:00"
 
 $properties$periods[[48]]$endTime
-[1] "2025-11-06T15:00:00-05:00"
+[1] "2025-11-06T16:00:00-05:00"
 
 $properties$periods[[48]]$isDaytime
 [1] TRUE
 
 $properties$periods[[48]]$temperature
-[1] 58
+[1] 57
 
 $properties$periods[[48]]$temperatureUnit
 [1] "F"
@@ -4259,11 +4266,11 @@ $properties$periods[[48]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[48]]$relativeHumidity$value
-[1] 36
+[1] 37
 
 
 $properties$periods[[48]]$windSpeed
-[1] "10 mph"
+[1] "9 mph"
 
 $properties$periods[[48]]$windDirection
 [1] "NW"
@@ -4286,16 +4293,16 @@ $properties$periods[[49]]$name
 [1] ""
 
 $properties$periods[[49]]$startTime
-[1] "2025-11-06T15:00:00-05:00"
+[1] "2025-11-06T16:00:00-05:00"
 
 $properties$periods[[49]]$endTime
-[1] "2025-11-06T16:00:00-05:00"
+[1] "2025-11-06T17:00:00-05:00"
 
 $properties$periods[[49]]$isDaytime
 [1] TRUE
 
 $properties$periods[[49]]$temperature
-[1] 57
+[1] 56
 
 $properties$periods[[49]]$temperatureUnit
 [1] "F"
@@ -4324,11 +4331,11 @@ $properties$periods[[49]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[49]]$relativeHumidity$value
-[1] 37
+[1] 38
 
 
 $properties$periods[[49]]$windSpeed
-[1] "9 mph"
+[1] "7 mph"
 
 $properties$periods[[49]]$windDirection
 [1] "NW"
@@ -4351,16 +4358,16 @@ $properties$periods[[50]]$name
 [1] ""
 
 $properties$periods[[50]]$startTime
-[1] "2025-11-06T16:00:00-05:00"
+[1] "2025-11-06T17:00:00-05:00"
 
 $properties$periods[[50]]$endTime
-[1] "2025-11-06T17:00:00-05:00"
+[1] "2025-11-06T18:00:00-05:00"
 
 $properties$periods[[50]]$isDaytime
 [1] TRUE
 
 $properties$periods[[50]]$temperature
-[1] 56
+[1] 54
 
 $properties$periods[[50]]$temperatureUnit
 [1] "F"
@@ -4389,11 +4396,11 @@ $properties$periods[[50]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[50]]$relativeHumidity$value
-[1] 38
+[1] 41
 
 
 $properties$periods[[50]]$windSpeed
-[1] "7 mph"
+[1] "6 mph"
 
 $properties$periods[[50]]$windDirection
 [1] "NW"
@@ -4416,16 +4423,16 @@ $properties$periods[[51]]$name
 [1] ""
 
 $properties$periods[[51]]$startTime
-[1] "2025-11-06T17:00:00-05:00"
-
-$properties$periods[[51]]$endTime
 [1] "2025-11-06T18:00:00-05:00"
 
+$properties$periods[[51]]$endTime
+[1] "2025-11-06T19:00:00-05:00"
+
 $properties$periods[[51]]$isDaytime
-[1] TRUE
+[1] FALSE
 
 $properties$periods[[51]]$temperature
-[1] 54
+[1] 52
 
 $properties$periods[[51]]$temperatureUnit
 [1] "F"
@@ -4446,7 +4453,7 @@ $properties$periods[[51]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[51]]$dewpoint$value
-[1] -0.5555556
+[1] 0
 
 
 $properties$periods[[51]]$relativeHumidity
@@ -4454,20 +4461,20 @@ $properties$periods[[51]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[51]]$relativeHumidity$value
-[1] 41
+[1] 46
 
 
 $properties$periods[[51]]$windSpeed
-[1] "6 mph"
+[1] "3 mph"
 
 $properties$periods[[51]]$windDirection
 [1] "NW"
 
 $properties$periods[[51]]$icon
-[1] "https://api.weather.gov/icons/land/day/few?size=small"
+[1] "https://api.weather.gov/icons/land/night/few?size=small"
 
 $properties$periods[[51]]$shortForecast
-[1] "Sunny"
+[1] "Mostly Clear"
 
 $properties$periods[[51]]$detailedForecast
 [1] ""
@@ -4481,16 +4488,16 @@ $properties$periods[[52]]$name
 [1] ""
 
 $properties$periods[[52]]$startTime
-[1] "2025-11-06T18:00:00-05:00"
+[1] "2025-11-06T19:00:00-05:00"
 
 $properties$periods[[52]]$endTime
-[1] "2025-11-06T19:00:00-05:00"
+[1] "2025-11-06T20:00:00-05:00"
 
 $properties$periods[[52]]$isDaytime
 [1] FALSE
 
 $properties$periods[[52]]$temperature
-[1] 52
+[1] 49
 
 $properties$periods[[52]]$temperatureUnit
 [1] "F"
@@ -4511,7 +4518,7 @@ $properties$periods[[52]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[52]]$dewpoint$value
-[1] 0
+[1] 0.5555556
 
 
 $properties$periods[[52]]$relativeHumidity
@@ -4519,11 +4526,11 @@ $properties$periods[[52]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[52]]$relativeHumidity$value
-[1] 46
+[1] 54
 
 
 $properties$periods[[52]]$windSpeed
-[1] "3 mph"
+[1] "2 mph"
 
 $properties$periods[[52]]$windDirection
 [1] "NW"
@@ -4546,16 +4553,16 @@ $properties$periods[[53]]$name
 [1] ""
 
 $properties$periods[[53]]$startTime
-[1] "2025-11-06T19:00:00-05:00"
+[1] "2025-11-06T20:00:00-05:00"
 
 $properties$periods[[53]]$endTime
-[1] "2025-11-06T20:00:00-05:00"
+[1] "2025-11-06T21:00:00-05:00"
 
 $properties$periods[[53]]$isDaytime
 [1] FALSE
 
 $properties$periods[[53]]$temperature
-[1] 49
+[1] 47
 
 $properties$periods[[53]]$temperatureUnit
 [1] "F"
@@ -4576,7 +4583,7 @@ $properties$periods[[53]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[53]]$dewpoint$value
-[1] 0.5555556
+[1] 1.111111
 
 
 $properties$periods[[53]]$relativeHumidity
@@ -4584,11 +4591,11 @@ $properties$periods[[53]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[53]]$relativeHumidity$value
-[1] 54
+[1] 60
 
 
 $properties$periods[[53]]$windSpeed
-[1] "2 mph"
+[1] "1 mph"
 
 $properties$periods[[53]]$windDirection
 [1] "NW"
@@ -4611,16 +4618,16 @@ $properties$periods[[54]]$name
 [1] ""
 
 $properties$periods[[54]]$startTime
-[1] "2025-11-06T20:00:00-05:00"
+[1] "2025-11-06T21:00:00-05:00"
 
 $properties$periods[[54]]$endTime
-[1] "2025-11-06T21:00:00-05:00"
+[1] "2025-11-06T22:00:00-05:00"
 
 $properties$periods[[54]]$isDaytime
 [1] FALSE
 
 $properties$periods[[54]]$temperature
-[1] 47
+[1] 45
 
 $properties$periods[[54]]$temperatureUnit
 [1] "F"
@@ -4649,14 +4656,14 @@ $properties$periods[[54]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[54]]$relativeHumidity$value
-[1] 60
+[1] 65
 
 
 $properties$periods[[54]]$windSpeed
 [1] "1 mph"
 
 $properties$periods[[54]]$windDirection
-[1] "NW"
+[1] "N"
 
 $properties$periods[[54]]$icon
 [1] "https://api.weather.gov/icons/land/night/few?size=small"
@@ -4676,16 +4683,16 @@ $properties$periods[[55]]$name
 [1] ""
 
 $properties$periods[[55]]$startTime
-[1] "2025-11-06T21:00:00-05:00"
+[1] "2025-11-06T22:00:00-05:00"
 
 $properties$periods[[55]]$endTime
-[1] "2025-11-06T22:00:00-05:00"
+[1] "2025-11-06T23:00:00-05:00"
 
 $properties$periods[[55]]$isDaytime
 [1] FALSE
 
 $properties$periods[[55]]$temperature
-[1] 45
+[1] 44
 
 $properties$periods[[55]]$temperatureUnit
 [1] "F"
@@ -4714,7 +4721,7 @@ $properties$periods[[55]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[55]]$relativeHumidity$value
-[1] 65
+[1] 68
 
 
 $properties$periods[[55]]$windSpeed
@@ -4741,16 +4748,16 @@ $properties$periods[[56]]$name
 [1] ""
 
 $properties$periods[[56]]$startTime
-[1] "2025-11-06T22:00:00-05:00"
+[1] "2025-11-06T23:00:00-05:00"
 
 $properties$periods[[56]]$endTime
-[1] "2025-11-06T23:00:00-05:00"
+[1] "2025-11-07T00:00:00-05:00"
 
 $properties$periods[[56]]$isDaytime
 [1] FALSE
 
 $properties$periods[[56]]$temperature
-[1] 44
+[1] 43
 
 $properties$periods[[56]]$temperatureUnit
 [1] "F"
@@ -4779,14 +4786,14 @@ $properties$periods[[56]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[56]]$relativeHumidity$value
-[1] 68
+[1] 70
 
 
 $properties$periods[[56]]$windSpeed
 [1] "1 mph"
 
 $properties$periods[[56]]$windDirection
-[1] "N"
+[1] "NE"
 
 $properties$periods[[56]]$icon
 [1] "https://api.weather.gov/icons/land/night/few?size=small"
@@ -4806,16 +4813,16 @@ $properties$periods[[57]]$name
 [1] ""
 
 $properties$periods[[57]]$startTime
-[1] "2025-11-06T23:00:00-05:00"
+[1] "2025-11-07T00:00:00-05:00"
 
 $properties$periods[[57]]$endTime
-[1] "2025-11-07T00:00:00-05:00"
+[1] "2025-11-07T01:00:00-05:00"
 
 $properties$periods[[57]]$isDaytime
 [1] FALSE
 
 $properties$periods[[57]]$temperature
-[1] 43
+[1] 41
 
 $properties$periods[[57]]$temperatureUnit
 [1] "F"
@@ -4836,7 +4843,7 @@ $properties$periods[[57]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[57]]$dewpoint$value
-[1] 1.111111
+[1] 0.5555556
 
 
 $properties$periods[[57]]$relativeHumidity
@@ -4844,14 +4851,14 @@ $properties$periods[[57]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[57]]$relativeHumidity$value
-[1] 70
+[1] 73
 
 
 $properties$periods[[57]]$windSpeed
 [1] "1 mph"
 
 $properties$periods[[57]]$windDirection
-[1] "NE"
+[1] "SE"
 
 $properties$periods[[57]]$icon
 [1] "https://api.weather.gov/icons/land/night/few?size=small"
@@ -4871,16 +4878,16 @@ $properties$periods[[58]]$name
 [1] ""
 
 $properties$periods[[58]]$startTime
-[1] "2025-11-07T00:00:00-05:00"
+[1] "2025-11-07T01:00:00-05:00"
 
 $properties$periods[[58]]$endTime
-[1] "2025-11-07T01:00:00-05:00"
+[1] "2025-11-07T02:00:00-05:00"
 
 $properties$periods[[58]]$isDaytime
 [1] FALSE
 
 $properties$periods[[58]]$temperature
-[1] 41
+[1] 40
 
 $properties$periods[[58]]$temperatureUnit
 [1] "F"
@@ -4909,14 +4916,14 @@ $properties$periods[[58]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[58]]$relativeHumidity$value
-[1] 73
+[1] 76
 
 
 $properties$periods[[58]]$windSpeed
 [1] "1 mph"
 
 $properties$periods[[58]]$windDirection
-[1] "SE"
+[1] "S"
 
 $properties$periods[[58]]$icon
 [1] "https://api.weather.gov/icons/land/night/few?size=small"
@@ -4936,10 +4943,10 @@ $properties$periods[[59]]$name
 [1] ""
 
 $properties$periods[[59]]$startTime
-[1] "2025-11-07T01:00:00-05:00"
+[1] "2025-11-07T02:00:00-05:00"
 
 $properties$periods[[59]]$endTime
-[1] "2025-11-07T02:00:00-05:00"
+[1] "2025-11-07T03:00:00-05:00"
 
 $properties$periods[[59]]$isDaytime
 [1] FALSE
@@ -5001,16 +5008,16 @@ $properties$periods[[60]]$name
 [1] ""
 
 $properties$periods[[60]]$startTime
-[1] "2025-11-07T02:00:00-05:00"
+[1] "2025-11-07T03:00:00-05:00"
 
 $properties$periods[[60]]$endTime
-[1] "2025-11-07T03:00:00-05:00"
+[1] "2025-11-07T04:00:00-05:00"
 
 $properties$periods[[60]]$isDaytime
 [1] FALSE
 
 $properties$periods[[60]]$temperature
-[1] 40
+[1] 39
 
 $properties$periods[[60]]$temperatureUnit
 [1] "F"
@@ -5031,7 +5038,7 @@ $properties$periods[[60]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[60]]$dewpoint$value
-[1] 0.5555556
+[1] 1.111111
 
 
 $properties$periods[[60]]$relativeHumidity
@@ -5039,11 +5046,11 @@ $properties$periods[[60]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[60]]$relativeHumidity$value
-[1] 76
+[1] 82
 
 
 $properties$periods[[60]]$windSpeed
-[1] "1 mph"
+[1] "2 mph"
 
 $properties$periods[[60]]$windDirection
 [1] "S"
@@ -5066,10 +5073,10 @@ $properties$periods[[61]]$name
 [1] ""
 
 $properties$periods[[61]]$startTime
-[1] "2025-11-07T03:00:00-05:00"
+[1] "2025-11-07T04:00:00-05:00"
 
 $properties$periods[[61]]$endTime
-[1] "2025-11-07T04:00:00-05:00"
+[1] "2025-11-07T05:00:00-05:00"
 
 $properties$periods[[61]]$isDaytime
 [1] FALSE
@@ -5131,16 +5138,16 @@ $properties$periods[[62]]$name
 [1] ""
 
 $properties$periods[[62]]$startTime
-[1] "2025-11-07T04:00:00-05:00"
+[1] "2025-11-07T05:00:00-05:00"
 
 $properties$periods[[62]]$endTime
-[1] "2025-11-07T05:00:00-05:00"
+[1] "2025-11-07T06:00:00-05:00"
 
 $properties$periods[[62]]$isDaytime
 [1] FALSE
 
 $properties$periods[[62]]$temperature
-[1] 39
+[1] 38
 
 $properties$periods[[62]]$temperatureUnit
 [1] "F"
@@ -5169,11 +5176,11 @@ $properties$periods[[62]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[62]]$relativeHumidity$value
-[1] 82
+[1] 85
 
 
 $properties$periods[[62]]$windSpeed
-[1] "2 mph"
+[1] "3 mph"
 
 $properties$periods[[62]]$windDirection
 [1] "S"
@@ -5196,13 +5203,13 @@ $properties$periods[[63]]$name
 [1] ""
 
 $properties$periods[[63]]$startTime
-[1] "2025-11-07T05:00:00-05:00"
-
-$properties$periods[[63]]$endTime
 [1] "2025-11-07T06:00:00-05:00"
 
+$properties$periods[[63]]$endTime
+[1] "2025-11-07T07:00:00-05:00"
+
 $properties$periods[[63]]$isDaytime
-[1] FALSE
+[1] TRUE
 
 $properties$periods[[63]]$temperature
 [1] 38
@@ -5226,7 +5233,7 @@ $properties$periods[[63]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[63]]$dewpoint$value
-[1] 1.111111
+[1] 1.666667
 
 
 $properties$periods[[63]]$relativeHumidity
@@ -5234,20 +5241,20 @@ $properties$periods[[63]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[63]]$relativeHumidity$value
-[1] 85
+[1] 89
 
 
 $properties$periods[[63]]$windSpeed
-[1] "3 mph"
+[1] "5 mph"
 
 $properties$periods[[63]]$windDirection
 [1] "S"
 
 $properties$periods[[63]]$icon
-[1] "https://api.weather.gov/icons/land/night/few?size=small"
+[1] "https://api.weather.gov/icons/land/day/few?size=small"
 
 $properties$periods[[63]]$shortForecast
-[1] "Mostly Clear"
+[1] "Sunny"
 
 $properties$periods[[63]]$detailedForecast
 [1] ""
@@ -5261,16 +5268,16 @@ $properties$periods[[64]]$name
 [1] ""
 
 $properties$periods[[64]]$startTime
-[1] "2025-11-07T06:00:00-05:00"
+[1] "2025-11-07T07:00:00-05:00"
 
 $properties$periods[[64]]$endTime
-[1] "2025-11-07T07:00:00-05:00"
+[1] "2025-11-07T08:00:00-05:00"
 
 $properties$periods[[64]]$isDaytime
 [1] TRUE
 
 $properties$periods[[64]]$temperature
-[1] 38
+[1] 40
 
 $properties$periods[[64]]$temperatureUnit
 [1] "F"
@@ -5299,11 +5306,11 @@ $properties$periods[[64]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[64]]$relativeHumidity$value
-[1] 89
+[1] 82
 
 
 $properties$periods[[64]]$windSpeed
-[1] "5 mph"
+[1] "6 mph"
 
 $properties$periods[[64]]$windDirection
 [1] "S"
@@ -5326,16 +5333,16 @@ $properties$periods[[65]]$name
 [1] ""
 
 $properties$periods[[65]]$startTime
-[1] "2025-11-07T07:00:00-05:00"
+[1] "2025-11-07T08:00:00-05:00"
 
 $properties$periods[[65]]$endTime
-[1] "2025-11-07T08:00:00-05:00"
+[1] "2025-11-07T09:00:00-05:00"
 
 $properties$periods[[65]]$isDaytime
 [1] TRUE
 
 $properties$periods[[65]]$temperature
-[1] 40
+[1] 43
 
 $properties$periods[[65]]$temperatureUnit
 [1] "F"
@@ -5356,7 +5363,7 @@ $properties$periods[[65]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[65]]$dewpoint$value
-[1] 1.666667
+[1] 2.222222
 
 
 $properties$periods[[65]]$relativeHumidity
@@ -5364,20 +5371,20 @@ $properties$periods[[65]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[65]]$relativeHumidity$value
-[1] 82
+[1] 76
 
 
 $properties$periods[[65]]$windSpeed
-[1] "6 mph"
+[1] "7 mph"
 
 $properties$periods[[65]]$windDirection
 [1] "S"
 
 $properties$periods[[65]]$icon
-[1] "https://api.weather.gov/icons/land/day/few?size=small"
+[1] "https://api.weather.gov/icons/land/day/sct?size=small"
 
 $properties$periods[[65]]$shortForecast
-[1] "Sunny"
+[1] "Mostly Sunny"
 
 $properties$periods[[65]]$detailedForecast
 [1] ""
@@ -5391,16 +5398,16 @@ $properties$periods[[66]]$name
 [1] ""
 
 $properties$periods[[66]]$startTime
-[1] "2025-11-07T08:00:00-05:00"
+[1] "2025-11-07T09:00:00-05:00"
 
 $properties$periods[[66]]$endTime
-[1] "2025-11-07T09:00:00-05:00"
+[1] "2025-11-07T10:00:00-05:00"
 
 $properties$periods[[66]]$isDaytime
 [1] TRUE
 
 $properties$periods[[66]]$temperature
-[1] 43
+[1] 48
 
 $properties$periods[[66]]$temperatureUnit
 [1] "F"
@@ -5429,11 +5436,11 @@ $properties$periods[[66]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[66]]$relativeHumidity$value
-[1] 76
+[1] 63
 
 
 $properties$periods[[66]]$windSpeed
-[1] "7 mph"
+[1] "9 mph"
 
 $properties$periods[[66]]$windDirection
 [1] "S"
@@ -5456,16 +5463,16 @@ $properties$periods[[67]]$name
 [1] ""
 
 $properties$periods[[67]]$startTime
-[1] "2025-11-07T09:00:00-05:00"
+[1] "2025-11-07T10:00:00-05:00"
 
 $properties$periods[[67]]$endTime
-[1] "2025-11-07T10:00:00-05:00"
+[1] "2025-11-07T11:00:00-05:00"
 
 $properties$periods[[67]]$isDaytime
 [1] TRUE
 
 $properties$periods[[67]]$temperature
-[1] 48
+[1] 52
 
 $properties$periods[[67]]$temperatureUnit
 [1] "F"
@@ -5486,7 +5493,7 @@ $properties$periods[[67]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[67]]$dewpoint$value
-[1] 2.222222
+[1] 2.777778
 
 
 $properties$periods[[67]]$relativeHumidity
@@ -5494,11 +5501,11 @@ $properties$periods[[67]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[67]]$relativeHumidity$value
-[1] 63
+[1] 56
 
 
 $properties$periods[[67]]$windSpeed
-[1] "9 mph"
+[1] "10 mph"
 
 $properties$periods[[67]]$windDirection
 [1] "S"
@@ -5521,16 +5528,16 @@ $properties$periods[[68]]$name
 [1] ""
 
 $properties$periods[[68]]$startTime
-[1] "2025-11-07T10:00:00-05:00"
+[1] "2025-11-07T11:00:00-05:00"
 
 $properties$periods[[68]]$endTime
-[1] "2025-11-07T11:00:00-05:00"
+[1] "2025-11-07T12:00:00-05:00"
 
 $properties$periods[[68]]$isDaytime
 [1] TRUE
 
 $properties$periods[[68]]$temperature
-[1] 52
+[1] 56
 
 $properties$periods[[68]]$temperatureUnit
 [1] "F"
@@ -5559,20 +5566,20 @@ $properties$periods[[68]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[68]]$relativeHumidity$value
-[1] 56
+[1] 49
 
 
 $properties$periods[[68]]$windSpeed
-[1] "10 mph"
+[1] "12 mph"
 
 $properties$periods[[68]]$windDirection
 [1] "S"
 
 $properties$periods[[68]]$icon
-[1] "https://api.weather.gov/icons/land/day/sct?size=small"
+[1] "https://api.weather.gov/icons/land/day/bkn?size=small"
 
 $properties$periods[[68]]$shortForecast
-[1] "Mostly Sunny"
+[1] "Partly Sunny"
 
 $properties$periods[[68]]$detailedForecast
 [1] ""
@@ -5586,16 +5593,16 @@ $properties$periods[[69]]$name
 [1] ""
 
 $properties$periods[[69]]$startTime
-[1] "2025-11-07T11:00:00-05:00"
+[1] "2025-11-07T12:00:00-05:00"
 
 $properties$periods[[69]]$endTime
-[1] "2025-11-07T12:00:00-05:00"
+[1] "2025-11-07T13:00:00-05:00"
 
 $properties$periods[[69]]$isDaytime
 [1] TRUE
 
 $properties$periods[[69]]$temperature
-[1] 56
+[1] 58
 
 $properties$periods[[69]]$temperatureUnit
 [1] "F"
@@ -5616,7 +5623,7 @@ $properties$periods[[69]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[69]]$dewpoint$value
-[1] 2.777778
+[1] 3.333333
 
 
 $properties$periods[[69]]$relativeHumidity
@@ -5624,11 +5631,11 @@ $properties$periods[[69]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[69]]$relativeHumidity$value
-[1] 49
+[1] 47
 
 
 $properties$periods[[69]]$windSpeed
-[1] "12 mph"
+[1] "13 mph"
 
 $properties$periods[[69]]$windDirection
 [1] "S"
@@ -5651,16 +5658,16 @@ $properties$periods[[70]]$name
 [1] ""
 
 $properties$periods[[70]]$startTime
-[1] "2025-11-07T12:00:00-05:00"
+[1] "2025-11-07T13:00:00-05:00"
 
 $properties$periods[[70]]$endTime
-[1] "2025-11-07T13:00:00-05:00"
+[1] "2025-11-07T14:00:00-05:00"
 
 $properties$periods[[70]]$isDaytime
 [1] TRUE
 
 $properties$periods[[70]]$temperature
-[1] 58
+[1] 61
 
 $properties$periods[[70]]$temperatureUnit
 [1] "F"
@@ -5673,7 +5680,7 @@ $properties$periods[[70]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[70]]$probabilityOfPrecipitation$value
-[1] 0
+[1] 3
 
 
 $properties$periods[[70]]$dewpoint
@@ -5689,11 +5696,11 @@ $properties$periods[[70]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[70]]$relativeHumidity$value
-[1] 47
+[1] 42
 
 
 $properties$periods[[70]]$windSpeed
-[1] "13 mph"
+[1] "14 mph"
 
 $properties$periods[[70]]$windDirection
 [1] "S"
@@ -5702,7 +5709,7 @@ $properties$periods[[70]]$icon
 [1] "https://api.weather.gov/icons/land/day/bkn?size=small"
 
 $properties$periods[[70]]$shortForecast
-[1] "Partly Sunny"
+[1] "Mostly Cloudy"
 
 $properties$periods[[70]]$detailedForecast
 [1] ""
@@ -5716,16 +5723,16 @@ $properties$periods[[71]]$name
 [1] ""
 
 $properties$periods[[71]]$startTime
-[1] "2025-11-07T13:00:00-05:00"
+[1] "2025-11-07T14:00:00-05:00"
 
 $properties$periods[[71]]$endTime
-[1] "2025-11-07T14:00:00-05:00"
+[1] "2025-11-07T15:00:00-05:00"
 
 $properties$periods[[71]]$isDaytime
 [1] TRUE
 
 $properties$periods[[71]]$temperature
-[1] 61
+[1] 62
 
 $properties$periods[[71]]$temperatureUnit
 [1] "F"
@@ -5746,7 +5753,7 @@ $properties$periods[[71]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[71]]$dewpoint$value
-[1] 3.333333
+[1] 3.888889
 
 
 $properties$periods[[71]]$relativeHumidity
@@ -5754,7 +5761,7 @@ $properties$periods[[71]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[71]]$relativeHumidity$value
-[1] 42
+[1] 43
 
 
 $properties$periods[[71]]$windSpeed
@@ -5781,16 +5788,16 @@ $properties$periods[[72]]$name
 [1] ""
 
 $properties$periods[[72]]$startTime
-[1] "2025-11-07T14:00:00-05:00"
+[1] "2025-11-07T15:00:00-05:00"
 
 $properties$periods[[72]]$endTime
-[1] "2025-11-07T15:00:00-05:00"
+[1] "2025-11-07T16:00:00-05:00"
 
 $properties$periods[[72]]$isDaytime
 [1] TRUE
 
 $properties$periods[[72]]$temperature
-[1] 62
+[1] 63
 
 $properties$periods[[72]]$temperatureUnit
 [1] "F"
@@ -5811,7 +5818,7 @@ $properties$periods[[72]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[72]]$dewpoint$value
-[1] 3.888889
+[1] 4.444444
 
 
 $properties$periods[[72]]$relativeHumidity
@@ -5846,16 +5853,16 @@ $properties$periods[[73]]$name
 [1] ""
 
 $properties$periods[[73]]$startTime
-[1] "2025-11-07T15:00:00-05:00"
+[1] "2025-11-07T16:00:00-05:00"
 
 $properties$periods[[73]]$endTime
-[1] "2025-11-07T16:00:00-05:00"
+[1] "2025-11-07T17:00:00-05:00"
 
 $properties$periods[[73]]$isDaytime
 [1] TRUE
 
 $properties$periods[[73]]$temperature
-[1] 63
+[1] 62
 
 $properties$periods[[73]]$temperatureUnit
 [1] "F"
@@ -5876,7 +5883,7 @@ $properties$periods[[73]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[73]]$dewpoint$value
-[1] 4.444444
+[1] 5
 
 
 $properties$periods[[73]]$relativeHumidity
@@ -5884,7 +5891,7 @@ $properties$periods[[73]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[73]]$relativeHumidity$value
-[1] 43
+[1] 46
 
 
 $properties$periods[[73]]$windSpeed
@@ -5911,16 +5918,16 @@ $properties$periods[[74]]$name
 [1] ""
 
 $properties$periods[[74]]$startTime
-[1] "2025-11-07T16:00:00-05:00"
+[1] "2025-11-07T17:00:00-05:00"
 
 $properties$periods[[74]]$endTime
-[1] "2025-11-07T17:00:00-05:00"
+[1] "2025-11-07T18:00:00-05:00"
 
 $properties$periods[[74]]$isDaytime
 [1] TRUE
 
 $properties$periods[[74]]$temperature
-[1] 62
+[1] 61
 
 $properties$periods[[74]]$temperatureUnit
 [1] "F"
@@ -5941,7 +5948,7 @@ $properties$periods[[74]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[74]]$dewpoint$value
-[1] 5
+[1] 5.555556
 
 
 $properties$periods[[74]]$relativeHumidity
@@ -5949,11 +5956,11 @@ $properties$periods[[74]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[74]]$relativeHumidity$value
-[1] 46
+[1] 49
 
 
 $properties$periods[[74]]$windSpeed
-[1] "14 mph"
+[1] "13 mph"
 
 $properties$periods[[74]]$windDirection
 [1] "S"
@@ -5976,16 +5983,16 @@ $properties$periods[[75]]$name
 [1] ""
 
 $properties$periods[[75]]$startTime
-[1] "2025-11-07T17:00:00-05:00"
-
-$properties$periods[[75]]$endTime
 [1] "2025-11-07T18:00:00-05:00"
 
+$properties$periods[[75]]$endTime
+[1] "2025-11-07T19:00:00-05:00"
+
 $properties$periods[[75]]$isDaytime
-[1] TRUE
+[1] FALSE
 
 $properties$periods[[75]]$temperature
-[1] 61
+[1] 60
 
 $properties$periods[[75]]$temperatureUnit
 [1] "F"
@@ -6006,7 +6013,7 @@ $properties$periods[[75]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[75]]$dewpoint$value
-[1] 5.555556
+[1] 6.111111
 
 
 $properties$periods[[75]]$relativeHumidity
@@ -6014,17 +6021,17 @@ $properties$periods[[75]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[75]]$relativeHumidity$value
-[1] 49
+[1] 53
 
 
 $properties$periods[[75]]$windSpeed
-[1] "13 mph"
+[1] "12 mph"
 
 $properties$periods[[75]]$windDirection
 [1] "S"
 
 $properties$periods[[75]]$icon
-[1] "https://api.weather.gov/icons/land/day/bkn?size=small"
+[1] "https://api.weather.gov/icons/land/night/bkn?size=small"
 
 $properties$periods[[75]]$shortForecast
 [1] "Mostly Cloudy"
@@ -6041,16 +6048,16 @@ $properties$periods[[76]]$name
 [1] ""
 
 $properties$periods[[76]]$startTime
-[1] "2025-11-07T18:00:00-05:00"
+[1] "2025-11-07T19:00:00-05:00"
 
 $properties$periods[[76]]$endTime
-[1] "2025-11-07T19:00:00-05:00"
+[1] "2025-11-07T20:00:00-05:00"
 
 $properties$periods[[76]]$isDaytime
 [1] FALSE
 
 $properties$periods[[76]]$temperature
-[1] 60
+[1] 58
 
 $properties$periods[[76]]$temperatureUnit
 [1] "F"
@@ -6063,7 +6070,7 @@ $properties$periods[[76]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[76]]$probabilityOfPrecipitation$value
-[1] 3
+[1] 51
 
 
 $properties$periods[[76]]$dewpoint
@@ -6071,7 +6078,7 @@ $properties$periods[[76]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[76]]$dewpoint$value
-[1] 6.111111
+[1] 6.666667
 
 
 $properties$periods[[76]]$relativeHumidity
@@ -6079,20 +6086,20 @@ $properties$periods[[76]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[76]]$relativeHumidity$value
-[1] 53
+[1] 59
 
 
 $properties$periods[[76]]$windSpeed
-[1] "12 mph"
+[1] "10 mph"
 
 $properties$periods[[76]]$windDirection
 [1] "S"
 
 $properties$periods[[76]]$icon
-[1] "https://api.weather.gov/icons/land/night/bkn?size=small"
+[1] "https://api.weather.gov/icons/land/night/rain,50?size=small"
 
 $properties$periods[[76]]$shortForecast
-[1] "Mostly Cloudy"
+[1] "Chance Light Rain"
 
 $properties$periods[[76]]$detailedForecast
 [1] ""
@@ -6106,16 +6113,16 @@ $properties$periods[[77]]$name
 [1] ""
 
 $properties$periods[[77]]$startTime
-[1] "2025-11-07T19:00:00-05:00"
+[1] "2025-11-07T20:00:00-05:00"
 
 $properties$periods[[77]]$endTime
-[1] "2025-11-07T20:00:00-05:00"
+[1] "2025-11-07T21:00:00-05:00"
 
 $properties$periods[[77]]$isDaytime
 [1] FALSE
 
 $properties$periods[[77]]$temperature
-[1] 58
+[1] 57
 
 $properties$periods[[77]]$temperatureUnit
 [1] "F"
@@ -6136,7 +6143,7 @@ $properties$periods[[77]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[77]]$dewpoint$value
-[1] 6.666667
+[1] 7.777778
 
 
 $properties$periods[[77]]$relativeHumidity
@@ -6144,11 +6151,11 @@ $properties$periods[[77]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[77]]$relativeHumidity$value
-[1] 59
+[1] 67
 
 
 $properties$periods[[77]]$windSpeed
-[1] "10 mph"
+[1] "9 mph"
 
 $properties$periods[[77]]$windDirection
 [1] "S"
@@ -6171,10 +6178,10 @@ $properties$periods[[78]]$name
 [1] ""
 
 $properties$periods[[78]]$startTime
-[1] "2025-11-07T20:00:00-05:00"
+[1] "2025-11-07T21:00:00-05:00"
 
 $properties$periods[[78]]$endTime
-[1] "2025-11-07T21:00:00-05:00"
+[1] "2025-11-07T22:00:00-05:00"
 
 $properties$periods[[78]]$isDaytime
 [1] FALSE
@@ -6201,7 +6208,7 @@ $properties$periods[[78]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[78]]$dewpoint$value
-[1] 7.777778
+[1] 8.333333
 
 
 $properties$periods[[78]]$relativeHumidity
@@ -6209,7 +6216,7 @@ $properties$periods[[78]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[78]]$relativeHumidity$value
-[1] 67
+[1] 69
 
 
 $properties$periods[[78]]$windSpeed
@@ -6236,10 +6243,10 @@ $properties$periods[[79]]$name
 [1] ""
 
 $properties$periods[[79]]$startTime
-[1] "2025-11-07T21:00:00-05:00"
+[1] "2025-11-07T22:00:00-05:00"
 
 $properties$periods[[79]]$endTime
-[1] "2025-11-07T22:00:00-05:00"
+[1] "2025-11-07T23:00:00-05:00"
 
 $properties$periods[[79]]$isDaytime
 [1] FALSE
@@ -6266,7 +6273,7 @@ $properties$periods[[79]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[79]]$dewpoint$value
-[1] 8.333333
+[1] 9.444444
 
 
 $properties$periods[[79]]$relativeHumidity
@@ -6274,7 +6281,7 @@ $properties$periods[[79]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[79]]$relativeHumidity$value
-[1] 69
+[1] 75
 
 
 $properties$periods[[79]]$windSpeed
@@ -6301,10 +6308,10 @@ $properties$periods[[80]]$name
 [1] ""
 
 $properties$periods[[80]]$startTime
-[1] "2025-11-07T22:00:00-05:00"
+[1] "2025-11-07T23:00:00-05:00"
 
 $properties$periods[[80]]$endTime
-[1] "2025-11-07T23:00:00-05:00"
+[1] "2025-11-08T00:00:00-05:00"
 
 $properties$periods[[80]]$isDaytime
 [1] FALSE
@@ -6331,7 +6338,7 @@ $properties$periods[[80]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[80]]$dewpoint$value
-[1] 9.444444
+[1] 10
 
 
 $properties$periods[[80]]$relativeHumidity
@@ -6339,14 +6346,14 @@ $properties$periods[[80]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[80]]$relativeHumidity$value
-[1] 75
+[1] 77
 
 
 $properties$periods[[80]]$windSpeed
-[1] "9 mph"
+[1] "8 mph"
 
 $properties$periods[[80]]$windDirection
-[1] "S"
+[1] "SW"
 
 $properties$periods[[80]]$icon
 [1] "https://api.weather.gov/icons/land/night/rain,50?size=small"
@@ -6366,16 +6373,16 @@ $properties$periods[[81]]$name
 [1] ""
 
 $properties$periods[[81]]$startTime
-[1] "2025-11-07T23:00:00-05:00"
+[1] "2025-11-08T00:00:00-05:00"
 
 $properties$periods[[81]]$endTime
-[1] "2025-11-08T00:00:00-05:00"
+[1] "2025-11-08T01:00:00-05:00"
 
 $properties$periods[[81]]$isDaytime
 [1] FALSE
 
 $properties$periods[[81]]$temperature
-[1] 57
+[1] 58
 
 $properties$periods[[81]]$temperatureUnit
 [1] "F"
@@ -6396,7 +6403,7 @@ $properties$periods[[81]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[81]]$dewpoint$value
-[1] 10
+[1] 10.55556
 
 
 $properties$periods[[81]]$relativeHumidity
@@ -6431,10 +6438,10 @@ $properties$periods[[82]]$name
 [1] ""
 
 $properties$periods[[82]]$startTime
-[1] "2025-11-08T00:00:00-05:00"
+[1] "2025-11-08T01:00:00-05:00"
 
 $properties$periods[[82]]$endTime
-[1] "2025-11-08T01:00:00-05:00"
+[1] "2025-11-08T02:00:00-05:00"
 
 $properties$periods[[82]]$isDaytime
 [1] FALSE
@@ -6453,7 +6460,7 @@ $properties$periods[[82]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[82]]$probabilityOfPrecipitation$value
-[1] 51
+[1] 65
 
 
 $properties$periods[[82]]$dewpoint
@@ -6461,7 +6468,7 @@ $properties$periods[[82]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[82]]$dewpoint$value
-[1] 10.55556
+[1] 11.11111
 
 
 $properties$periods[[82]]$relativeHumidity
@@ -6469,7 +6476,7 @@ $properties$periods[[82]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[82]]$relativeHumidity$value
-[1] 77
+[1] 80
 
 
 $properties$periods[[82]]$windSpeed
@@ -6479,10 +6486,10 @@ $properties$periods[[82]]$windDirection
 [1] "SW"
 
 $properties$periods[[82]]$icon
-[1] "https://api.weather.gov/icons/land/night/rain,50?size=small"
+[1] "https://api.weather.gov/icons/land/night/rain,70?size=small"
 
 $properties$periods[[82]]$shortForecast
-[1] "Chance Light Rain"
+[1] "Light Rain Likely"
 
 $properties$periods[[82]]$detailedForecast
 [1] ""
@@ -6496,16 +6503,16 @@ $properties$periods[[83]]$name
 [1] ""
 
 $properties$periods[[83]]$startTime
-[1] "2025-11-08T01:00:00-05:00"
+[1] "2025-11-08T02:00:00-05:00"
 
 $properties$periods[[83]]$endTime
-[1] "2025-11-08T02:00:00-05:00"
+[1] "2025-11-08T03:00:00-05:00"
 
 $properties$periods[[83]]$isDaytime
 [1] FALSE
 
 $properties$periods[[83]]$temperature
-[1] 58
+[1] 57
 
 $properties$periods[[83]]$temperatureUnit
 [1] "F"
@@ -6534,7 +6541,7 @@ $properties$periods[[83]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[83]]$relativeHumidity$value
-[1] 80
+[1] 83
 
 
 $properties$periods[[83]]$windSpeed
@@ -6561,16 +6568,16 @@ $properties$periods[[84]]$name
 [1] ""
 
 $properties$periods[[84]]$startTime
-[1] "2025-11-08T02:00:00-05:00"
+[1] "2025-11-08T03:00:00-05:00"
 
 $properties$periods[[84]]$endTime
-[1] "2025-11-08T03:00:00-05:00"
+[1] "2025-11-08T04:00:00-05:00"
 
 $properties$periods[[84]]$isDaytime
 [1] FALSE
 
 $properties$periods[[84]]$temperature
-[1] 57
+[1] 56
 
 $properties$periods[[84]]$temperatureUnit
 [1] "F"
@@ -6599,7 +6606,7 @@ $properties$periods[[84]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[84]]$relativeHumidity$value
-[1] 83
+[1] 86
 
 
 $properties$periods[[84]]$windSpeed
@@ -6626,16 +6633,16 @@ $properties$periods[[85]]$name
 [1] ""
 
 $properties$periods[[85]]$startTime
-[1] "2025-11-08T03:00:00-05:00"
+[1] "2025-11-08T04:00:00-05:00"
 
 $properties$periods[[85]]$endTime
-[1] "2025-11-08T04:00:00-05:00"
+[1] "2025-11-08T05:00:00-05:00"
 
 $properties$periods[[85]]$isDaytime
 [1] FALSE
 
 $properties$periods[[85]]$temperature
-[1] 56
+[1] 55
 
 $properties$periods[[85]]$temperatureUnit
 [1] "F"
@@ -6664,7 +6671,7 @@ $properties$periods[[85]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[85]]$relativeHumidity$value
-[1] 86
+[1] 90
 
 
 $properties$periods[[85]]$windSpeed
@@ -6691,16 +6698,16 @@ $properties$periods[[86]]$name
 [1] ""
 
 $properties$periods[[86]]$startTime
-[1] "2025-11-08T04:00:00-05:00"
+[1] "2025-11-08T05:00:00-05:00"
 
 $properties$periods[[86]]$endTime
-[1] "2025-11-08T05:00:00-05:00"
+[1] "2025-11-08T06:00:00-05:00"
 
 $properties$periods[[86]]$isDaytime
 [1] FALSE
 
 $properties$periods[[86]]$temperature
-[1] 55
+[1] 54
 
 $properties$periods[[86]]$temperatureUnit
 [1] "F"
@@ -6729,7 +6736,7 @@ $properties$periods[[86]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[86]]$relativeHumidity$value
-[1] 90
+[1] 93
 
 
 $properties$periods[[86]]$windSpeed
@@ -6756,16 +6763,16 @@ $properties$periods[[87]]$name
 [1] ""
 
 $properties$periods[[87]]$startTime
-[1] "2025-11-08T05:00:00-05:00"
-
-$properties$periods[[87]]$endTime
 [1] "2025-11-08T06:00:00-05:00"
 
+$properties$periods[[87]]$endTime
+[1] "2025-11-08T07:00:00-05:00"
+
 $properties$periods[[87]]$isDaytime
-[1] FALSE
+[1] TRUE
 
 $properties$periods[[87]]$temperature
-[1] 54
+[1] 53
 
 $properties$periods[[87]]$temperatureUnit
 [1] "F"
@@ -6794,17 +6801,17 @@ $properties$periods[[87]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[87]]$relativeHumidity$value
-[1] 93
+[1] 96
 
 
 $properties$periods[[87]]$windSpeed
-[1] "8 mph"
+[1] "7 mph"
 
 $properties$periods[[87]]$windDirection
 [1] "SW"
 
 $properties$periods[[87]]$icon
-[1] "https://api.weather.gov/icons/land/night/rain,70?size=small"
+[1] "https://api.weather.gov/icons/land/day/rain,70?size=small"
 
 $properties$periods[[87]]$shortForecast
 [1] "Light Rain Likely"
@@ -6821,16 +6828,16 @@ $properties$periods[[88]]$name
 [1] ""
 
 $properties$periods[[88]]$startTime
-[1] "2025-11-08T06:00:00-05:00"
+[1] "2025-11-08T07:00:00-05:00"
 
 $properties$periods[[88]]$endTime
-[1] "2025-11-08T07:00:00-05:00"
+[1] "2025-11-08T08:00:00-05:00"
 
 $properties$periods[[88]]$isDaytime
 [1] TRUE
 
 $properties$periods[[88]]$temperature
-[1] 53
+[1] 54
 
 $properties$periods[[88]]$temperatureUnit
 [1] "F"
@@ -6843,7 +6850,7 @@ $properties$periods[[88]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[88]]$probabilityOfPrecipitation$value
-[1] 65
+[1] 17
 
 
 $properties$periods[[88]]$dewpoint
@@ -6859,7 +6866,7 @@ $properties$periods[[88]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[88]]$relativeHumidity$value
-[1] 96
+[1] 93
 
 
 $properties$periods[[88]]$windSpeed
@@ -6869,10 +6876,10 @@ $properties$periods[[88]]$windDirection
 [1] "SW"
 
 $properties$periods[[88]]$icon
-[1] "https://api.weather.gov/icons/land/day/rain,70?size=small"
+[1] "https://api.weather.gov/icons/land/day/rain,20?size=small"
 
 $properties$periods[[88]]$shortForecast
-[1] "Light Rain Likely"
+[1] "Slight Chance Light Rain"
 
 $properties$periods[[88]]$detailedForecast
 [1] ""
@@ -6886,16 +6893,16 @@ $properties$periods[[89]]$name
 [1] ""
 
 $properties$periods[[89]]$startTime
-[1] "2025-11-08T07:00:00-05:00"
+[1] "2025-11-08T08:00:00-05:00"
 
 $properties$periods[[89]]$endTime
-[1] "2025-11-08T08:00:00-05:00"
+[1] "2025-11-08T09:00:00-05:00"
 
 $properties$periods[[89]]$isDaytime
 [1] TRUE
 
 $properties$periods[[89]]$temperature
-[1] 54
+[1] 56
 
 $properties$periods[[89]]$temperatureUnit
 [1] "F"
@@ -6916,7 +6923,7 @@ $properties$periods[[89]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[89]]$dewpoint$value
-[1] 11.11111
+[1] 11.66667
 
 
 $properties$periods[[89]]$relativeHumidity
@@ -6924,14 +6931,14 @@ $properties$periods[[89]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[89]]$relativeHumidity$value
-[1] 93
+[1] 90
 
 
 $properties$periods[[89]]$windSpeed
-[1] "7 mph"
+[1] "8 mph"
 
 $properties$periods[[89]]$windDirection
-[1] "SW"
+[1] "W"
 
 $properties$periods[[89]]$icon
 [1] "https://api.weather.gov/icons/land/day/rain,20?size=small"
@@ -6951,16 +6958,16 @@ $properties$periods[[90]]$name
 [1] ""
 
 $properties$periods[[90]]$startTime
-[1] "2025-11-08T08:00:00-05:00"
+[1] "2025-11-08T09:00:00-05:00"
 
 $properties$periods[[90]]$endTime
-[1] "2025-11-08T09:00:00-05:00"
+[1] "2025-11-08T10:00:00-05:00"
 
 $properties$periods[[90]]$isDaytime
 [1] TRUE
 
 $properties$periods[[90]]$temperature
-[1] 56
+[1] 60
 
 $properties$periods[[90]]$temperatureUnit
 [1] "F"
@@ -6989,7 +6996,7 @@ $properties$periods[[90]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[90]]$relativeHumidity$value
-[1] 90
+[1] 78
 
 
 $properties$periods[[90]]$windSpeed
@@ -7016,16 +7023,16 @@ $properties$periods[[91]]$name
 [1] ""
 
 $properties$periods[[91]]$startTime
-[1] "2025-11-08T09:00:00-05:00"
+[1] "2025-11-08T10:00:00-05:00"
 
 $properties$periods[[91]]$endTime
-[1] "2025-11-08T10:00:00-05:00"
+[1] "2025-11-08T11:00:00-05:00"
 
 $properties$periods[[91]]$isDaytime
 [1] TRUE
 
 $properties$periods[[91]]$temperature
-[1] 60
+[1] 63
 
 $properties$periods[[91]]$temperatureUnit
 [1] "F"
@@ -7054,11 +7061,11 @@ $properties$periods[[91]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[91]]$relativeHumidity$value
-[1] 78
+[1] 70
 
 
 $properties$periods[[91]]$windSpeed
-[1] "8 mph"
+[1] "9 mph"
 
 $properties$periods[[91]]$windDirection
 [1] "W"
@@ -7081,16 +7088,16 @@ $properties$periods[[92]]$name
 [1] ""
 
 $properties$periods[[92]]$startTime
-[1] "2025-11-08T10:00:00-05:00"
+[1] "2025-11-08T11:00:00-05:00"
 
 $properties$periods[[92]]$endTime
-[1] "2025-11-08T11:00:00-05:00"
+[1] "2025-11-08T12:00:00-05:00"
 
 $properties$periods[[92]]$isDaytime
 [1] TRUE
 
 $properties$periods[[92]]$temperature
-[1] 63
+[1] 66
 
 $properties$periods[[92]]$temperatureUnit
 [1] "F"
@@ -7111,7 +7118,7 @@ $properties$periods[[92]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[92]]$dewpoint$value
-[1] 11.66667
+[1] 11.11111
 
 
 $properties$periods[[92]]$relativeHumidity
@@ -7119,7 +7126,7 @@ $properties$periods[[92]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[92]]$relativeHumidity$value
-[1] 70
+[1] 61
 
 
 $properties$periods[[92]]$windSpeed
@@ -7146,16 +7153,16 @@ $properties$periods[[93]]$name
 [1] ""
 
 $properties$periods[[93]]$startTime
-[1] "2025-11-08T11:00:00-05:00"
+[1] "2025-11-08T12:00:00-05:00"
 
 $properties$periods[[93]]$endTime
-[1] "2025-11-08T12:00:00-05:00"
+[1] "2025-11-08T13:00:00-05:00"
 
 $properties$periods[[93]]$isDaytime
 [1] TRUE
 
 $properties$periods[[93]]$temperature
-[1] 66
+[1] 67
 
 $properties$periods[[93]]$temperatureUnit
 [1] "F"
@@ -7176,7 +7183,7 @@ $properties$periods[[93]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[93]]$dewpoint$value
-[1] 11.11111
+[1] 10
 
 
 $properties$periods[[93]]$relativeHumidity
@@ -7184,11 +7191,11 @@ $properties$periods[[93]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[93]]$relativeHumidity$value
-[1] 61
+[1] 54
 
 
 $properties$periods[[93]]$windSpeed
-[1] "9 mph"
+[1] "10 mph"
 
 $properties$periods[[93]]$windDirection
 [1] "W"
@@ -7211,16 +7218,16 @@ $properties$periods[[94]]$name
 [1] ""
 
 $properties$periods[[94]]$startTime
-[1] "2025-11-08T12:00:00-05:00"
+[1] "2025-11-08T13:00:00-05:00"
 
 $properties$periods[[94]]$endTime
-[1] "2025-11-08T13:00:00-05:00"
+[1] "2025-11-08T14:00:00-05:00"
 
 $properties$periods[[94]]$isDaytime
 [1] TRUE
 
 $properties$periods[[94]]$temperature
-[1] 67
+[1] 68
 
 $properties$periods[[94]]$temperatureUnit
 [1] "F"
@@ -7233,7 +7240,7 @@ $properties$periods[[94]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[94]]$probabilityOfPrecipitation$value
-[1] 17
+[1] 5
 
 
 $properties$periods[[94]]$dewpoint
@@ -7241,7 +7248,7 @@ $properties$periods[[94]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[94]]$dewpoint$value
-[1] 10
+[1] 9.444444
 
 
 $properties$periods[[94]]$relativeHumidity
@@ -7249,7 +7256,7 @@ $properties$periods[[94]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[94]]$relativeHumidity$value
-[1] 54
+[1] 51
 
 
 $properties$periods[[94]]$windSpeed
@@ -7259,10 +7266,10 @@ $properties$periods[[94]]$windDirection
 [1] "W"
 
 $properties$periods[[94]]$icon
-[1] "https://api.weather.gov/icons/land/day/rain,20?size=small"
+[1] "https://api.weather.gov/icons/land/day/sct?size=small"
 
 $properties$periods[[94]]$shortForecast
-[1] "Slight Chance Light Rain"
+[1] "Mostly Sunny"
 
 $properties$periods[[94]]$detailedForecast
 [1] ""
@@ -7276,16 +7283,16 @@ $properties$periods[[95]]$name
 [1] ""
 
 $properties$periods[[95]]$startTime
-[1] "2025-11-08T13:00:00-05:00"
+[1] "2025-11-08T14:00:00-05:00"
 
 $properties$periods[[95]]$endTime
-[1] "2025-11-08T14:00:00-05:00"
+[1] "2025-11-08T15:00:00-05:00"
 
 $properties$periods[[95]]$isDaytime
 [1] TRUE
 
 $properties$periods[[95]]$temperature
-[1] 68
+[1] 69
 
 $properties$periods[[95]]$temperatureUnit
 [1] "F"
@@ -7306,7 +7313,7 @@ $properties$periods[[95]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[95]]$dewpoint$value
-[1] 9.444444
+[1] 8.888889
 
 
 $properties$periods[[95]]$relativeHumidity
@@ -7314,11 +7321,11 @@ $properties$periods[[95]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[95]]$relativeHumidity$value
-[1] 51
+[1] 47
 
 
 $properties$periods[[95]]$windSpeed
-[1] "10 mph"
+[1] "9 mph"
 
 $properties$periods[[95]]$windDirection
 [1] "W"
@@ -7341,16 +7348,16 @@ $properties$periods[[96]]$name
 [1] ""
 
 $properties$periods[[96]]$startTime
-[1] "2025-11-08T14:00:00-05:00"
+[1] "2025-11-08T15:00:00-05:00"
 
 $properties$periods[[96]]$endTime
-[1] "2025-11-08T15:00:00-05:00"
+[1] "2025-11-08T16:00:00-05:00"
 
 $properties$periods[[96]]$isDaytime
 [1] TRUE
 
 $properties$periods[[96]]$temperature
-[1] 69
+[1] 68
 
 $properties$periods[[96]]$temperatureUnit
 [1] "F"
@@ -7379,7 +7386,7 @@ $properties$periods[[96]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[96]]$relativeHumidity$value
-[1] 47
+[1] 49
 
 
 $properties$periods[[96]]$windSpeed
@@ -7406,16 +7413,16 @@ $properties$periods[[97]]$name
 [1] ""
 
 $properties$periods[[97]]$startTime
-[1] "2025-11-08T15:00:00-05:00"
+[1] "2025-11-08T16:00:00-05:00"
 
 $properties$periods[[97]]$endTime
-[1] "2025-11-08T16:00:00-05:00"
+[1] "2025-11-08T17:00:00-05:00"
 
 $properties$periods[[97]]$isDaytime
 [1] TRUE
 
 $properties$periods[[97]]$temperature
-[1] 68
+[1] 67
 
 $properties$periods[[97]]$temperatureUnit
 [1] "F"
@@ -7444,11 +7451,11 @@ $properties$periods[[97]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[97]]$relativeHumidity$value
-[1] 49
+[1] 50
 
 
 $properties$periods[[97]]$windSpeed
-[1] "9 mph"
+[1] "8 mph"
 
 $properties$periods[[97]]$windDirection
 [1] "W"
@@ -7471,16 +7478,16 @@ $properties$periods[[98]]$name
 [1] ""
 
 $properties$periods[[98]]$startTime
-[1] "2025-11-08T16:00:00-05:00"
+[1] "2025-11-08T17:00:00-05:00"
 
 $properties$periods[[98]]$endTime
-[1] "2025-11-08T17:00:00-05:00"
+[1] "2025-11-08T18:00:00-05:00"
 
 $properties$periods[[98]]$isDaytime
 [1] TRUE
 
 $properties$periods[[98]]$temperature
-[1] 67
+[1] 64
 
 $properties$periods[[98]]$temperatureUnit
 [1] "F"
@@ -7509,14 +7516,14 @@ $properties$periods[[98]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[98]]$relativeHumidity$value
-[1] 50
+[1] 56
 
 
 $properties$periods[[98]]$windSpeed
-[1] "8 mph"
+[1] "7 mph"
 
 $properties$periods[[98]]$windDirection
-[1] "W"
+[1] "NW"
 
 $properties$periods[[98]]$icon
 [1] "https://api.weather.gov/icons/land/day/sct?size=small"
@@ -7536,16 +7543,16 @@ $properties$periods[[99]]$name
 [1] ""
 
 $properties$periods[[99]]$startTime
-[1] "2025-11-08T17:00:00-05:00"
-
-$properties$periods[[99]]$endTime
 [1] "2025-11-08T18:00:00-05:00"
 
+$properties$periods[[99]]$endTime
+[1] "2025-11-08T19:00:00-05:00"
+
 $properties$periods[[99]]$isDaytime
-[1] TRUE
+[1] FALSE
 
 $properties$periods[[99]]$temperature
-[1] 64
+[1] 62
 
 $properties$periods[[99]]$temperatureUnit
 [1] "F"
@@ -7566,7 +7573,7 @@ $properties$periods[[99]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[99]]$dewpoint$value
-[1] 8.888889
+[1] 8.333333
 
 
 $properties$periods[[99]]$relativeHumidity
@@ -7574,20 +7581,20 @@ $properties$periods[[99]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[99]]$relativeHumidity$value
-[1] 56
+[1] 58
 
 
 $properties$periods[[99]]$windSpeed
-[1] "7 mph"
+[1] "6 mph"
 
 $properties$periods[[99]]$windDirection
 [1] "NW"
 
 $properties$periods[[99]]$icon
-[1] "https://api.weather.gov/icons/land/day/sct?size=small"
+[1] "https://api.weather.gov/icons/land/night/sct?size=small"
 
 $properties$periods[[99]]$shortForecast
-[1] "Mostly Sunny"
+[1] "Partly Cloudy"
 
 $properties$periods[[99]]$detailedForecast
 [1] ""
@@ -7601,16 +7608,16 @@ $properties$periods[[100]]$name
 [1] ""
 
 $properties$periods[[100]]$startTime
-[1] "2025-11-08T18:00:00-05:00"
+[1] "2025-11-08T19:00:00-05:00"
 
 $properties$periods[[100]]$endTime
-[1] "2025-11-08T19:00:00-05:00"
+[1] "2025-11-08T20:00:00-05:00"
 
 $properties$periods[[100]]$isDaytime
 [1] FALSE
 
 $properties$periods[[100]]$temperature
-[1] 62
+[1] 59
 
 $properties$periods[[100]]$temperatureUnit
 [1] "F"
@@ -7623,7 +7630,7 @@ $properties$periods[[100]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[100]]$probabilityOfPrecipitation$value
-[1] 5
+[1] 6
 
 
 $properties$periods[[100]]$dewpoint
@@ -7639,11 +7646,11 @@ $properties$periods[[100]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[100]]$relativeHumidity$value
-[1] 58
+[1] 64
 
 
 $properties$periods[[100]]$windSpeed
-[1] "6 mph"
+[1] "5 mph"
 
 $properties$periods[[100]]$windDirection
 [1] "NW"
@@ -7666,16 +7673,16 @@ $properties$periods[[101]]$name
 [1] ""
 
 $properties$periods[[101]]$startTime
-[1] "2025-11-08T19:00:00-05:00"
+[1] "2025-11-08T20:00:00-05:00"
 
 $properties$periods[[101]]$endTime
-[1] "2025-11-08T20:00:00-05:00"
+[1] "2025-11-08T21:00:00-05:00"
 
 $properties$periods[[101]]$isDaytime
 [1] FALSE
 
 $properties$periods[[101]]$temperature
-[1] 59
+[1] 57
 
 $properties$periods[[101]]$temperatureUnit
 [1] "F"
@@ -7704,11 +7711,11 @@ $properties$periods[[101]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[101]]$relativeHumidity$value
-[1] 64
+[1] 69
 
 
 $properties$periods[[101]]$windSpeed
-[1] "5 mph"
+[1] "3 mph"
 
 $properties$periods[[101]]$windDirection
 [1] "NW"
@@ -7731,16 +7738,16 @@ $properties$periods[[102]]$name
 [1] ""
 
 $properties$periods[[102]]$startTime
-[1] "2025-11-08T20:00:00-05:00"
+[1] "2025-11-08T21:00:00-05:00"
 
 $properties$periods[[102]]$endTime
-[1] "2025-11-08T21:00:00-05:00"
+[1] "2025-11-08T22:00:00-05:00"
 
 $properties$periods[[102]]$isDaytime
 [1] FALSE
 
 $properties$periods[[102]]$temperature
-[1] 57
+[1] 55
 
 $properties$periods[[102]]$temperatureUnit
 [1] "F"
@@ -7769,14 +7776,14 @@ $properties$periods[[102]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[102]]$relativeHumidity$value
-[1] 69
+[1] 74
 
 
 $properties$periods[[102]]$windSpeed
 [1] "3 mph"
 
 $properties$periods[[102]]$windDirection
-[1] "NW"
+[1] "N"
 
 $properties$periods[[102]]$icon
 [1] "https://api.weather.gov/icons/land/night/sct?size=small"
@@ -7796,16 +7803,16 @@ $properties$periods[[103]]$name
 [1] ""
 
 $properties$periods[[103]]$startTime
-[1] "2025-11-08T21:00:00-05:00"
+[1] "2025-11-08T22:00:00-05:00"
 
 $properties$periods[[103]]$endTime
-[1] "2025-11-08T22:00:00-05:00"
+[1] "2025-11-08T23:00:00-05:00"
 
 $properties$periods[[103]]$isDaytime
 [1] FALSE
 
 $properties$periods[[103]]$temperature
-[1] 55
+[1] 53
 
 $properties$periods[[103]]$temperatureUnit
 [1] "F"
@@ -7834,7 +7841,7 @@ $properties$periods[[103]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[103]]$relativeHumidity$value
-[1] 74
+[1] 80
 
 
 $properties$periods[[103]]$windSpeed
@@ -7861,16 +7868,16 @@ $properties$periods[[104]]$name
 [1] ""
 
 $properties$periods[[104]]$startTime
-[1] "2025-11-08T22:00:00-05:00"
+[1] "2025-11-08T23:00:00-05:00"
 
 $properties$periods[[104]]$endTime
-[1] "2025-11-08T23:00:00-05:00"
+[1] "2025-11-09T00:00:00-05:00"
 
 $properties$periods[[104]]$isDaytime
 [1] FALSE
 
 $properties$periods[[104]]$temperature
-[1] 53
+[1] 52
 
 $properties$periods[[104]]$temperatureUnit
 [1] "F"
@@ -7891,7 +7898,7 @@ $properties$periods[[104]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[104]]$dewpoint$value
-[1] 8.333333
+[1] 7.777778
 
 
 $properties$periods[[104]]$relativeHumidity
@@ -7926,16 +7933,16 @@ $properties$periods[[105]]$name
 [1] ""
 
 $properties$periods[[105]]$startTime
-[1] "2025-11-08T23:00:00-05:00"
+[1] "2025-11-09T00:00:00-05:00"
 
 $properties$periods[[105]]$endTime
-[1] "2025-11-09T00:00:00-05:00"
+[1] "2025-11-09T01:00:00-05:00"
 
 $properties$periods[[105]]$isDaytime
 [1] FALSE
 
 $properties$periods[[105]]$temperature
-[1] 52
+[1] 51
 
 $properties$periods[[105]]$temperatureUnit
 [1] "F"
@@ -7964,14 +7971,14 @@ $properties$periods[[105]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[105]]$relativeHumidity$value
-[1] 80
+[1] 83
 
 
 $properties$periods[[105]]$windSpeed
 [1] "3 mph"
 
 $properties$periods[[105]]$windDirection
-[1] "N"
+[1] "E"
 
 $properties$periods[[105]]$icon
 [1] "https://api.weather.gov/icons/land/night/sct?size=small"
@@ -7991,10 +7998,10 @@ $properties$periods[[106]]$name
 [1] ""
 
 $properties$periods[[106]]$startTime
-[1] "2025-11-09T00:00:00-05:00"
+[1] "2025-11-09T01:00:00-05:00"
 
 $properties$periods[[106]]$endTime
-[1] "2025-11-09T01:00:00-05:00"
+[1] "2025-11-09T02:00:00-05:00"
 
 $properties$periods[[106]]$isDaytime
 [1] FALSE
@@ -8013,7 +8020,7 @@ $properties$periods[[106]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[106]]$probabilityOfPrecipitation$value
-[1] 6
+[1] 18
 
 
 $properties$periods[[106]]$dewpoint
@@ -8021,7 +8028,7 @@ $properties$periods[[106]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[106]]$dewpoint$value
-[1] 7.777778
+[1] 7.222222
 
 
 $properties$periods[[106]]$relativeHumidity
@@ -8029,7 +8036,7 @@ $properties$periods[[106]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[106]]$relativeHumidity$value
-[1] 83
+[1] 80
 
 
 $properties$periods[[106]]$windSpeed
@@ -8039,10 +8046,10 @@ $properties$periods[[106]]$windDirection
 [1] "E"
 
 $properties$periods[[106]]$icon
-[1] "https://api.weather.gov/icons/land/night/sct?size=small"
+[1] "https://api.weather.gov/icons/land/night/rain,20?size=small"
 
 $properties$periods[[106]]$shortForecast
-[1] "Partly Cloudy"
+[1] "Slight Chance Light Rain"
 
 $properties$periods[[106]]$detailedForecast
 [1] ""
@@ -8056,16 +8063,16 @@ $properties$periods[[107]]$name
 [1] ""
 
 $properties$periods[[107]]$startTime
-[1] "2025-11-09T01:00:00-05:00"
+[1] "2025-11-09T02:00:00-05:00"
 
 $properties$periods[[107]]$endTime
-[1] "2025-11-09T02:00:00-05:00"
+[1] "2025-11-09T03:00:00-05:00"
 
 $properties$periods[[107]]$isDaytime
 [1] FALSE
 
 $properties$periods[[107]]$temperature
-[1] 51
+[1] 50
 
 $properties$periods[[107]]$temperatureUnit
 [1] "F"
@@ -8094,7 +8101,7 @@ $properties$periods[[107]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[107]]$relativeHumidity$value
-[1] 80
+[1] 83
 
 
 $properties$periods[[107]]$windSpeed
@@ -8121,10 +8128,10 @@ $properties$periods[[108]]$name
 [1] ""
 
 $properties$periods[[108]]$startTime
-[1] "2025-11-09T02:00:00-05:00"
+[1] "2025-11-09T03:00:00-05:00"
 
 $properties$periods[[108]]$endTime
-[1] "2025-11-09T03:00:00-05:00"
+[1] "2025-11-09T04:00:00-05:00"
 
 $properties$periods[[108]]$isDaytime
 [1] FALSE
@@ -8163,7 +8170,7 @@ $properties$periods[[108]]$relativeHumidity$value
 
 
 $properties$periods[[108]]$windSpeed
-[1] "3 mph"
+[1] "5 mph"
 
 $properties$periods[[108]]$windDirection
 [1] "E"
@@ -8186,10 +8193,10 @@ $properties$periods[[109]]$name
 [1] ""
 
 $properties$periods[[109]]$startTime
-[1] "2025-11-09T03:00:00-05:00"
+[1] "2025-11-09T04:00:00-05:00"
 
 $properties$periods[[109]]$endTime
-[1] "2025-11-09T04:00:00-05:00"
+[1] "2025-11-09T05:00:00-05:00"
 
 $properties$periods[[109]]$isDaytime
 [1] FALSE
@@ -8251,16 +8258,16 @@ $properties$periods[[110]]$name
 [1] ""
 
 $properties$periods[[110]]$startTime
-[1] "2025-11-09T04:00:00-05:00"
+[1] "2025-11-09T05:00:00-05:00"
 
 $properties$periods[[110]]$endTime
-[1] "2025-11-09T05:00:00-05:00"
+[1] "2025-11-09T06:00:00-05:00"
 
 $properties$periods[[110]]$isDaytime
 [1] FALSE
 
 $properties$periods[[110]]$temperature
-[1] 50
+[1] 49
 
 $properties$periods[[110]]$temperatureUnit
 [1] "F"
@@ -8289,14 +8296,14 @@ $properties$periods[[110]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[110]]$relativeHumidity$value
-[1] 83
+[1] 86
 
 
 $properties$periods[[110]]$windSpeed
 [1] "5 mph"
 
 $properties$periods[[110]]$windDirection
-[1] "E"
+[1] "SE"
 
 $properties$periods[[110]]$icon
 [1] "https://api.weather.gov/icons/land/night/rain,20?size=small"
@@ -8316,16 +8323,16 @@ $properties$periods[[111]]$name
 [1] ""
 
 $properties$periods[[111]]$startTime
-[1] "2025-11-09T05:00:00-05:00"
-
-$properties$periods[[111]]$endTime
 [1] "2025-11-09T06:00:00-05:00"
 
+$properties$periods[[111]]$endTime
+[1] "2025-11-09T07:00:00-05:00"
+
 $properties$periods[[111]]$isDaytime
-[1] FALSE
+[1] TRUE
 
 $properties$periods[[111]]$temperature
-[1] 49
+[1] 48
 
 $properties$periods[[111]]$temperatureUnit
 [1] "F"
@@ -8346,7 +8353,7 @@ $properties$periods[[111]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[111]]$dewpoint$value
-[1] 7.222222
+[1] 7.777778
 
 
 $properties$periods[[111]]$relativeHumidity
@@ -8354,7 +8361,7 @@ $properties$periods[[111]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[111]]$relativeHumidity$value
-[1] 86
+[1] 93
 
 
 $properties$periods[[111]]$windSpeed
@@ -8364,7 +8371,7 @@ $properties$periods[[111]]$windDirection
 [1] "SE"
 
 $properties$periods[[111]]$icon
-[1] "https://api.weather.gov/icons/land/night/rain,20?size=small"
+[1] "https://api.weather.gov/icons/land/day/rain,20?size=small"
 
 $properties$periods[[111]]$shortForecast
 [1] "Slight Chance Light Rain"
@@ -8381,16 +8388,16 @@ $properties$periods[[112]]$name
 [1] ""
 
 $properties$periods[[112]]$startTime
-[1] "2025-11-09T06:00:00-05:00"
+[1] "2025-11-09T07:00:00-05:00"
 
 $properties$periods[[112]]$endTime
-[1] "2025-11-09T07:00:00-05:00"
+[1] "2025-11-09T08:00:00-05:00"
 
 $properties$periods[[112]]$isDaytime
 [1] TRUE
 
 $properties$periods[[112]]$temperature
-[1] 48
+[1] 49
 
 $properties$periods[[112]]$temperatureUnit
 [1] "F"
@@ -8403,7 +8410,7 @@ $properties$periods[[112]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[112]]$probabilityOfPrecipitation$value
-[1] 18
+[1] 34
 
 
 $properties$periods[[112]]$dewpoint
@@ -8411,7 +8418,7 @@ $properties$periods[[112]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[112]]$dewpoint$value
-[1] 7.777778
+[1] 8.333333
 
 
 $properties$periods[[112]]$relativeHumidity
@@ -8423,16 +8430,16 @@ $properties$periods[[112]]$relativeHumidity$value
 
 
 $properties$periods[[112]]$windSpeed
-[1] "5 mph"
+[1] "6 mph"
 
 $properties$periods[[112]]$windDirection
 [1] "SE"
 
 $properties$periods[[112]]$icon
-[1] "https://api.weather.gov/icons/land/day/rain,20?size=small"
+[1] "https://api.weather.gov/icons/land/day/rain,30?size=small"
 
 $properties$periods[[112]]$shortForecast
-[1] "Slight Chance Light Rain"
+[1] "Chance Light Rain"
 
 $properties$periods[[112]]$detailedForecast
 [1] ""
@@ -8446,16 +8453,16 @@ $properties$periods[[113]]$name
 [1] ""
 
 $properties$periods[[113]]$startTime
-[1] "2025-11-09T07:00:00-05:00"
+[1] "2025-11-09T08:00:00-05:00"
 
 $properties$periods[[113]]$endTime
-[1] "2025-11-09T08:00:00-05:00"
+[1] "2025-11-09T09:00:00-05:00"
 
 $properties$periods[[113]]$isDaytime
 [1] TRUE
 
 $properties$periods[[113]]$temperature
-[1] 49
+[1] 52
 
 $properties$periods[[113]]$temperatureUnit
 [1] "F"
@@ -8476,7 +8483,7 @@ $properties$periods[[113]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[113]]$dewpoint$value
-[1] 8.333333
+[1] 8.888889
 
 
 $properties$periods[[113]]$relativeHumidity
@@ -8484,7 +8491,7 @@ $properties$periods[[113]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[113]]$relativeHumidity$value
-[1] 93
+[1] 86
 
 
 $properties$periods[[113]]$windSpeed
@@ -8511,16 +8518,16 @@ $properties$periods[[114]]$name
 [1] ""
 
 $properties$periods[[114]]$startTime
-[1] "2025-11-09T08:00:00-05:00"
+[1] "2025-11-09T09:00:00-05:00"
 
 $properties$periods[[114]]$endTime
-[1] "2025-11-09T09:00:00-05:00"
+[1] "2025-11-09T10:00:00-05:00"
 
 $properties$periods[[114]]$isDaytime
 [1] TRUE
 
 $properties$periods[[114]]$temperature
-[1] 52
+[1] 55
 
 $properties$periods[[114]]$temperatureUnit
 [1] "F"
@@ -8541,7 +8548,7 @@ $properties$periods[[114]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[114]]$dewpoint$value
-[1] 8.888889
+[1] 10
 
 
 $properties$periods[[114]]$relativeHumidity
@@ -8549,11 +8556,11 @@ $properties$periods[[114]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[114]]$relativeHumidity$value
-[1] 86
+[1] 83
 
 
 $properties$periods[[114]]$windSpeed
-[1] "6 mph"
+[1] "7 mph"
 
 $properties$periods[[114]]$windDirection
 [1] "SE"
@@ -8576,16 +8583,16 @@ $properties$periods[[115]]$name
 [1] ""
 
 $properties$periods[[115]]$startTime
-[1] "2025-11-09T09:00:00-05:00"
+[1] "2025-11-09T10:00:00-05:00"
 
 $properties$periods[[115]]$endTime
-[1] "2025-11-09T10:00:00-05:00"
+[1] "2025-11-09T11:00:00-05:00"
 
 $properties$periods[[115]]$isDaytime
 [1] TRUE
 
 $properties$periods[[115]]$temperature
-[1] 55
+[1] 59
 
 $properties$periods[[115]]$temperatureUnit
 [1] "F"
@@ -8606,7 +8613,7 @@ $properties$periods[[115]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[115]]$dewpoint$value
-[1] 10
+[1] 10.55556
 
 
 $properties$periods[[115]]$relativeHumidity
@@ -8614,14 +8621,14 @@ $properties$periods[[115]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[115]]$relativeHumidity$value
-[1] 83
+[1] 75
 
 
 $properties$periods[[115]]$windSpeed
 [1] "7 mph"
 
 $properties$periods[[115]]$windDirection
-[1] "SE"
+[1] "S"
 
 $properties$periods[[115]]$icon
 [1] "https://api.weather.gov/icons/land/day/rain,30?size=small"
@@ -8641,16 +8648,16 @@ $properties$periods[[116]]$name
 [1] ""
 
 $properties$periods[[116]]$startTime
-[1] "2025-11-09T10:00:00-05:00"
+[1] "2025-11-09T11:00:00-05:00"
 
 $properties$periods[[116]]$endTime
-[1] "2025-11-09T11:00:00-05:00"
+[1] "2025-11-09T12:00:00-05:00"
 
 $properties$periods[[116]]$isDaytime
 [1] TRUE
 
 $properties$periods[[116]]$temperature
-[1] 59
+[1] 61
 
 $properties$periods[[116]]$temperatureUnit
 [1] "F"
@@ -8671,7 +8678,7 @@ $properties$periods[[116]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[116]]$dewpoint$value
-[1] 10.55556
+[1] 11.11111
 
 
 $properties$periods[[116]]$relativeHumidity
@@ -8679,11 +8686,11 @@ $properties$periods[[116]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[116]]$relativeHumidity$value
-[1] 75
+[1] 72
 
 
 $properties$periods[[116]]$windSpeed
-[1] "7 mph"
+[1] "8 mph"
 
 $properties$periods[[116]]$windDirection
 [1] "S"
@@ -8706,16 +8713,16 @@ $properties$periods[[117]]$name
 [1] ""
 
 $properties$periods[[117]]$startTime
-[1] "2025-11-09T11:00:00-05:00"
+[1] "2025-11-09T12:00:00-05:00"
 
 $properties$periods[[117]]$endTime
-[1] "2025-11-09T12:00:00-05:00"
+[1] "2025-11-09T13:00:00-05:00"
 
 $properties$periods[[117]]$isDaytime
 [1] TRUE
 
 $properties$periods[[117]]$temperature
-[1] 61
+[1] 63
 
 $properties$periods[[117]]$temperatureUnit
 [1] "F"
@@ -8736,7 +8743,7 @@ $properties$periods[[117]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[117]]$dewpoint$value
-[1] 11.11111
+[1] 11.66667
 
 
 $properties$periods[[117]]$relativeHumidity
@@ -8744,11 +8751,11 @@ $properties$periods[[117]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[117]]$relativeHumidity$value
-[1] 72
+[1] 70
 
 
 $properties$periods[[117]]$windSpeed
-[1] "8 mph"
+[1] "9 mph"
 
 $properties$periods[[117]]$windDirection
 [1] "S"
@@ -8771,16 +8778,16 @@ $properties$periods[[118]]$name
 [1] ""
 
 $properties$periods[[118]]$startTime
-[1] "2025-11-09T12:00:00-05:00"
+[1] "2025-11-09T13:00:00-05:00"
 
 $properties$periods[[118]]$endTime
-[1] "2025-11-09T13:00:00-05:00"
+[1] "2025-11-09T14:00:00-05:00"
 
 $properties$periods[[118]]$isDaytime
 [1] TRUE
 
 $properties$periods[[118]]$temperature
-[1] 63
+[1] 64
 
 $properties$periods[[118]]$temperatureUnit
 [1] "F"
@@ -8793,7 +8800,7 @@ $properties$periods[[118]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[118]]$probabilityOfPrecipitation$value
-[1] 34
+[1] 46
 
 
 $properties$periods[[118]]$dewpoint
@@ -8801,7 +8808,7 @@ $properties$periods[[118]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[118]]$dewpoint$value
-[1] 11.66667
+[1] 12.22222
 
 
 $properties$periods[[118]]$relativeHumidity
@@ -8816,10 +8823,10 @@ $properties$periods[[118]]$windSpeed
 [1] "9 mph"
 
 $properties$periods[[118]]$windDirection
-[1] "S"
+[1] "SW"
 
 $properties$periods[[118]]$icon
-[1] "https://api.weather.gov/icons/land/day/rain,30?size=small"
+[1] "https://api.weather.gov/icons/land/day/rain,50?size=small"
 
 $properties$periods[[118]]$shortForecast
 [1] "Chance Light Rain"
@@ -8836,16 +8843,16 @@ $properties$periods[[119]]$name
 [1] ""
 
 $properties$periods[[119]]$startTime
-[1] "2025-11-09T13:00:00-05:00"
+[1] "2025-11-09T14:00:00-05:00"
 
 $properties$periods[[119]]$endTime
-[1] "2025-11-09T14:00:00-05:00"
+[1] "2025-11-09T15:00:00-05:00"
 
 $properties$periods[[119]]$isDaytime
 [1] TRUE
 
 $properties$periods[[119]]$temperature
-[1] 64
+[1] 65
 
 $properties$periods[[119]]$temperatureUnit
 [1] "F"
@@ -8874,7 +8881,7 @@ $properties$periods[[119]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[119]]$relativeHumidity$value
-[1] 70
+[1] 68
 
 
 $properties$periods[[119]]$windSpeed
@@ -8901,10 +8908,10 @@ $properties$periods[[120]]$name
 [1] ""
 
 $properties$periods[[120]]$startTime
-[1] "2025-11-09T14:00:00-05:00"
+[1] "2025-11-09T15:00:00-05:00"
 
 $properties$periods[[120]]$endTime
-[1] "2025-11-09T15:00:00-05:00"
+[1] "2025-11-09T16:00:00-05:00"
 
 $properties$periods[[120]]$isDaytime
 [1] TRUE
@@ -8943,7 +8950,7 @@ $properties$periods[[120]]$relativeHumidity$value
 
 
 $properties$periods[[120]]$windSpeed
-[1] "9 mph"
+[1] "10 mph"
 
 $properties$periods[[120]]$windDirection
 [1] "SW"
@@ -8966,16 +8973,16 @@ $properties$periods[[121]]$name
 [1] ""
 
 $properties$periods[[121]]$startTime
-[1] "2025-11-09T15:00:00-05:00"
+[1] "2025-11-09T16:00:00-05:00"
 
 $properties$periods[[121]]$endTime
-[1] "2025-11-09T16:00:00-05:00"
+[1] "2025-11-09T17:00:00-05:00"
 
 $properties$periods[[121]]$isDaytime
 [1] TRUE
 
 $properties$periods[[121]]$temperature
-[1] 65
+[1] 64
 
 $properties$periods[[121]]$temperatureUnit
 [1] "F"
@@ -8996,7 +9003,7 @@ $properties$periods[[121]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[121]]$dewpoint$value
-[1] 12.22222
+[1] 11.66667
 
 
 $properties$periods[[121]]$relativeHumidity
@@ -9004,7 +9011,7 @@ $properties$periods[[121]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[121]]$relativeHumidity$value
-[1] 68
+[1] 67
 
 
 $properties$periods[[121]]$windSpeed
@@ -9031,16 +9038,16 @@ $properties$periods[[122]]$name
 [1] ""
 
 $properties$periods[[122]]$startTime
-[1] "2025-11-09T16:00:00-05:00"
+[1] "2025-11-09T17:00:00-05:00"
 
 $properties$periods[[122]]$endTime
-[1] "2025-11-09T17:00:00-05:00"
+[1] "2025-11-09T18:00:00-05:00"
 
 $properties$periods[[122]]$isDaytime
 [1] TRUE
 
 $properties$periods[[122]]$temperature
-[1] 64
+[1] 62
 
 $properties$periods[[122]]$temperatureUnit
 [1] "F"
@@ -9069,14 +9076,14 @@ $properties$periods[[122]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[122]]$relativeHumidity$value
-[1] 67
+[1] 72
 
 
 $properties$periods[[122]]$windSpeed
-[1] "10 mph"
+[1] "9 mph"
 
 $properties$periods[[122]]$windDirection
-[1] "SW"
+[1] "W"
 
 $properties$periods[[122]]$icon
 [1] "https://api.weather.gov/icons/land/day/rain,50?size=small"
@@ -9096,16 +9103,16 @@ $properties$periods[[123]]$name
 [1] ""
 
 $properties$periods[[123]]$startTime
-[1] "2025-11-09T17:00:00-05:00"
-
-$properties$periods[[123]]$endTime
 [1] "2025-11-09T18:00:00-05:00"
 
+$properties$periods[[123]]$endTime
+[1] "2025-11-09T19:00:00-05:00"
+
 $properties$periods[[123]]$isDaytime
-[1] TRUE
+[1] FALSE
 
 $properties$periods[[123]]$temperature
-[1] 62
+[1] 60
 
 $properties$periods[[123]]$temperatureUnit
 [1] "F"
@@ -9126,7 +9133,7 @@ $properties$periods[[123]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[123]]$dewpoint$value
-[1] 11.66667
+[1] 11.11111
 
 
 $properties$periods[[123]]$relativeHumidity
@@ -9134,17 +9141,17 @@ $properties$periods[[123]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[123]]$relativeHumidity$value
-[1] 72
+[1] 75
 
 
 $properties$periods[[123]]$windSpeed
-[1] "9 mph"
+[1] "8 mph"
 
 $properties$periods[[123]]$windDirection
 [1] "W"
 
 $properties$periods[[123]]$icon
-[1] "https://api.weather.gov/icons/land/day/rain,50?size=small"
+[1] "https://api.weather.gov/icons/land/night/rain,50?size=small"
 
 $properties$periods[[123]]$shortForecast
 [1] "Chance Light Rain"
@@ -9161,16 +9168,16 @@ $properties$periods[[124]]$name
 [1] ""
 
 $properties$periods[[124]]$startTime
-[1] "2025-11-09T18:00:00-05:00"
+[1] "2025-11-09T19:00:00-05:00"
 
 $properties$periods[[124]]$endTime
-[1] "2025-11-09T19:00:00-05:00"
+[1] "2025-11-09T20:00:00-05:00"
 
 $properties$periods[[124]]$isDaytime
 [1] FALSE
 
 $properties$periods[[124]]$temperature
-[1] 60
+[1] 57
 
 $properties$periods[[124]]$temperatureUnit
 [1] "F"
@@ -9183,7 +9190,7 @@ $properties$periods[[124]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[124]]$probabilityOfPrecipitation$value
-[1] 46
+[1] 34
 
 
 $properties$periods[[124]]$dewpoint
@@ -9191,7 +9198,7 @@ $properties$periods[[124]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[124]]$dewpoint$value
-[1] 11.11111
+[1] 10.55556
 
 
 $properties$periods[[124]]$relativeHumidity
@@ -9199,17 +9206,17 @@ $properties$periods[[124]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[124]]$relativeHumidity$value
-[1] 75
+[1] 80
 
 
 $properties$periods[[124]]$windSpeed
-[1] "8 mph"
+[1] "7 mph"
 
 $properties$periods[[124]]$windDirection
 [1] "W"
 
 $properties$periods[[124]]$icon
-[1] "https://api.weather.gov/icons/land/night/rain,50?size=small"
+[1] "https://api.weather.gov/icons/land/night/rain,30?size=small"
 
 $properties$periods[[124]]$shortForecast
 [1] "Chance Light Rain"
@@ -9226,16 +9233,16 @@ $properties$periods[[125]]$name
 [1] ""
 
 $properties$periods[[125]]$startTime
-[1] "2025-11-09T19:00:00-05:00"
+[1] "2025-11-09T20:00:00-05:00"
 
 $properties$periods[[125]]$endTime
-[1] "2025-11-09T20:00:00-05:00"
+[1] "2025-11-09T21:00:00-05:00"
 
 $properties$periods[[125]]$isDaytime
 [1] FALSE
 
 $properties$periods[[125]]$temperature
-[1] 57
+[1] 55
 
 $properties$periods[[125]]$temperatureUnit
 [1] "F"
@@ -9256,7 +9263,7 @@ $properties$periods[[125]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[125]]$dewpoint$value
-[1] 10.55556
+[1] 10
 
 
 $properties$periods[[125]]$relativeHumidity
@@ -9264,7 +9271,7 @@ $properties$periods[[125]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[125]]$relativeHumidity$value
-[1] 80
+[1] 83
 
 
 $properties$periods[[125]]$windSpeed
@@ -9291,16 +9298,16 @@ $properties$periods[[126]]$name
 [1] ""
 
 $properties$periods[[126]]$startTime
-[1] "2025-11-09T20:00:00-05:00"
+[1] "2025-11-09T21:00:00-05:00"
 
 $properties$periods[[126]]$endTime
-[1] "2025-11-09T21:00:00-05:00"
+[1] "2025-11-09T22:00:00-05:00"
 
 $properties$periods[[126]]$isDaytime
 [1] FALSE
 
 $properties$periods[[126]]$temperature
-[1] 55
+[1] 54
 
 $properties$periods[[126]]$temperatureUnit
 [1] "F"
@@ -9321,7 +9328,7 @@ $properties$periods[[126]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[126]]$dewpoint$value
-[1] 10
+[1] 8.888889
 
 
 $properties$periods[[126]]$relativeHumidity
@@ -9329,7 +9336,7 @@ $properties$periods[[126]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[126]]$relativeHumidity$value
-[1] 83
+[1] 80
 
 
 $properties$periods[[126]]$windSpeed
@@ -9356,16 +9363,16 @@ $properties$periods[[127]]$name
 [1] ""
 
 $properties$periods[[127]]$startTime
-[1] "2025-11-09T21:00:00-05:00"
+[1] "2025-11-09T22:00:00-05:00"
 
 $properties$periods[[127]]$endTime
-[1] "2025-11-09T22:00:00-05:00"
+[1] "2025-11-09T23:00:00-05:00"
 
 $properties$periods[[127]]$isDaytime
 [1] FALSE
 
 $properties$periods[[127]]$temperature
-[1] 54
+[1] 53
 
 $properties$periods[[127]]$temperatureUnit
 [1] "F"
@@ -9386,7 +9393,7 @@ $properties$periods[[127]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[127]]$dewpoint$value
-[1] 8.888889
+[1] 8.333333
 
 
 $properties$periods[[127]]$relativeHumidity
@@ -9421,16 +9428,16 @@ $properties$periods[[128]]$name
 [1] ""
 
 $properties$periods[[128]]$startTime
-[1] "2025-11-09T22:00:00-05:00"
+[1] "2025-11-09T23:00:00-05:00"
 
 $properties$periods[[128]]$endTime
-[1] "2025-11-09T23:00:00-05:00"
+[1] "2025-11-10T00:00:00-05:00"
 
 $properties$periods[[128]]$isDaytime
 [1] FALSE
 
 $properties$periods[[128]]$temperature
-[1] 53
+[1] 52
 
 $properties$periods[[128]]$temperatureUnit
 [1] "F"
@@ -9451,7 +9458,7 @@ $properties$periods[[128]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[128]]$dewpoint$value
-[1] 8.333333
+[1] 7.777778
 
 
 $properties$periods[[128]]$relativeHumidity
@@ -9486,16 +9493,16 @@ $properties$periods[[129]]$name
 [1] ""
 
 $properties$periods[[129]]$startTime
-[1] "2025-11-09T23:00:00-05:00"
+[1] "2025-11-10T00:00:00-05:00"
 
 $properties$periods[[129]]$endTime
-[1] "2025-11-10T00:00:00-05:00"
+[1] "2025-11-10T01:00:00-05:00"
 
 $properties$periods[[129]]$isDaytime
 [1] FALSE
 
 $properties$periods[[129]]$temperature
-[1] 52
+[1] 50
 
 $properties$periods[[129]]$temperatureUnit
 [1] "F"
@@ -9516,7 +9523,7 @@ $properties$periods[[129]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[129]]$dewpoint$value
-[1] 7.777778
+[1] 6.666667
 
 
 $properties$periods[[129]]$relativeHumidity
@@ -9531,7 +9538,7 @@ $properties$periods[[129]]$windSpeed
 [1] "7 mph"
 
 $properties$periods[[129]]$windDirection
-[1] "W"
+[1] "NW"
 
 $properties$periods[[129]]$icon
 [1] "https://api.weather.gov/icons/land/night/rain,30?size=small"
@@ -9551,16 +9558,16 @@ $properties$periods[[130]]$name
 [1] ""
 
 $properties$periods[[130]]$startTime
-[1] "2025-11-10T00:00:00-05:00"
+[1] "2025-11-10T01:00:00-05:00"
 
 $properties$periods[[130]]$endTime
-[1] "2025-11-10T01:00:00-05:00"
+[1] "2025-11-10T02:00:00-05:00"
 
 $properties$periods[[130]]$isDaytime
 [1] FALSE
 
 $properties$periods[[130]]$temperature
-[1] 50
+[1] 49
 
 $properties$periods[[130]]$temperatureUnit
 [1] "F"
@@ -9573,7 +9580,7 @@ $properties$periods[[130]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[130]]$probabilityOfPrecipitation$value
-[1] 34
+[1] 21
 
 
 $properties$periods[[130]]$dewpoint
@@ -9581,7 +9588,7 @@ $properties$periods[[130]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[130]]$dewpoint$value
-[1] 6.666667
+[1] 6.111111
 
 
 $properties$periods[[130]]$relativeHumidity
@@ -9599,10 +9606,10 @@ $properties$periods[[130]]$windDirection
 [1] "NW"
 
 $properties$periods[[130]]$icon
-[1] "https://api.weather.gov/icons/land/night/rain,30?size=small"
+[1] "https://api.weather.gov/icons/land/night/rain,20?size=small"
 
 $properties$periods[[130]]$shortForecast
-[1] "Chance Light Rain"
+[1] "Slight Chance Light Rain"
 
 $properties$periods[[130]]$detailedForecast
 [1] ""
@@ -9616,16 +9623,16 @@ $properties$periods[[131]]$name
 [1] ""
 
 $properties$periods[[131]]$startTime
-[1] "2025-11-10T01:00:00-05:00"
+[1] "2025-11-10T02:00:00-05:00"
 
 $properties$periods[[131]]$endTime
-[1] "2025-11-10T02:00:00-05:00"
+[1] "2025-11-10T03:00:00-05:00"
 
 $properties$periods[[131]]$isDaytime
 [1] FALSE
 
 $properties$periods[[131]]$temperature
-[1] 49
+[1] 47
 
 $properties$periods[[131]]$temperatureUnit
 [1] "F"
@@ -9646,7 +9653,7 @@ $properties$periods[[131]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[131]]$dewpoint$value
-[1] 6.111111
+[1] 5.555556
 
 
 $properties$periods[[131]]$relativeHumidity
@@ -9654,7 +9661,7 @@ $properties$periods[[131]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[131]]$relativeHumidity$value
-[1] 80
+[1] 83
 
 
 $properties$periods[[131]]$windSpeed
@@ -9681,16 +9688,16 @@ $properties$periods[[132]]$name
 [1] ""
 
 $properties$periods[[132]]$startTime
-[1] "2025-11-10T02:00:00-05:00"
+[1] "2025-11-10T03:00:00-05:00"
 
 $properties$periods[[132]]$endTime
-[1] "2025-11-10T03:00:00-05:00"
+[1] "2025-11-10T04:00:00-05:00"
 
 $properties$periods[[132]]$isDaytime
 [1] FALSE
 
 $properties$periods[[132]]$temperature
-[1] 47
+[1] 46
 
 $properties$periods[[132]]$temperatureUnit
 [1] "F"
@@ -9711,7 +9718,7 @@ $properties$periods[[132]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[132]]$dewpoint$value
-[1] 5.555556
+[1] 4.444444
 
 
 $properties$periods[[132]]$relativeHumidity
@@ -9719,11 +9726,11 @@ $properties$periods[[132]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[132]]$relativeHumidity$value
-[1] 83
+[1] 79
 
 
 $properties$periods[[132]]$windSpeed
-[1] "7 mph"
+[1] "8 mph"
 
 $properties$periods[[132]]$windDirection
 [1] "NW"
@@ -9746,16 +9753,16 @@ $properties$periods[[133]]$name
 [1] ""
 
 $properties$periods[[133]]$startTime
-[1] "2025-11-10T03:00:00-05:00"
+[1] "2025-11-10T04:00:00-05:00"
 
 $properties$periods[[133]]$endTime
-[1] "2025-11-10T04:00:00-05:00"
+[1] "2025-11-10T05:00:00-05:00"
 
 $properties$periods[[133]]$isDaytime
 [1] FALSE
 
 $properties$periods[[133]]$temperature
-[1] 46
+[1] 44
 
 $properties$periods[[133]]$temperatureUnit
 [1] "F"
@@ -9776,7 +9783,7 @@ $properties$periods[[133]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[133]]$dewpoint$value
-[1] 4.444444
+[1] 3.888889
 
 
 $properties$periods[[133]]$relativeHumidity
@@ -9784,7 +9791,7 @@ $properties$periods[[133]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[133]]$relativeHumidity$value
-[1] 79
+[1] 82
 
 
 $properties$periods[[133]]$windSpeed
@@ -9811,16 +9818,16 @@ $properties$periods[[134]]$name
 [1] ""
 
 $properties$periods[[134]]$startTime
-[1] "2025-11-10T04:00:00-05:00"
+[1] "2025-11-10T05:00:00-05:00"
 
 $properties$periods[[134]]$endTime
-[1] "2025-11-10T05:00:00-05:00"
+[1] "2025-11-10T06:00:00-05:00"
 
 $properties$periods[[134]]$isDaytime
 [1] FALSE
 
 $properties$periods[[134]]$temperature
-[1] 44
+[1] 43
 
 $properties$periods[[134]]$temperatureUnit
 [1] "F"
@@ -9841,7 +9848,7 @@ $properties$periods[[134]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[134]]$dewpoint$value
-[1] 3.888889
+[1] 3.333333
 
 
 $properties$periods[[134]]$relativeHumidity
@@ -9876,16 +9883,16 @@ $properties$periods[[135]]$name
 [1] ""
 
 $properties$periods[[135]]$startTime
-[1] "2025-11-10T05:00:00-05:00"
-
-$properties$periods[[135]]$endTime
 [1] "2025-11-10T06:00:00-05:00"
 
+$properties$periods[[135]]$endTime
+[1] "2025-11-10T07:00:00-05:00"
+
 $properties$periods[[135]]$isDaytime
-[1] FALSE
+[1] TRUE
 
 $properties$periods[[135]]$temperature
-[1] 43
+[1] 42
 
 $properties$periods[[135]]$temperatureUnit
 [1] "F"
@@ -9906,7 +9913,7 @@ $properties$periods[[135]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[135]]$dewpoint$value
-[1] 3.333333
+[1] 2.777778
 
 
 $properties$periods[[135]]$relativeHumidity
@@ -9918,13 +9925,13 @@ $properties$periods[[135]]$relativeHumidity$value
 
 
 $properties$periods[[135]]$windSpeed
-[1] "8 mph"
+[1] "9 mph"
 
 $properties$periods[[135]]$windDirection
 [1] "NW"
 
 $properties$periods[[135]]$icon
-[1] "https://api.weather.gov/icons/land/night/rain,20?size=small"
+[1] "https://api.weather.gov/icons/land/day/rain,20?size=small"
 
 $properties$periods[[135]]$shortForecast
 [1] "Slight Chance Light Rain"
@@ -9941,10 +9948,10 @@ $properties$periods[[136]]$name
 [1] ""
 
 $properties$periods[[136]]$startTime
-[1] "2025-11-10T06:00:00-05:00"
+[1] "2025-11-10T07:00:00-05:00"
 
 $properties$periods[[136]]$endTime
-[1] "2025-11-10T07:00:00-05:00"
+[1] "2025-11-10T08:00:00-05:00"
 
 $properties$periods[[136]]$isDaytime
 [1] TRUE
@@ -9963,7 +9970,7 @@ $properties$periods[[136]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[136]]$probabilityOfPrecipitation$value
-[1] 21
+[1] 15
 
 
 $properties$periods[[136]]$dewpoint
@@ -9971,7 +9978,7 @@ $properties$periods[[136]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[136]]$dewpoint$value
-[1] 2.777778
+[1] 2.222222
 
 
 $properties$periods[[136]]$relativeHumidity
@@ -9979,7 +9986,7 @@ $properties$periods[[136]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[136]]$relativeHumidity$value
-[1] 82
+[1] 79
 
 
 $properties$periods[[136]]$windSpeed
@@ -10006,16 +10013,16 @@ $properties$periods[[137]]$name
 [1] ""
 
 $properties$periods[[137]]$startTime
-[1] "2025-11-10T07:00:00-05:00"
+[1] "2025-11-10T08:00:00-05:00"
 
 $properties$periods[[137]]$endTime
-[1] "2025-11-10T08:00:00-05:00"
+[1] "2025-11-10T09:00:00-05:00"
 
 $properties$periods[[137]]$isDaytime
 [1] TRUE
 
 $properties$periods[[137]]$temperature
-[1] 42
+[1] 43
 
 $properties$periods[[137]]$temperatureUnit
 [1] "F"
@@ -10036,7 +10043,7 @@ $properties$periods[[137]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[137]]$dewpoint$value
-[1] 2.222222
+[1] 1.666667
 
 
 $properties$periods[[137]]$relativeHumidity
@@ -10044,11 +10051,11 @@ $properties$periods[[137]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[137]]$relativeHumidity$value
-[1] 79
+[1] 73
 
 
 $properties$periods[[137]]$windSpeed
-[1] "9 mph"
+[1] "10 mph"
 
 $properties$periods[[137]]$windDirection
 [1] "NW"
@@ -10071,16 +10078,16 @@ $properties$periods[[138]]$name
 [1] ""
 
 $properties$periods[[138]]$startTime
-[1] "2025-11-10T08:00:00-05:00"
+[1] "2025-11-10T09:00:00-05:00"
 
 $properties$periods[[138]]$endTime
-[1] "2025-11-10T09:00:00-05:00"
+[1] "2025-11-10T10:00:00-05:00"
 
 $properties$periods[[138]]$isDaytime
 [1] TRUE
 
 $properties$periods[[138]]$temperature
-[1] 43
+[1] 45
 
 $properties$periods[[138]]$temperatureUnit
 [1] "F"
@@ -10109,11 +10116,11 @@ $properties$periods[[138]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[138]]$relativeHumidity$value
-[1] 73
+[1] 68
 
 
 $properties$periods[[138]]$windSpeed
-[1] "10 mph"
+[1] "12 mph"
 
 $properties$periods[[138]]$windDirection
 [1] "NW"
@@ -10136,16 +10143,16 @@ $properties$periods[[139]]$name
 [1] ""
 
 $properties$periods[[139]]$startTime
-[1] "2025-11-10T09:00:00-05:00"
+[1] "2025-11-10T10:00:00-05:00"
 
 $properties$periods[[139]]$endTime
-[1] "2025-11-10T10:00:00-05:00"
+[1] "2025-11-10T11:00:00-05:00"
 
 $properties$periods[[139]]$isDaytime
 [1] TRUE
 
 $properties$periods[[139]]$temperature
-[1] 45
+[1] 47
 
 $properties$periods[[139]]$temperatureUnit
 [1] "F"
@@ -10166,7 +10173,7 @@ $properties$periods[[139]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[139]]$dewpoint$value
-[1] 1.666667
+[1] 1.111111
 
 
 $properties$periods[[139]]$relativeHumidity
@@ -10174,7 +10181,7 @@ $properties$periods[[139]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[139]]$relativeHumidity$value
-[1] 68
+[1] 60
 
 
 $properties$periods[[139]]$windSpeed
@@ -10201,16 +10208,16 @@ $properties$periods[[140]]$name
 [1] ""
 
 $properties$periods[[140]]$startTime
-[1] "2025-11-10T10:00:00-05:00"
+[1] "2025-11-10T11:00:00-05:00"
 
 $properties$periods[[140]]$endTime
-[1] "2025-11-10T11:00:00-05:00"
+[1] "2025-11-10T12:00:00-05:00"
 
 $properties$periods[[140]]$isDaytime
 [1] TRUE
 
 $properties$periods[[140]]$temperature
-[1] 47
+[1] 48
 
 $properties$periods[[140]]$temperatureUnit
 [1] "F"
@@ -10231,7 +10238,7 @@ $properties$periods[[140]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[140]]$dewpoint$value
-[1] 1.111111
+[1] 0.5555556
 
 
 $properties$periods[[140]]$relativeHumidity
@@ -10239,11 +10246,11 @@ $properties$periods[[140]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[140]]$relativeHumidity$value
-[1] 60
+[1] 56
 
 
 $properties$periods[[140]]$windSpeed
-[1] "12 mph"
+[1] "13 mph"
 
 $properties$periods[[140]]$windDirection
 [1] "NW"
@@ -10266,16 +10273,16 @@ $properties$periods[[141]]$name
 [1] ""
 
 $properties$periods[[141]]$startTime
-[1] "2025-11-10T11:00:00-05:00"
+[1] "2025-11-10T12:00:00-05:00"
 
 $properties$periods[[141]]$endTime
-[1] "2025-11-10T12:00:00-05:00"
+[1] "2025-11-10T13:00:00-05:00"
 
 $properties$periods[[141]]$isDaytime
 [1] TRUE
 
 $properties$periods[[141]]$temperature
-[1] 48
+[1] 49
 
 $properties$periods[[141]]$temperatureUnit
 [1] "F"
@@ -10296,7 +10303,7 @@ $properties$periods[[141]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[141]]$dewpoint$value
-[1] 0.5555556
+[1] -0.5555556
 
 
 $properties$periods[[141]]$relativeHumidity
@@ -10304,11 +10311,11 @@ $properties$periods[[141]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[141]]$relativeHumidity$value
-[1] 56
+[1] 50
 
 
 $properties$periods[[141]]$windSpeed
-[1] "13 mph"
+[1] "14 mph"
 
 $properties$periods[[141]]$windDirection
 [1] "NW"
@@ -10331,10 +10338,10 @@ $properties$periods[[142]]$name
 [1] ""
 
 $properties$periods[[142]]$startTime
-[1] "2025-11-10T12:00:00-05:00"
+[1] "2025-11-10T13:00:00-05:00"
 
 $properties$periods[[142]]$endTime
-[1] "2025-11-10T13:00:00-05:00"
+[1] "2025-11-10T14:00:00-05:00"
 
 $properties$periods[[142]]$isDaytime
 [1] TRUE
@@ -10353,7 +10360,7 @@ $properties$periods[[142]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[142]]$probabilityOfPrecipitation$value
-[1] 15
+[1] 11
 
 
 $properties$periods[[142]]$dewpoint
@@ -10361,7 +10368,7 @@ $properties$periods[[142]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[142]]$dewpoint$value
-[1] -0.5555556
+[1] -1.111111
 
 
 $properties$periods[[142]]$relativeHumidity
@@ -10369,7 +10376,7 @@ $properties$periods[[142]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[142]]$relativeHumidity$value
-[1] 50
+[1] 48
 
 
 $properties$periods[[142]]$windSpeed
@@ -10379,10 +10386,10 @@ $properties$periods[[142]]$windDirection
 [1] "NW"
 
 $properties$periods[[142]]$icon
-[1] "https://api.weather.gov/icons/land/day/rain,20?size=small"
+[1] "https://api.weather.gov/icons/land/day/sct?size=small"
 
 $properties$periods[[142]]$shortForecast
-[1] "Slight Chance Light Rain"
+[1] "Mostly Sunny"
 
 $properties$periods[[142]]$detailedForecast
 [1] ""
@@ -10396,10 +10403,10 @@ $properties$periods[[143]]$name
 [1] ""
 
 $properties$periods[[143]]$startTime
-[1] "2025-11-10T13:00:00-05:00"
+[1] "2025-11-10T14:00:00-05:00"
 
 $properties$periods[[143]]$endTime
-[1] "2025-11-10T14:00:00-05:00"
+[1] "2025-11-10T15:00:00-05:00"
 
 $properties$periods[[143]]$isDaytime
 [1] TRUE
@@ -10426,7 +10433,7 @@ $properties$periods[[143]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[143]]$dewpoint$value
-[1] -1.111111
+[1] -1.666667
 
 
 $properties$periods[[143]]$relativeHumidity
@@ -10434,7 +10441,7 @@ $properties$periods[[143]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[143]]$relativeHumidity$value
-[1] 48
+[1] 46
 
 
 $properties$periods[[143]]$windSpeed
@@ -10461,16 +10468,16 @@ $properties$periods[[144]]$name
 [1] ""
 
 $properties$periods[[144]]$startTime
-[1] "2025-11-10T14:00:00-05:00"
+[1] "2025-11-10T15:00:00-05:00"
 
 $properties$periods[[144]]$endTime
-[1] "2025-11-10T15:00:00-05:00"
+[1] "2025-11-10T16:00:00-05:00"
 
 $properties$periods[[144]]$isDaytime
 [1] TRUE
 
 $properties$periods[[144]]$temperature
-[1] 49
+[1] 48
 
 $properties$periods[[144]]$temperatureUnit
 [1] "F"
@@ -10491,7 +10498,7 @@ $properties$periods[[144]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[144]]$dewpoint$value
-[1] -1.666667
+[1] -2.222222
 
 
 $properties$periods[[144]]$relativeHumidity
@@ -10526,16 +10533,16 @@ $properties$periods[[145]]$name
 [1] ""
 
 $properties$periods[[145]]$startTime
-[1] "2025-11-10T15:00:00-05:00"
+[1] "2025-11-10T16:00:00-05:00"
 
 $properties$periods[[145]]$endTime
-[1] "2025-11-10T16:00:00-05:00"
+[1] "2025-11-10T17:00:00-05:00"
 
 $properties$periods[[145]]$isDaytime
 [1] TRUE
 
 $properties$periods[[145]]$temperature
-[1] 48
+[1] 47
 
 $properties$periods[[145]]$temperatureUnit
 [1] "F"
@@ -10556,7 +10563,7 @@ $properties$periods[[145]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[145]]$dewpoint$value
-[1] -2.222222
+[1] -2.777778
 
 
 $properties$periods[[145]]$relativeHumidity
@@ -10564,11 +10571,11 @@ $properties$periods[[145]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[145]]$relativeHumidity$value
-[1] 46
+[1] 45
 
 
 $properties$periods[[145]]$windSpeed
-[1] "14 mph"
+[1] "13 mph"
 
 $properties$periods[[145]]$windDirection
 [1] "NW"
@@ -10591,16 +10598,16 @@ $properties$periods[[146]]$name
 [1] ""
 
 $properties$periods[[146]]$startTime
-[1] "2025-11-10T16:00:00-05:00"
+[1] "2025-11-10T17:00:00-05:00"
 
 $properties$periods[[146]]$endTime
-[1] "2025-11-10T17:00:00-05:00"
+[1] "2025-11-10T18:00:00-05:00"
 
 $properties$periods[[146]]$isDaytime
 [1] TRUE
 
 $properties$periods[[146]]$temperature
-[1] 47
+[1] 46
 
 $properties$periods[[146]]$temperatureUnit
 [1] "F"
@@ -10629,11 +10636,11 @@ $properties$periods[[146]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[146]]$relativeHumidity$value
-[1] 45
+[1] 47
 
 
 $properties$periods[[146]]$windSpeed
-[1] "13 mph"
+[1] "12 mph"
 
 $properties$periods[[146]]$windDirection
 [1] "NW"
@@ -10656,16 +10663,16 @@ $properties$periods[[147]]$name
 [1] ""
 
 $properties$periods[[147]]$startTime
-[1] "2025-11-10T17:00:00-05:00"
-
-$properties$periods[[147]]$endTime
 [1] "2025-11-10T18:00:00-05:00"
 
+$properties$periods[[147]]$endTime
+[1] "2025-11-10T19:00:00-05:00"
+
 $properties$periods[[147]]$isDaytime
-[1] TRUE
+[1] FALSE
 
 $properties$periods[[147]]$temperature
-[1] 46
+[1] 44
 
 $properties$periods[[147]]$temperatureUnit
 [1] "F"
@@ -10694,20 +10701,20 @@ $properties$periods[[147]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[147]]$relativeHumidity$value
-[1] 47
+[1] 51
 
 
 $properties$periods[[147]]$windSpeed
-[1] "12 mph"
+[1] "10 mph"
 
 $properties$periods[[147]]$windDirection
 [1] "NW"
 
 $properties$periods[[147]]$icon
-[1] "https://api.weather.gov/icons/land/day/sct?size=small"
+[1] "https://api.weather.gov/icons/land/night/sct?size=small"
 
 $properties$periods[[147]]$shortForecast
-[1] "Mostly Sunny"
+[1] "Partly Cloudy"
 
 $properties$periods[[147]]$detailedForecast
 [1] ""
@@ -10721,16 +10728,16 @@ $properties$periods[[148]]$name
 [1] ""
 
 $properties$periods[[148]]$startTime
-[1] "2025-11-10T18:00:00-05:00"
+[1] "2025-11-10T19:00:00-05:00"
 
 $properties$periods[[148]]$endTime
-[1] "2025-11-10T19:00:00-05:00"
+[1] "2025-11-10T20:00:00-05:00"
 
 $properties$periods[[148]]$isDaytime
 [1] FALSE
 
 $properties$periods[[148]]$temperature
-[1] 44
+[1] 42
 
 $properties$periods[[148]]$temperatureUnit
 [1] "F"
@@ -10743,7 +10750,7 @@ $properties$periods[[148]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[148]]$probabilityOfPrecipitation$value
-[1] 11
+[1] 8
 
 
 $properties$periods[[148]]$dewpoint
@@ -10759,20 +10766,20 @@ $properties$periods[[148]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[148]]$relativeHumidity$value
-[1] 51
+[1] 55
 
 
 $properties$periods[[148]]$windSpeed
-[1] "10 mph"
+[1] "9 mph"
 
 $properties$periods[[148]]$windDirection
 [1] "NW"
 
 $properties$periods[[148]]$icon
-[1] "https://api.weather.gov/icons/land/night/sct?size=small"
+[1] "https://api.weather.gov/icons/land/night/few?size=small"
 
 $properties$periods[[148]]$shortForecast
-[1] "Partly Cloudy"
+[1] "Mostly Clear"
 
 $properties$periods[[148]]$detailedForecast
 [1] ""
@@ -10786,16 +10793,16 @@ $properties$periods[[149]]$name
 [1] ""
 
 $properties$periods[[149]]$startTime
-[1] "2025-11-10T19:00:00-05:00"
+[1] "2025-11-10T20:00:00-05:00"
 
 $properties$periods[[149]]$endTime
-[1] "2025-11-10T20:00:00-05:00"
+[1] "2025-11-10T21:00:00-05:00"
 
 $properties$periods[[149]]$isDaytime
 [1] FALSE
 
 $properties$periods[[149]]$temperature
-[1] 42
+[1] 40
 
 $properties$periods[[149]]$temperatureUnit
 [1] "F"
@@ -10824,7 +10831,7 @@ $properties$periods[[149]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[149]]$relativeHumidity$value
-[1] 55
+[1] 59
 
 
 $properties$periods[[149]]$windSpeed
@@ -10851,16 +10858,16 @@ $properties$periods[[150]]$name
 [1] ""
 
 $properties$periods[[150]]$startTime
-[1] "2025-11-10T20:00:00-05:00"
+[1] "2025-11-10T21:00:00-05:00"
 
 $properties$periods[[150]]$endTime
-[1] "2025-11-10T21:00:00-05:00"
+[1] "2025-11-10T22:00:00-05:00"
 
 $properties$periods[[150]]$isDaytime
 [1] FALSE
 
 $properties$periods[[150]]$temperature
-[1] 40
+[1] 38
 
 $properties$periods[[150]]$temperatureUnit
 [1] "F"
@@ -10881,7 +10888,7 @@ $properties$periods[[150]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[150]]$dewpoint$value
-[1] -2.777778
+[1] -3.333333
 
 
 $properties$periods[[150]]$relativeHumidity
@@ -10889,11 +10896,11 @@ $properties$periods[[150]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[150]]$relativeHumidity$value
-[1] 59
+[1] 62
 
 
 $properties$periods[[150]]$windSpeed
-[1] "9 mph"
+[1] "8 mph"
 
 $properties$periods[[150]]$windDirection
 [1] "NW"
@@ -10916,16 +10923,16 @@ $properties$periods[[151]]$name
 [1] ""
 
 $properties$periods[[151]]$startTime
-[1] "2025-11-10T21:00:00-05:00"
+[1] "2025-11-10T22:00:00-05:00"
 
 $properties$periods[[151]]$endTime
-[1] "2025-11-10T22:00:00-05:00"
+[1] "2025-11-10T23:00:00-05:00"
 
 $properties$periods[[151]]$isDaytime
 [1] FALSE
 
 $properties$periods[[151]]$temperature
-[1] 38
+[1] 37
 
 $properties$periods[[151]]$temperatureUnit
 [1] "F"
@@ -10954,7 +10961,7 @@ $properties$periods[[151]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[151]]$relativeHumidity$value
-[1] 62
+[1] 64
 
 
 $properties$periods[[151]]$windSpeed
@@ -10981,16 +10988,16 @@ $properties$periods[[152]]$name
 [1] ""
 
 $properties$periods[[152]]$startTime
-[1] "2025-11-10T22:00:00-05:00"
+[1] "2025-11-10T23:00:00-05:00"
 
 $properties$periods[[152]]$endTime
-[1] "2025-11-10T23:00:00-05:00"
+[1] "2025-11-11T00:00:00-05:00"
 
 $properties$periods[[152]]$isDaytime
 [1] FALSE
 
 $properties$periods[[152]]$temperature
-[1] 37
+[1] 36
 
 $properties$periods[[152]]$temperatureUnit
 [1] "F"
@@ -11019,7 +11026,7 @@ $properties$periods[[152]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[152]]$relativeHumidity$value
-[1] 64
+[1] 67
 
 
 $properties$periods[[152]]$windSpeed
@@ -11046,16 +11053,16 @@ $properties$periods[[153]]$name
 [1] ""
 
 $properties$periods[[153]]$startTime
-[1] "2025-11-10T23:00:00-05:00"
+[1] "2025-11-11T00:00:00-05:00"
 
 $properties$periods[[153]]$endTime
-[1] "2025-11-11T00:00:00-05:00"
+[1] "2025-11-11T01:00:00-05:00"
 
 $properties$periods[[153]]$isDaytime
 [1] FALSE
 
 $properties$periods[[153]]$temperature
-[1] 36
+[1] 35
 
 $properties$periods[[153]]$temperatureUnit
 [1] "F"
@@ -11076,7 +11083,7 @@ $properties$periods[[153]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[153]]$dewpoint$value
-[1] -3.333333
+[1] -3.888889
 
 
 $properties$periods[[153]]$relativeHumidity
@@ -11084,14 +11091,14 @@ $properties$periods[[153]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[153]]$relativeHumidity$value
-[1] 67
+[1] 66
 
 
 $properties$periods[[153]]$windSpeed
 [1] "8 mph"
 
 $properties$periods[[153]]$windDirection
-[1] "NW"
+[1] "W"
 
 $properties$periods[[153]]$icon
 [1] "https://api.weather.gov/icons/land/night/few?size=small"
@@ -11111,10 +11118,10 @@ $properties$periods[[154]]$name
 [1] ""
 
 $properties$periods[[154]]$startTime
-[1] "2025-11-11T00:00:00-05:00"
+[1] "2025-11-11T01:00:00-05:00"
 
 $properties$periods[[154]]$endTime
-[1] "2025-11-11T01:00:00-05:00"
+[1] "2025-11-11T02:00:00-05:00"
 
 $properties$periods[[154]]$isDaytime
 [1] FALSE
@@ -11133,7 +11140,7 @@ $properties$periods[[154]]$probabilityOfPrecipitation$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[154]]$probabilityOfPrecipitation$value
-[1] 8
+[1] 6
 
 
 $properties$periods[[154]]$dewpoint
@@ -11153,7 +11160,7 @@ $properties$periods[[154]]$relativeHumidity$value
 
 
 $properties$periods[[154]]$windSpeed
-[1] "8 mph"
+[1] "7 mph"
 
 $properties$periods[[154]]$windDirection
 [1] "W"
@@ -11176,16 +11183,16 @@ $properties$periods[[155]]$name
 [1] ""
 
 $properties$periods[[155]]$startTime
-[1] "2025-11-11T01:00:00-05:00"
+[1] "2025-11-11T02:00:00-05:00"
 
 $properties$periods[[155]]$endTime
-[1] "2025-11-11T02:00:00-05:00"
+[1] "2025-11-11T03:00:00-05:00"
 
 $properties$periods[[155]]$isDaytime
 [1] FALSE
 
 $properties$periods[[155]]$temperature
-[1] 35
+[1] 34
 
 $properties$periods[[155]]$temperatureUnit
 [1] "F"
@@ -11214,11 +11221,11 @@ $properties$periods[[155]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[155]]$relativeHumidity$value
-[1] 66
+[1] 69
 
 
 $properties$periods[[155]]$windSpeed
-[1] "7 mph"
+[1] "8 mph"
 
 $properties$periods[[155]]$windDirection
 [1] "W"
@@ -11241,10 +11248,10 @@ $properties$periods[[156]]$name
 [1] ""
 
 $properties$periods[[156]]$startTime
-[1] "2025-11-11T02:00:00-05:00"
+[1] "2025-11-11T03:00:00-05:00"
 
 $properties$periods[[156]]$endTime
-[1] "2025-11-11T03:00:00-05:00"
+[1] "2025-11-11T04:00:00-05:00"
 
 $properties$periods[[156]]$isDaytime
 [1] FALSE
@@ -11271,7 +11278,7 @@ $properties$periods[[156]]$dewpoint$unitCode
 [1] "wmoUnit:degC"
 
 $properties$periods[[156]]$dewpoint$value
-[1] -3.888889
+[1] -4.444444
 
 
 $properties$periods[[156]]$relativeHumidity
@@ -11279,7 +11286,7 @@ $properties$periods[[156]]$relativeHumidity$unitCode
 [1] "wmoUnit:percent"
 
 $properties$periods[[156]]$relativeHumidity$value
-[1] 69
+[1] 66
 
 
 $properties$periods[[156]]$windSpeed

@@ -33,6 +33,8 @@ I will cover the following topics:
 
 - Using HHTR2 package in R
 
+- Practical example obtaining weather data using an API
+
 
 ## What are APIs {.smaller background="#43464B"}
 
@@ -202,9 +204,8 @@ NWS_response_JSON
 
 ## Forecast data from API response {.smaller background="#43464B"}
 
-- Exploring the API request() output with the glipse() function, we can focus on the Hourly 'forecast data'
-- Section: $ properties:List of 17 : 
-- ('forecastHourly     : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"', $ 'forecastGridData   : chr "https://api.weather.gov/gridpoints/LWX/97,71"')
+- Exploring the `API request() output` with the `glipse()` function, we can focus on the Hourly `forecast data`.
+- Section: $ properties:List of 17 : `forecastHourly`     : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"', $ 'forecastGridData   : chr "https://api.weather.gov/gridpoints/LWX/97,71"')
 
 ::::: columns
 ::: {.column width="40%"}
@@ -241,4 +242,13 @@ forecast_response_glipmse
 ```
 :::
 :::::
+
+## Collect Forcast data {.smaller background="#43464B"}
+
+- Using previous `API request() output` information under the `properties` section, we can extract individual temperature values.
+
+```{r Gather temperature data as a table, echo = TRUE}
+
+```
+
 
