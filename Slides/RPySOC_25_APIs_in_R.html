@@ -590,21 +590,10 @@ $properties$radarStation
 <span id="cb14-3"><a href=""></a>NWS_base_url <span class="ot">&lt;-</span> <span class="st">'https://api.weather.gov'</span> <span class="co"># Base URL </span></span>
 <span id="cb14-4"><a href=""></a></span>
 <span id="cb14-5"><a href=""></a>National_weather <span class="ot">&lt;-</span> <span class="fu">request</span>(NWS_base_url) <span class="sc">%&gt;%</span>  <span class="co"># Append now further parts of the URL. Makes a GET() request to the API</span></span>
-<span id="cb14-6"><a href=""></a>  <span class="fu">req_url_path_append</span>(</span>
-<span id="cb14-7"><a href=""></a>    <span class="st">'points'</span>,</span>
-<span id="cb14-8"><a href=""></a>    <span class="st">'38.8894,-77.0352'</span></span>
-<span id="cb14-9"><a href=""></a>  )  <span class="sc">%&gt;%</span>  <span class="co"># Append further parts to the initial URL</span></span>
-<span id="cb14-10"><a href=""></a>  <span class="fu">req_perform</span>() <span class="co"># Perform a Request to get a response </span></span>
-<span id="cb14-11"><a href=""></a>National_weather</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;httr2_response&gt;
-GET https://api.weather.gov/points/38.8894%2C-77.0352
-Status: 200 OK
-Content-Type: application/geo+json
-Body: In memory (3060 bytes)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>National_weather <span class="sc">%&gt;%</span> <span class="fu">resp_body_json</span>() <span class="sc">%&gt;%</span> <span class="co"># Display JSON file contents using glipmse()</span></span>
-<span id="cb16-2"><a href=""></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-6"><a href=""></a>  <span class="fu">req_url_path_append</span>(<span class="st">'points'</span>,<span class="st">'38.8894,-77.0352'</span>)  <span class="sc">%&gt;%</span>  <span class="co"># Append further parts to the initial URL</span></span>
+<span id="cb14-7"><a href=""></a>  <span class="fu">req_perform</span>() <span class="co"># Perform a Request to get a response </span></span>
+<span id="cb14-8"><a href=""></a>National_weather <span class="sc">%&gt;%</span> <span class="fu">resp_body_json</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb14-9"><a href=""></a>  <span class="fu">glimpse</span>() <span class="co"># Display JSON file contents using glipmse()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>List of 5
  $ @context  :List of 2
