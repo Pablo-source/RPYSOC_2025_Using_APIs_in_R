@@ -153,6 +153,9 @@ National_weather
 - Then you have to identify from the API output query, which bits to use for your analysis.
 - For that we will use the glimpse() function
 
+::::: columns
+::: {.column width="40%"}
+
 ```{r format JASON API query response, echo = TRUE}
 library(httr2)
 
@@ -168,6 +171,9 @@ National_weather
 
 National_weather %>% resp_body_json() # Display JSON file contents
 ```
+:::
+
+::: {.column width="60%"}
 
 ```{r display API query using glimpse, echo = TRUE}
 library(httr2)
@@ -175,13 +181,10 @@ library(dplyr)
 NWS_base_url <- 'https://api.weather.gov' # Base URL 
 
 National_weather <- request(NWS_base_url) %>%  # Append now further parts of the URL. Makes a GET() request to the API
-  req_url_path_append(
-    'points',
-    '38.8894,-77.0352'
-  )  %>%  # Append further parts to the initial URL
+  req_url_path_append('points','38.8894,-77.0352')  %>%  # Append further parts to the initial URL
   req_perform() # Perform a Request to get a response 
-National_weather
-
-National_weather %>% resp_body_json() %>% # Display JSON file contents using glipmse()
-  glimpse() 
+National_weather %>% resp_body_json() %>% 
+  glimpse() # Display JSON file contents using glipmse()
 ```
+:::
+:::::

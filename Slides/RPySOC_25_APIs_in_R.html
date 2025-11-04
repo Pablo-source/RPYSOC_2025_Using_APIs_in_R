@@ -364,6 +364,300 @@ Body: In memory (3060 bytes)</code></pre>
 <li>Then you have to identify from the API output query, which bits to use for your analysis.</li>
 <li>For that we will use the glimpse() function</li>
 </ul>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(httr2)</span>
+<span id="cb10-2"><a href=""></a></span>
+<span id="cb10-3"><a href=""></a>NWS_base_url <span class="ot">&lt;-</span> <span class="st">'https://api.weather.gov'</span> <span class="co"># Base URL </span></span>
+<span id="cb10-4"><a href=""></a></span>
+<span id="cb10-5"><a href=""></a>National_weather <span class="ot">&lt;-</span> <span class="fu">request</span>(NWS_base_url) <span class="sc">%&gt;%</span>  <span class="co"># Append now further parts of the URL. Makes a GET() request to the API</span></span>
+<span id="cb10-6"><a href=""></a>  <span class="fu">req_url_path_append</span>(</span>
+<span id="cb10-7"><a href=""></a>    <span class="st">'points'</span>,</span>
+<span id="cb10-8"><a href=""></a>    <span class="st">'38.8894,-77.0352'</span></span>
+<span id="cb10-9"><a href=""></a>  )  <span class="sc">%&gt;%</span>  <span class="co"># Append further parts to the initial URL</span></span>
+<span id="cb10-10"><a href=""></a>  <span class="fu">req_perform</span>() <span class="co"># Perform a Request to get a response </span></span>
+<span id="cb10-11"><a href=""></a>National_weather</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;httr2_response&gt;
+GET https://api.weather.gov/points/38.8894%2C-77.0352
+Status: 200 OK
+Content-Type: application/geo+json
+Body: In memory (3060 bytes)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>National_weather <span class="sc">%&gt;%</span> <span class="fu">resp_body_json</span>() <span class="co"># Display JSON file contents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`@context`
+$`@context`[[1]]
+[1] "https://geojson.org/geojson-ld/geojson-context.jsonld"
+
+$`@context`[[2]]
+$`@context`[[2]]$`@version`
+[1] "1.1"
+
+$`@context`[[2]]$wx
+[1] "https://api.weather.gov/ontology#"
+
+$`@context`[[2]]$s
+[1] "https://schema.org/"
+
+$`@context`[[2]]$geo
+[1] "http://www.opengis.net/ont/geosparql#"
+
+$`@context`[[2]]$unit
+[1] "http://codes.wmo.int/common/unit/"
+
+$`@context`[[2]]$`@vocab`
+[1] "https://api.weather.gov/ontology#"
+
+$`@context`[[2]]$geometry
+$`@context`[[2]]$geometry$`@id`
+[1] "s:GeoCoordinates"
+
+$`@context`[[2]]$geometry$`@type`
+[1] "geo:wktLiteral"
+
+
+$`@context`[[2]]$city
+[1] "s:addressLocality"
+
+$`@context`[[2]]$state
+[1] "s:addressRegion"
+
+$`@context`[[2]]$distance
+$`@context`[[2]]$distance$`@id`
+[1] "s:Distance"
+
+$`@context`[[2]]$distance$`@type`
+[1] "s:QuantitativeValue"
+
+
+$`@context`[[2]]$bearing
+$`@context`[[2]]$bearing$`@type`
+[1] "s:QuantitativeValue"
+
+
+$`@context`[[2]]$value
+$`@context`[[2]]$value$`@id`
+[1] "s:value"
+
+
+$`@context`[[2]]$unitCode
+$`@context`[[2]]$unitCode$`@id`
+[1] "s:unitCode"
+
+$`@context`[[2]]$unitCode$`@type`
+[1] "@id"
+
+
+$`@context`[[2]]$forecastOffice
+$`@context`[[2]]$forecastOffice$`@type`
+[1] "@id"
+
+
+$`@context`[[2]]$forecastGridData
+$`@context`[[2]]$forecastGridData$`@type`
+[1] "@id"
+
+
+$`@context`[[2]]$publicZone
+$`@context`[[2]]$publicZone$`@type`
+[1] "@id"
+
+
+$`@context`[[2]]$county
+$`@context`[[2]]$county$`@type`
+[1] "@id"
+
+
+
+
+$id
+[1] "https://api.weather.gov/points/38.8894,-77.0352"
+
+$type
+[1] "Feature"
+
+$geometry
+$geometry$type
+[1] "Point"
+
+$geometry$coordinates
+$geometry$coordinates[[1]]
+[1] -77.0352
+
+$geometry$coordinates[[2]]
+[1] 38.8894
+
+
+
+$properties
+$properties$`@id`
+[1] "https://api.weather.gov/points/38.8894,-77.0352"
+
+$properties$`@type`
+[1] "wx:Point"
+
+$properties$cwa
+[1] "LWX"
+
+$properties$forecastOffice
+[1] "https://api.weather.gov/offices/LWX"
+
+$properties$gridId
+[1] "LWX"
+
+$properties$gridX
+[1] 97
+
+$properties$gridY
+[1] 71
+
+$properties$forecast
+[1] "https://api.weather.gov/gridpoints/LWX/97,71/forecast"
+
+$properties$forecastHourly
+[1] "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"
+
+$properties$forecastGridData
+[1] "https://api.weather.gov/gridpoints/LWX/97,71"
+
+$properties$observationStations
+[1] "https://api.weather.gov/gridpoints/LWX/97,71/stations"
+
+$properties$relativeLocation
+$properties$relativeLocation$type
+[1] "Feature"
+
+$properties$relativeLocation$geometry
+$properties$relativeLocation$geometry$type
+[1] "Point"
+
+$properties$relativeLocation$geometry$coordinates
+$properties$relativeLocation$geometry$coordinates[[1]]
+[1] -77.01723
+
+$properties$relativeLocation$geometry$coordinates[[2]]
+[1] 38.9041
+
+
+
+$properties$relativeLocation$properties
+$properties$relativeLocation$properties$city
+[1] "Washington"
+
+$properties$relativeLocation$properties$state
+[1] "DC"
+
+$properties$relativeLocation$properties$distance
+$properties$relativeLocation$properties$distance$unitCode
+[1] "wmoUnit:m"
+
+$properties$relativeLocation$properties$distance$value
+[1] 2256.463
+
+
+$properties$relativeLocation$properties$bearing
+$properties$relativeLocation$properties$bearing$unitCode
+[1] "wmoUnit:degree_(angle)"
+
+$properties$relativeLocation$properties$bearing$value
+[1] 223
+
+
+
+
+$properties$forecastZone
+[1] "https://api.weather.gov/zones/forecast/DCZ001"
+
+$properties$county
+[1] "https://api.weather.gov/zones/county/DCC001"
+
+$properties$fireWeatherZone
+[1] "https://api.weather.gov/zones/fire/DCZ001"
+
+$properties$timeZone
+[1] "America/New_York"
+
+$properties$radarStation
+[1] "KLWX"</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">library</span>(httr2)</span>
+<span id="cb14-2"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb14-3"><a href=""></a>NWS_base_url <span class="ot">&lt;-</span> <span class="st">'https://api.weather.gov'</span> <span class="co"># Base URL </span></span>
+<span id="cb14-4"><a href=""></a></span>
+<span id="cb14-5"><a href=""></a>National_weather <span class="ot">&lt;-</span> <span class="fu">request</span>(NWS_base_url) <span class="sc">%&gt;%</span>  <span class="co"># Append now further parts of the URL. Makes a GET() request to the API</span></span>
+<span id="cb14-6"><a href=""></a>  <span class="fu">req_url_path_append</span>(</span>
+<span id="cb14-7"><a href=""></a>    <span class="st">'points'</span>,</span>
+<span id="cb14-8"><a href=""></a>    <span class="st">'38.8894,-77.0352'</span></span>
+<span id="cb14-9"><a href=""></a>  )  <span class="sc">%&gt;%</span>  <span class="co"># Append further parts to the initial URL</span></span>
+<span id="cb14-10"><a href=""></a>  <span class="fu">req_perform</span>() <span class="co"># Perform a Request to get a response </span></span>
+<span id="cb14-11"><a href=""></a>National_weather</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;httr2_response&gt;
+GET https://api.weather.gov/points/38.8894%2C-77.0352
+Status: 200 OK
+Content-Type: application/geo+json
+Body: In memory (3060 bytes)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>National_weather <span class="sc">%&gt;%</span> <span class="fu">resp_body_json</span>() <span class="sc">%&gt;%</span> <span class="co"># Display JSON file contents using glipmse()</span></span>
+<span id="cb16-2"><a href=""></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 5
+ $ @context  :List of 2
+  ..$ : chr "https://geojson.org/geojson-ld/geojson-context.jsonld"
+  ..$ :List of 17
+  .. ..$ @version        : chr "1.1"
+  .. ..$ wx              : chr "https://api.weather.gov/ontology#"
+  .. ..$ s               : chr "https://schema.org/"
+  .. ..$ geo             : chr "http://www.opengis.net/ont/geosparql#"
+  .. ..$ unit            : chr "http://codes.wmo.int/common/unit/"
+  .. ..$ @vocab          : chr "https://api.weather.gov/ontology#"
+  .. ..$ geometry        :List of 2
+  .. ..$ city            : chr "s:addressLocality"
+  .. ..$ state           : chr "s:addressRegion"
+  .. ..$ distance        :List of 2
+  .. ..$ bearing         :List of 1
+  .. ..$ value           :List of 1
+  .. ..$ unitCode        :List of 2
+  .. ..$ forecastOffice  :List of 1
+  .. ..$ forecastGridData:List of 1
+  .. ..$ publicZone      :List of 1
+  .. ..$ county          :List of 1
+ $ id        : chr "https://api.weather.gov/points/38.8894,-77.0352"
+ $ type      : chr "Feature"
+ $ geometry  :List of 2
+  ..$ type       : chr "Point"
+  ..$ coordinates:List of 2
+  .. ..$ : num -77
+  .. ..$ : num 38.9
+ $ properties:List of 17
+  ..$ @id                : chr "https://api.weather.gov/points/38.8894,-77.0352"
+  ..$ @type              : chr "wx:Point"
+  ..$ cwa                : chr "LWX"
+  ..$ forecastOffice     : chr "https://api.weather.gov/offices/LWX"
+  ..$ gridId             : chr "LWX"
+  ..$ gridX              : int 97
+  ..$ gridY              : int 71
+  ..$ forecast           : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast"
+  ..$ forecastHourly     : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"
+  ..$ forecastGridData   : chr "https://api.weather.gov/gridpoints/LWX/97,71"
+  ..$ observationStations: chr "https://api.weather.gov/gridpoints/LWX/97,71/stations"
+  ..$ relativeLocation   :List of 3
+  .. ..$ type      : chr "Feature"
+  .. ..$ geometry  :List of 2
+  .. ..$ properties:List of 4
+  ..$ forecastZone       : chr "https://api.weather.gov/zones/forecast/DCZ001"
+  ..$ county             : chr "https://api.weather.gov/zones/county/DCC001"
+  ..$ fireWeatherZone    : chr "https://api.weather.gov/zones/fire/DCZ001"
+  ..$ timeZone           : chr "America/New_York"
+  ..$ radarStation       : chr "KLWX"</code></pre>
+</div>
+</div>
+</div></div>
 
 </section>
     </div>
