@@ -297,14 +297,35 @@ $status
 </div>
 </div>
 </section>
-<section id="using-hhtr2-package-in-r" class="slide level2 smaller" data-background="#43464B">
-<h2>Using HHTR2 package in R</h2>
+<section id="using-hhtr2-package-in-r-2" class="slide level2 smaller" data-background="#43464B">
+<h2>Using HHTR2 package in R 2</h2>
 <ul>
-<li><p>In R there is the <strong>httr2</strong> package, that is a comprehensive HHTP client that provides a modern, pipeable API for working with web APIs.It builds on top of {curl} to provide features like explicit request objects, built-in rate limiting &amp; retry tooling, comprehensive OAuth support, and secure handling of secrets and credentials:</p></li>
-<li><p><strong>httr2</strong> package: <a href="https://tidyverse.org/blog/2025/07/httr2-1-2-0/" class="uri">https://tidyverse.org/blog/2025/07/httr2-1-2-0/</a></p></li>
+<li>In R there is the <strong>httr2</strong> package, a comprehensive HHTP client that provides a modern, pipeable API for working with web APIs.It builds on top of {curl} to provide features like explicit request objects, built-in rate limiting &amp; retry tooling.</li>
+<li>Comprehensive OAuth support</li>
+<li>And secure handling of secrets and credentials:</li>
 </ul>
-
-<img data-src="figures/04%20httr2_package_tidyverse.png" class="r-stretch"></section>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img data-src="figures/04%20httr2_package_tidyverse.png"></p>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(httr2)</span>
+<span id="cb6-2"><a href=""></a>req <span class="ot">&lt;-</span> <span class="fu">request</span>(<span class="st">"http://example.com"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href=""></a>  <span class="fu">req_auth_basic</span>(<span class="st">"username"</span>, <span class="st">"password"</span>)</span>
+<span id="cb6-4"><a href=""></a>req</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;httr2_request&gt;
+GET http://example.com
+Headers:
+* Authorization: &lt;REDACTED&gt;
+Body: empty</code></pre>
+</div>
+</div>
+</div></div>
+<ul>
+<li><strong>httr2</strong> package: <a href="https://tidyverse.org/blog/2025/07/httr2-1-2-0/" class="uri">https://tidyverse.org/blog/2025/07/httr2-1-2-0/</a></li>
+</ul>
+</section>
 <section id="obtain-oecd-official-statistics-using-an-api" class="slide level2 smaller" data-background="#43464B">
 <h2>Obtain OECD official statistics using an API</h2>
 </section>

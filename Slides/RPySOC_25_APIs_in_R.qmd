@@ -102,11 +102,11 @@ result1 <- content(sample1)
 result1
 ```
 
-## Using HHTR2 package in R {.smaller background="#43464B"}
+## Using HHTR2 package in R 2 {.smaller background="#43464B"}
 
-- In R there is the **httr2** package, that is a comprehensive HHTP client that provides a modern, pipeable API for working with web APIs.It builds on top of {curl} to provide features like explicit request objects, built-in rate limiting & retry tooling, comprehensive OAuth support, and secure handling of secrets and credentials:
-
-- **httr2** package: <https://tidyverse.org/blog/2025/07/httr2-1-2-0/>
+- In R there is the **httr2** package, a comprehensive HHTP client that provides a modern, pipeable API for working with web APIs.It builds on top of {curl} to provide features like explicit request objects, built-in rate limiting & retry tooling.
+- Comprehensive OAuth support
+- And secure handling of secrets and credentials:
 
 ::::: columns
 ::: {.column width="40%"}
@@ -120,7 +120,10 @@ req <- request("http://example.com") |>
   req_auth_basic("username", "password")
 req
 ```
+:::
+:::::
 
+- **httr2** package: <https://tidyverse.org/blog/2025/07/httr2-1-2-0/>
 
 
 ## Obtain OECD official statistics using an API {.smaller background="#43464B"}
