@@ -1,5 +1,5 @@
 # Using-APIs-in-R-to-obtain-Health-Indicators
-Using APIs in R to obtain Health indicators for interactive visualizations 
+Using APIs in R to obtain Indicators for interactive visualizations 
 
 I will showcase how to use Application Programming Interfaces (APIs) in R to gather Health and Social indicators from WHO and OECD organisations.
 
