@@ -245,10 +245,40 @@ forecast_response_glipmse
 
 ## Collect Forcast data {.smaller background="#43464B"}
 
-- Using previous `API request() output` information under the `properties` section, we can extract individual temperature values.
+- From `API request() output` information under the `properties` section, we can extract from `periods` section, single temperature values.
+- We will obtain details for one of the list of 16 values displayed previously
 
 ```{r Gather temperature data as a table, echo = TRUE}
+library(dplyr)
+library(purrr)
+# 1. Isolate periods information from API response
+library(httr2)
 
+# 1. Isolate Forecast information from API response
+Forecast_url <- NWS_response %>% 
+  resp_body_json() %>% 
+  pluck('properties','forecastHourly')
+# 2. Display forecast data
+forecast_response <- request(Forecast_url) %>% req_perform()
+# 3. Finally evaluate response output
+forecast_response_glipmse <- forecast_response  %>% resp_body_json() %>%  glimpse() # We display forecast for one hour at a time.
+# Forecast data
+forecast_data <- forecast_response %>% resp_body_json() %>% pluck('properties','periods') %>%  glimpse()
+# We focus now on ITERATING over temperature using MAP function
+# RETURN TEMPERATURE INFO AS A TIBBLE
+# Iterate over the list and get StartTime, temperature using (pluck)
+detailed_forecast <- forecast_response %>% resp_body_json() %>% 
+  pluck('properties','periods') %>% 
+  map_dfr( 
+    \(x){
+      tibble(
+        time = x %>% pluck('startTime'),
+        temp_F = x %>%  pluck('temperature')
+      )
+    }
+  
+)
+detailed_forecast
 ```
 
 
