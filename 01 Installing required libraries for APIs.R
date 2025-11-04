@@ -10,3 +10,7 @@ install.packages('curl', keep_outputs = TRUE, repos='https://ftp.fau.de/cran/')
 # required: sudo apt-get install -y libxml2-dev
 install.packages('xml2')
 library(xml2)
+
+# 3.Installing {httr2} library
+install.packages('httr2',dependencies = TRUE)
+library(httr2)
