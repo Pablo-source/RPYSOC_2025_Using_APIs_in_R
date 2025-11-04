@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="RPySOC_25_APIs_in_R_files/libs/clipboard/clipboard.min.js"></script>
-<script src="RPySOC_25_APIs_in_R_files/libs/quarto-html/tabby.min.js"></script>
-<script src="RPySOC_25_APIs_in_R_files/libs/quarto-html/popper.min.js"></script>
-<script src="RPySOC_25_APIs_in_R_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="RPySOC_25_APIs_in_R_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="RPySOC_25_APIs_in_R_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="RPySOC_25_APIs_in_R_files/libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="RPySOC_25_APIs_in_R_test_files/libs/clipboard/clipboard.min.js"></script>
+<script src="RPySOC_25_APIs_in_R_test_files/libs/quarto-html/tabby.min.js"></script>
+<script src="RPySOC_25_APIs_in_R_test_files/libs/quarto-html/popper.min.js"></script>
+<script src="RPySOC_25_APIs_in_R_test_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="RPySOC_25_APIs_in_R_test_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="RPySOC_25_APIs_in_R_test_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="RPySOC_25_APIs_in_R_test_files/libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Pablo Leon-Rodenas|Data and Analytics|NHSE|RPySOC25">
@@ -15,8 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="RPySOC_25_APIs_in_R_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="RPySOC_25_APIs_in_R_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="RPySOC_25_APIs_in_R_test_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="RPySOC_25_APIs_in_R_test_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -96,14 +96,14 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #dcc6e0; } /* Warning */
   </style>
-  <link rel="stylesheet" href="RPySOC_25_APIs_in_R_files/libs/revealjs/dist/theme/quarto-091ebfb71d12db7fc524ec91495e1509.css">
+  <link rel="stylesheet" href="RPySOC_25_APIs_in_R_test_files/libs/revealjs/dist/theme/quarto-091ebfb71d12db7fc524ec91495e1509.css">
   <link rel="stylesheet" href="styles.css">
-  <link href="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link href="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -333,6 +333,8 @@ Body: empty</code></pre>
 <li>To obtain the grid forecast for a point location, use the /points endpoint to retrieve the current grid forecast endpoint by coordinates:</li>
 <li>Using website API query example: https://api.weather.gov/points/39.7456,-97.0892</li>
 </ul>
+<div class="columns">
+<div class="column" style="width:40%;">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">library</span>(httr2)</span>
 <span id="cb8-2"><a href=""></a></span>
@@ -356,7 +358,6 @@ Body: In memory (3060 bytes)</code></pre>
 <ul>
 <li>The API will usually return a JSON format (JavaScript Object Notation). It is Structured data we can explore.</li>
 </ul>
-</section>
 <section id="obtain-the-api-response-as-a-list" class="slide level2">
 <h2>Obtain the API response as a list</h2>
 <ul>
@@ -364,7 +365,309 @@ Body: In memory (3060 bytes)</code></pre>
 <li>Then you have to identify from the API output query, which bits to use for your analysis.</li>
 <li>For that we will use the glimpse() function</li>
 </ul>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">library</span>(httr2)</span>
+<span id="cb10-2"><a href=""></a></span>
+<span id="cb10-3"><a href=""></a>NWS_base_url <span class="ot">&lt;-</span> <span class="st">'https://api.weather.gov'</span> <span class="co"># Base URL </span></span>
+<span id="cb10-4"><a href=""></a></span>
+<span id="cb10-5"><a href=""></a>National_weather <span class="ot">&lt;-</span> <span class="fu">request</span>(NWS_base_url) <span class="sc">%&gt;%</span>  <span class="co"># Append now further parts of the URL. Makes a GET() request to the API</span></span>
+<span id="cb10-6"><a href=""></a>  <span class="fu">req_url_path_append</span>(</span>
+<span id="cb10-7"><a href=""></a>    <span class="st">'points'</span>,</span>
+<span id="cb10-8"><a href=""></a>    <span class="st">'38.8894,-77.0352'</span></span>
+<span id="cb10-9"><a href=""></a>  )  <span class="sc">%&gt;%</span>  <span class="co"># Append further parts to the initial URL</span></span>
+<span id="cb10-10"><a href=""></a>  <span class="fu">req_perform</span>() <span class="co"># Perform a Request to get a response </span></span>
+<span id="cb10-11"><a href=""></a>National_weather</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;httr2_response&gt;
+GET https://api.weather.gov/points/38.8894%2C-77.0352
+Status: 200 OK
+Content-Type: application/geo+json
+Body: In memory (3060 bytes)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>National_weather <span class="sc">%&gt;%</span> <span class="fu">resp_body_json</span>() <span class="co"># Display JSON file contents</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$`@context`
+$`@context`[[1]]
+[1] "https://geojson.org/geojson-ld/geojson-context.jsonld"
 
+$`@context`[[2]]
+$`@context`[[2]]$`@version`
+[1] "1.1"
+
+$`@context`[[2]]$wx
+[1] "https://api.weather.gov/ontology#"
+
+$`@context`[[2]]$s
+[1] "https://schema.org/"
+
+$`@context`[[2]]$geo
+[1] "http://www.opengis.net/ont/geosparql#"
+
+$`@context`[[2]]$unit
+[1] "http://codes.wmo.int/common/unit/"
+
+$`@context`[[2]]$`@vocab`
+[1] "https://api.weather.gov/ontology#"
+
+$`@context`[[2]]$geometry
+$`@context`[[2]]$geometry$`@id`
+[1] "s:GeoCoordinates"
+
+$`@context`[[2]]$geometry$`@type`
+[1] "geo:wktLiteral"
+
+
+$`@context`[[2]]$city
+[1] "s:addressLocality"
+
+$`@context`[[2]]$state
+[1] "s:addressRegion"
+
+$`@context`[[2]]$distance
+$`@context`[[2]]$distance$`@id`
+[1] "s:Distance"
+
+$`@context`[[2]]$distance$`@type`
+[1] "s:QuantitativeValue"
+
+
+$`@context`[[2]]$bearing
+$`@context`[[2]]$bearing$`@type`
+[1] "s:QuantitativeValue"
+
+
+$`@context`[[2]]$value
+$`@context`[[2]]$value$`@id`
+[1] "s:value"
+
+
+$`@context`[[2]]$unitCode
+$`@context`[[2]]$unitCode$`@id`
+[1] "s:unitCode"
+
+$`@context`[[2]]$unitCode$`@type`
+[1] "@id"
+
+
+$`@context`[[2]]$forecastOffice
+$`@context`[[2]]$forecastOffice$`@type`
+[1] "@id"
+
+
+$`@context`[[2]]$forecastGridData
+$`@context`[[2]]$forecastGridData$`@type`
+[1] "@id"
+
+
+$`@context`[[2]]$publicZone
+$`@context`[[2]]$publicZone$`@type`
+[1] "@id"
+
+
+$`@context`[[2]]$county
+$`@context`[[2]]$county$`@type`
+[1] "@id"
+
+
+
+
+$id
+[1] "https://api.weather.gov/points/38.8894,-77.0352"
+
+$type
+[1] "Feature"
+
+$geometry
+$geometry$type
+[1] "Point"
+
+$geometry$coordinates
+$geometry$coordinates[[1]]
+[1] -77.0352
+
+$geometry$coordinates[[2]]
+[1] 38.8894
+
+
+
+$properties
+$properties$`@id`
+[1] "https://api.weather.gov/points/38.8894,-77.0352"
+
+$properties$`@type`
+[1] "wx:Point"
+
+$properties$cwa
+[1] "LWX"
+
+$properties$forecastOffice
+[1] "https://api.weather.gov/offices/LWX"
+
+$properties$gridId
+[1] "LWX"
+
+$properties$gridX
+[1] 97
+
+$properties$gridY
+[1] 71
+
+$properties$forecast
+[1] "https://api.weather.gov/gridpoints/LWX/97,71/forecast"
+
+$properties$forecastHourly
+[1] "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"
+
+$properties$forecastGridData
+[1] "https://api.weather.gov/gridpoints/LWX/97,71"
+
+$properties$observationStations
+[1] "https://api.weather.gov/gridpoints/LWX/97,71/stations"
+
+$properties$relativeLocation
+$properties$relativeLocation$type
+[1] "Feature"
+
+$properties$relativeLocation$geometry
+$properties$relativeLocation$geometry$type
+[1] "Point"
+
+$properties$relativeLocation$geometry$coordinates
+$properties$relativeLocation$geometry$coordinates[[1]]
+[1] -77.01723
+
+$properties$relativeLocation$geometry$coordinates[[2]]
+[1] 38.9041
+
+
+
+$properties$relativeLocation$properties
+$properties$relativeLocation$properties$city
+[1] "Washington"
+
+$properties$relativeLocation$properties$state
+[1] "DC"
+
+$properties$relativeLocation$properties$distance
+$properties$relativeLocation$properties$distance$unitCode
+[1] "wmoUnit:m"
+
+$properties$relativeLocation$properties$distance$value
+[1] 2256.463
+
+
+$properties$relativeLocation$properties$bearing
+$properties$relativeLocation$properties$bearing$unitCode
+[1] "wmoUnit:degree_(angle)"
+
+$properties$relativeLocation$properties$bearing$value
+[1] 223
+
+
+
+
+$properties$forecastZone
+[1] "https://api.weather.gov/zones/forecast/DCZ001"
+
+$properties$county
+[1] "https://api.weather.gov/zones/county/DCC001"
+
+$properties$fireWeatherZone
+[1] "https://api.weather.gov/zones/fire/DCZ001"
+
+$properties$timeZone
+[1] "America/New_York"
+
+$properties$radarStation
+[1] "KLWX"</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="fu">library</span>(httr2)</span>
+<span id="cb14-2"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb14-3"><a href=""></a>NWS_base_url <span class="ot">&lt;-</span> <span class="st">'https://api.weather.gov'</span> <span class="co"># Base URL </span></span>
+<span id="cb14-4"><a href=""></a></span>
+<span id="cb14-5"><a href=""></a>National_weather <span class="ot">&lt;-</span> <span class="fu">request</span>(NWS_base_url) <span class="sc">%&gt;%</span>  <span class="co"># Append now further parts of the URL. Makes a GET() request to the API</span></span>
+<span id="cb14-6"><a href=""></a>  <span class="fu">req_url_path_append</span>(</span>
+<span id="cb14-7"><a href=""></a>    <span class="st">'points'</span>,</span>
+<span id="cb14-8"><a href=""></a>    <span class="st">'38.8894,-77.0352'</span></span>
+<span id="cb14-9"><a href=""></a>  )  <span class="sc">%&gt;%</span>  <span class="co"># Append further parts to the initial URL</span></span>
+<span id="cb14-10"><a href=""></a>  <span class="fu">req_perform</span>() <span class="co"># Perform a Request to get a response </span></span>
+<span id="cb14-11"><a href=""></a>National_weather</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;httr2_response&gt;
+GET https://api.weather.gov/points/38.8894%2C-77.0352
+Status: 200 OK
+Content-Type: application/geo+json
+Body: In memory (3060 bytes)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>National_weather <span class="sc">%&gt;%</span> <span class="fu">resp_body_json</span>() <span class="sc">%&gt;%</span> <span class="co"># Display JSON file contents using glipmse()</span></span>
+<span id="cb16-2"><a href=""></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 5
+ $ @context  :List of 2
+  ..$ : chr "https://geojson.org/geojson-ld/geojson-context.jsonld"
+  ..$ :List of 17
+  .. ..$ @version        : chr "1.1"
+  .. ..$ wx              : chr "https://api.weather.gov/ontology#"
+  .. ..$ s               : chr "https://schema.org/"
+  .. ..$ geo             : chr "http://www.opengis.net/ont/geosparql#"
+  .. ..$ unit            : chr "http://codes.wmo.int/common/unit/"
+  .. ..$ @vocab          : chr "https://api.weather.gov/ontology#"
+  .. ..$ geometry        :List of 2
+  .. ..$ city            : chr "s:addressLocality"
+  .. ..$ state           : chr "s:addressRegion"
+  .. ..$ distance        :List of 2
+  .. ..$ bearing         :List of 1
+  .. ..$ value           :List of 1
+  .. ..$ unitCode        :List of 2
+  .. ..$ forecastOffice  :List of 1
+  .. ..$ forecastGridData:List of 1
+  .. ..$ publicZone      :List of 1
+  .. ..$ county          :List of 1
+ $ id        : chr "https://api.weather.gov/points/38.8894,-77.0352"
+ $ type      : chr "Feature"
+ $ geometry  :List of 2
+  ..$ type       : chr "Point"
+  ..$ coordinates:List of 2
+  .. ..$ : num -77
+  .. ..$ : num 38.9
+ $ properties:List of 17
+  ..$ @id                : chr "https://api.weather.gov/points/38.8894,-77.0352"
+  ..$ @type              : chr "wx:Point"
+  ..$ cwa                : chr "LWX"
+  ..$ forecastOffice     : chr "https://api.weather.gov/offices/LWX"
+  ..$ gridId             : chr "LWX"
+  ..$ gridX              : int 97
+  ..$ gridY              : int 71
+  ..$ forecast           : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast"
+  ..$ forecastHourly     : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"
+  ..$ forecastGridData   : chr "https://api.weather.gov/gridpoints/LWX/97,71"
+  ..$ observationStations: chr "https://api.weather.gov/gridpoints/LWX/97,71/stations"
+  ..$ relativeLocation   :List of 3
+  .. ..$ type      : chr "Feature"
+  .. ..$ geometry  :List of 2
+  .. ..$ properties:List of 4
+  ..$ forecastZone       : chr "https://api.weather.gov/zones/forecast/DCZ001"
+  ..$ county             : chr "https://api.weather.gov/zones/county/DCC001"
+  ..$ fireWeatherZone    : chr "https://api.weather.gov/zones/fire/DCZ001"
+  ..$ timeZone           : chr "America/New_York"
+  ..$ radarStation       : chr "KLWX"</code></pre>
+</div>
+</div>
+</div></div>
+</section>
+<section id="obtain-oecd-official-statistics-using-an-api" class="slide level2 smaller" data-background="#43464B">
+<h2>Obtain OECD official statistics using an API</h2>
+</section>
+<section id="questions" class="slide level2 smaller" data-background="#43464B">
+<h2>Questions</h2>
+
+</section>
+</div></div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -375,20 +678,20 @@ Body: In memory (3060 bytes)</code></pre>
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="RPySOC_25_APIs_in_R_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="RPySOC_25_APIs_in_R_test_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="RPySOC_25_APIs_in_R_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="RPySOC_25_APIs_in_R_test_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

@@ -68,7 +68,7 @@ library(jsonlite)
 :::::
 
 -   Example: Utility Rate Database API. Information and residential electricity rate by location.(Electricity consumption
--   We can use the API for example to obtain a
+-   We can use the API for example to obtain a 
 
 ```{r GET request, echo=TRUE}
 # Data.gov Utility Rates API
@@ -104,13 +104,13 @@ result1
 
 ## Using HHTR2 package in R 2 {.smaller background="#43464B"}
 
--   In R there is the **httr2** package, a comprehensive HHTP client that provides a modern, pipeable API for working with web APIs.
--   Builds on top of {curl} to provide features like explicit request objects, built-in rate limiting & retry tooling.Comprehensive OAuth support
--   And secure handling of secrets and credentials:
+- In R there is the **httr2** package, a comprehensive HHTP client that provides a modern, pipeable API for working with web APIs.
+- Builds on top of {curl} to provide features like explicit request objects, built-in rate limiting & retry tooling.Comprehensive OAuth support
+- And secure handling of secrets and credentials:
 
 ::::: columns
 ::: {.column width="40%"}
-![](figures/04%20httr2_package_tidyverse.png)
+![](figures/04 httr2_package_tidyverse.png)
 :::
 
 ::: {.column width="60%"}
@@ -123,13 +123,18 @@ req
 :::
 :::::
 
--   **httr2** package: <https://tidyverse.org/blog/2025/07/httr2-1-2-0/>
+- **httr2** package: <https://tidyverse.org/blog/2025/07/httr2-1-2-0/>
 
 ## Making requests through an API {.smaller background="#43464B"}
 
--   Get data from US National Weather Service using an API: <https://www.weather.gov/documentation/services-web-api>
--   To obtain the grid forecast for a point location, use the /points endpoint to retrieve the current grid forecast endpoint by coordinates:
--   Using website API query example: https://api.weather.gov/points/39.7456,-97.0892
+- Get data from US National Weather Service using an API: <https://www.weather.gov/documentation/services-web-api>
+- To obtain the grid forecast for a point location, use the /points endpoint to retrieve the current grid forecast endpoint by coordinates:
+- Using website API query example: https://api.weather.gov/points/39.7456,-97.0892
+
+::::: columns
+::: {.column width="40%"}
+
+
 
 ```{r initial weather data API,echo=TRUE}
 library(httr2)
@@ -145,13 +150,17 @@ National_weather <- request(NWS_base_url) %>%  # Append now further parts of the
 National_weather
 ```
 
--   The API will usually return a JSON format (JavaScript Object Notation). It is Structured data we can explore.
+- The API will usually return a JSON format (JavaScript Object Notation). It is Structured data we can explore.
+
 
 ## Obtain the API response as a list
 
 - We can display the contents of the JASON file in a more readable way: 
 - Then you have to identify from the API output query, which bits to use for your analysis.
 - For that we will use the glimpse() function
+
+::::: columns
+::: {.column width="40%"}
 
 ```{r format JASON API query response, echo = TRUE}
 library(httr2)
@@ -169,6 +178,9 @@ National_weather
 National_weather %>% resp_body_json() # Display JSON file contents
 ```
 
+:::
+
+::: {.column width="60%"}
 ```{r display API query using glimpse, echo = TRUE}
 library(httr2)
 library(dplyr)
@@ -185,3 +197,15 @@ National_weather
 National_weather %>% resp_body_json() %>% # Display JSON file contents using glipmse()
   glimpse() 
 ```
+:::
+:::::
+
+
+
+
+
+
+
+## Obtain OECD official statistics using an API {.smaller background="#43464B"}
+
+## Questions {.smaller background="#43464B"}
