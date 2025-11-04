@@ -45,7 +45,7 @@ This communication enables us to `collect data` from `various sources`, such as 
 
 ## R packages to setup APIS {.smaller background="#43464B"}
 
-- We will start by using `{httr}` and `{jsonlite}` R libraries. These libraries handle the complexities of API request as functions, that can be easily used.
+-   We will start by using `{httr}` and `{jsonlite}` R libraries. These libraries handle the complexities of API request as functions, that can be easily used.
 
 ```{r load and install httr jsonlite libraries, echo=TRUE}
 # install.packages(c("httr","jsonlite"),dependencies = TRUE)
@@ -53,20 +53,23 @@ library(httr)
 library(jsonlite)
 ```
 
-::: columns
+::::: columns
 ::: {.column width="40%"}
-- After loading required libraries, we make a **request** to the API in R. 
-- The request is sent to the computer that has the API. And I sends back a response
+-   After loading required libraries, we make a **request** to the API in R.
 
-- The most simple request is to ask for data using a **GET** request. It requires a URL 
+-   The request is sent to the computer that has the API. And I sends back a response
+
+-   The most simple request is to ask for data using a **GET** request. It requires a URL
 :::
 
 ::: {.column width="60%"}
-![](figures/03 API request response.png)
+![](figures/03%20API%20request%20response.png)
 :::
-:::
+:::::
 
-- We will work with Open Notify API, which allows us to access NASA data.
+-   Example: Utility Rate Database API. Information and residential electricity rate by location.(Electricity consumption
+-   We can use the API for example to obtain a 
+
 ```{r GET request, echo=TRUE}
 # Data.gov Utility Rates API
 sample2 <- GET("http://api.data.gov/nrel/utility_rates/v3.json?api_key=sample_key&address=1600+Amphitheatre+Parkway,+Mountain+View,+CA")
@@ -74,21 +77,40 @@ sample2 <- GET("http://api.data.gov/nrel/utility_rates/v3.json?api_key=sample_ke
 content(sample2)
 ```
 
-
 Source: <https://www.dataquest.io/blog/r-api-tutorial/>
 
 ## Different Types of APIs requests {.smaller background="#43464B"}
 
-- Different Types of requests
+-   Different Types of requests
 
-- GET: Asking for data to an API. Using GET() function from {httr} library: <https://httr.r-lib.org/reference/GET.html>
-- POST: It is used to send data to a server to create/update a resource:<https://httr.r-lib.org/reference/POST.html>
-- PUT: is used to send data to a server to create/update a resource:
-<https://httr.r-lib.org/reference/PUT.html?q=PUT#null>
+-   GET: Asking for data to an API. Using GET() function from {httr} library: <https://httr.r-lib.org/reference/GET.html>
 
-- Calling same PUT request multiple times will always produce the same result, whilst calling a POST request repeatedly have side effects of creating the same resource multiple times
+-   POST: It is used to send data to a server to create/update a resource:<https://httr.r-lib.org/reference/POST.html>
+
+-   PUT: is used to send data to a server to create/update a resource: <https://httr.r-lib.org/reference/PUT.html?q=PUT#null>
+
+-   Calling same PUT request multiple times will always produce the same result, whilst calling a POST request repeatedly have side effects of creating the same resource multiple times
 
 ## Configure an API query {.smaller background="#43464B"}
+
+Another API example, only required parameter is an address. You provide a key (API Key) if you would like to track the API requests being made.
+
+```{r Get Lat Long coord API,echo=TRUE}
+add1 <- "1600 Amphitheatre Parkway, Mountain View, CA"
+sample1 <- GET("https://maps.googleapis.com/maps/api/geocode/json", query = list(address = add1))
+result1 <- content(sample1)
+result1
+```
+
+## Using HHTR2 package in R {.smaller background="#43464B"}
+
+- In R there is the **httr2** package, that is a comprehensive HHTP client that provides a modern, pipeable API for working with web APIs.It builds on top of {curl} to provide features like explicit request objects, built-in rate limiting & retry tooling, comprehensive OAuth support, and secure handling of secrets and credentials:
+
+- **httr2** package: <https://tidyverse.org/blog/2025/07/httr2-1-2-0/>
+
+![](figures/04 httr2_package_tidyverse.png)
+
+
 
 ## Obtain OECD official statistics using an API {.smaller background="#43464B"}
 
