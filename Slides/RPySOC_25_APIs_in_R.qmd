@@ -1,5 +1,5 @@
 ---
-title: "Using APIs in R to obtain Health indicators for interactive visualizations"
+title: "Using APIs in R to obtain Indicators for interactive visualizations"
 author: "`Pablo Leon-Rodenas|Data and Analytics|NHSE|RPySOC25`" 
 date: 11/13/2025
 date-format: long
@@ -261,9 +261,9 @@ Forecast_url <- NWS_response %>%
 # 2. Display forecast data
 forecast_response <- request(Forecast_url) %>% req_perform()
 # 3. Finally evaluate response output
-forecast_response_glipmse <- forecast_response  %>% resp_body_json() %>%  glimpse() # We display forecast for one hour at a time.
+#    forecast_response_glipmse <- forecast_response  %>% resp_body_json() %>%  glimpse() # We display forecast for one hour at a time.
 # Forecast data
-forecast_data <- forecast_response %>% resp_body_json() %>% pluck('properties','periods') %>%  glimpse()
+#     forecast_data <- forecast_response %>% resp_body_json() %>% pluck('properties','periods') %>%  glimpse()
 # We focus now on ITERATING over temperature using MAP function
 # RETURN TEMPERATURE INFO AS A TIBBLE
 # Iterate over the list and get StartTime, temperature using (pluck)
@@ -282,3 +282,50 @@ detailed_forecast
 ```
 
 
+## Present it as a Tibble {.smaller background="#43464B"}
+
+- From the previous slide, we can simplify the code to present the required daily temperature to be used in a plots or dashboards: 
+- As explained earlier, making use of `map_df()` function we can select `time` and `temperature` to be used in **dashboards** or **Quarto reports**
+
+```{r Tiblle daily temperature, echo=TRUE}
+library(dplyr)
+library(purrr)
+# 1. Isolate periods information from API response
+library(httr2)
+
+detailed_forecast <- forecast_response %>% resp_body_json() %>% 
+  pluck('properties','periods') %>% 
+  map_dfr( 
+    \(x){
+      tibble(
+        time = x %>% pluck('startTime'),
+        temp_F = x %>%  pluck('temperature')
+      )
+    }
+  
+)
+detailed_forecast
+```
+
+## Store API data as Tibble or Dataframe {.smaller background="#43464B"}
+
+- Once we have the data extracted from the API in a Tibble format, we can easily transform it into a `Dataframe` and build `Dashboards` or `Parameterized reports`. 
+- So we can tweak any API we can extract data with to select and choose those fields with relevant information. Automating the data colection process.
+
+- **Shiny App example**
+![](figures/05 Shiny app example.png)
+- <https://github.com/Pablo-source/RPYSOC_2024_Docker_Shiny>
+
+- **Shiny app Using Leaflet and geospatial data **
+- <https://github.com/Pablo-source/Basic-Shiny-app>
+![](figures/06 Geospatial data Shiny app.png)
+
+
+- or **Parameterized reports**
+<https://github.com/Pablo-source/Eurostat_labour_market/tree/main/Parameterized%20reports>
+
+
+## Online resources
+
+- National Weather Service API
+<https://www.weather.gov/documentation/services-web-api>

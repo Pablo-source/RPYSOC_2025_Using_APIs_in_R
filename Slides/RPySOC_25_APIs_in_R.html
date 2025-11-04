@@ -11306,6 +11306,103 @@ $properties$periods[[156]]$detailedForecast
 </div>
 </div>
 </div></div>
+</section>
+<section id="collect-forcast-data" class="slide level2 smaller" data-background="#43464B">
+<h2>Collect Forcast data</h2>
+<ul>
+<li>From <code>API request() output</code> information under the <code>properties</code> section, we can extract from <code>periods</code> section, single temperature values.</li>
+<li>We will obtain details for one of the list of 16 values displayed previously</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb25-2"><a href=""></a><span class="fu">library</span>(purrr)</span>
+<span id="cb25-3"><a href=""></a><span class="co"># 1. Isolate periods information from API response</span></span>
+<span id="cb25-4"><a href=""></a><span class="fu">library</span>(httr2)</span>
+<span id="cb25-5"><a href=""></a></span>
+<span id="cb25-6"><a href=""></a><span class="co"># 1. Isolate Forecast information from API response</span></span>
+<span id="cb25-7"><a href=""></a>Forecast_url <span class="ot">&lt;-</span> NWS_response <span class="sc">%&gt;%</span> </span>
+<span id="cb25-8"><a href=""></a>  <span class="fu">resp_body_json</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb25-9"><a href=""></a>  <span class="fu">pluck</span>(<span class="st">'properties'</span>,<span class="st">'forecastHourly'</span>)</span>
+<span id="cb25-10"><a href=""></a><span class="co"># 2. Display forecast data</span></span>
+<span id="cb25-11"><a href=""></a>forecast_response <span class="ot">&lt;-</span> <span class="fu">request</span>(Forecast_url) <span class="sc">%&gt;%</span> <span class="fu">req_perform</span>()</span>
+<span id="cb25-12"><a href=""></a><span class="co"># 3. Finally evaluate response output</span></span>
+<span id="cb25-13"><a href=""></a><span class="co">#    forecast_response_glipmse &lt;- forecast_response  %&gt;% resp_body_json() %&gt;%  glimpse() # We display forecast for one hour at a time.</span></span>
+<span id="cb25-14"><a href=""></a><span class="co"># Forecast data</span></span>
+<span id="cb25-15"><a href=""></a><span class="co">#     forecast_data &lt;- forecast_response %&gt;% resp_body_json() %&gt;% pluck('properties','periods') %&gt;%  glimpse()</span></span>
+<span id="cb25-16"><a href=""></a><span class="co"># We focus now on ITERATING over temperature using MAP function</span></span>
+<span id="cb25-17"><a href=""></a><span class="co"># RETURN TEMPERATURE INFO AS A TIBBLE</span></span>
+<span id="cb25-18"><a href=""></a><span class="co"># Iterate over the list and get StartTime, temperature using (pluck)</span></span>
+<span id="cb25-19"><a href=""></a>detailed_forecast <span class="ot">&lt;-</span> forecast_response <span class="sc">%&gt;%</span> <span class="fu">resp_body_json</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb25-20"><a href=""></a>  <span class="fu">pluck</span>(<span class="st">'properties'</span>,<span class="st">'periods'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-21"><a href=""></a>  <span class="fu">map_dfr</span>( </span>
+<span id="cb25-22"><a href=""></a>    \(x){</span>
+<span id="cb25-23"><a href=""></a>      <span class="fu">tibble</span>(</span>
+<span id="cb25-24"><a href=""></a>        <span class="at">time =</span> x <span class="sc">%&gt;%</span> <span class="fu">pluck</span>(<span class="st">'startTime'</span>),</span>
+<span id="cb25-25"><a href=""></a>        <span class="at">temp_F =</span> x <span class="sc">%&gt;%</span>  <span class="fu">pluck</span>(<span class="st">'temperature'</span>)</span>
+<span id="cb25-26"><a href=""></a>      )</span>
+<span id="cb25-27"><a href=""></a>    }</span>
+<span id="cb25-28"><a href=""></a>  </span>
+<span id="cb25-29"><a href=""></a>)</span>
+<span id="cb25-30"><a href=""></a>detailed_forecast</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 156 × 2
+   time                      temp_F
+   &lt;chr&gt;                      &lt;int&gt;
+ 1 2025-11-04T16:00:00-05:00     62
+ 2 2025-11-04T17:00:00-05:00     59
+ 3 2025-11-04T18:00:00-05:00     57
+ 4 2025-11-04T19:00:00-05:00     55
+ 5 2025-11-04T20:00:00-05:00     51
+ 6 2025-11-04T21:00:00-05:00     50
+ 7 2025-11-04T22:00:00-05:00     48
+ 8 2025-11-04T23:00:00-05:00     48
+ 9 2025-11-05T00:00:00-05:00     47
+10 2025-11-05T01:00:00-05:00     46
+# ℹ 146 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="present-it-as-a-tibble" class="slide level2 smaller" data-background="#43464B">
+<h2>Present it as a Tibble</h2>
+<ul>
+<li>From the previous slide, we can simplify the code to present the required daily temperature to be used in a plots or dashboards:</li>
+<li>As explained earlier, making use of <code>map_df()</code> function we can select <code>time</code> and <code>temperature</code> to be used in <strong>dashboards</strong> or <strong>Quarto reports</strong></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb27-2"><a href=""></a><span class="fu">library</span>(purrr)</span>
+<span id="cb27-3"><a href=""></a><span class="co"># 1. Isolate periods information from API response</span></span>
+<span id="cb27-4"><a href=""></a><span class="fu">library</span>(httr2)</span>
+<span id="cb27-5"><a href=""></a></span>
+<span id="cb27-6"><a href=""></a>detailed_forecast <span class="ot">&lt;-</span> forecast_response <span class="sc">%&gt;%</span> <span class="fu">resp_body_json</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb27-7"><a href=""></a>  <span class="fu">pluck</span>(<span class="st">'properties'</span>,<span class="st">'periods'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-8"><a href=""></a>  <span class="fu">map_dfr</span>( </span>
+<span id="cb27-9"><a href=""></a>    \(x){</span>
+<span id="cb27-10"><a href=""></a>      <span class="fu">tibble</span>(</span>
+<span id="cb27-11"><a href=""></a>        <span class="at">time =</span> x <span class="sc">%&gt;%</span> <span class="fu">pluck</span>(<span class="st">'startTime'</span>),</span>
+<span id="cb27-12"><a href=""></a>        <span class="at">temp_F =</span> x <span class="sc">%&gt;%</span>  <span class="fu">pluck</span>(<span class="st">'temperature'</span>)</span>
+<span id="cb27-13"><a href=""></a>      )</span>
+<span id="cb27-14"><a href=""></a>    }</span>
+<span id="cb27-15"><a href=""></a>  </span>
+<span id="cb27-16"><a href=""></a>)</span>
+<span id="cb27-17"><a href=""></a>detailed_forecast</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 156 × 2
+   time                      temp_F
+   &lt;chr&gt;                      &lt;int&gt;
+ 1 2025-11-04T16:00:00-05:00     62
+ 2 2025-11-04T17:00:00-05:00     59
+ 3 2025-11-04T18:00:00-05:00     57
+ 4 2025-11-04T19:00:00-05:00     55
+ 5 2025-11-04T20:00:00-05:00     51
+ 6 2025-11-04T21:00:00-05:00     50
+ 7 2025-11-04T22:00:00-05:00     48
+ 8 2025-11-04T23:00:00-05:00     48
+ 9 2025-11-05T00:00:00-05:00     47
+10 2025-11-05T01:00:00-05:00     46
+# ℹ 146 more rows</code></pre>
+</div>
+</div>
 
 </section>
     </div>
