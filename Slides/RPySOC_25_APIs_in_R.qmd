@@ -104,8 +104,8 @@ result1
 
 ## Using HHTR2 package in R 2 {.smaller background="#43464B"}
 
-- In R there is the **httr2** package, a comprehensive HHTP client that provides a modern, pipeable API for working with web APIs.It builds on top of {curl} to provide features like explicit request objects, built-in rate limiting & retry tooling.
-- Comprehensive OAuth support
+- In R there is the **httr2** package, a comprehensive HHTP client that provides a modern, pipeable API for working with web APIs.
+- Builds on top of {curl} to provide features like explicit request objects, built-in rate limiting & retry tooling.Comprehensive OAuth support
 - And secure handling of secrets and credentials:
 
 ::::: columns
@@ -124,6 +124,40 @@ req
 :::::
 
 - **httr2** package: <https://tidyverse.org/blog/2025/07/httr2-1-2-0/>
+
+## How to make a request through an API
+
+- Obtain weather data using URL. From the US National Weatehr service
+- We pass the request to the req_* function
+- Get data from US National Weather Service using an API: <https://www.weather.gov/documentation/services-web-api>
+- To obtain the grid forecast for a point location, use the /points endpoint to retrieve the current grid forecast endpoint by coordinates:
+- Following example from the above website: For example: https://api.weather.gov/points/39.7456,-97.0892
+
+```{r initial weather data API}
+library(httr2)
+
+base_url <- 'https://api.weather.gov' # Base URL 
+
+request(base_url) %>%  # Append now further parts of the URL. Makes a GET() request to the API
+  req_url_path_append(
+    'points',
+    '38.8894,-77.0352'
+  )  %>%  # Append further parts to the initial URL
+  req_perform() # Perform a Request to get a response 
+  
+```
+
+```{r API request example using httr2, echo = TRUE}
+
+
+response <- request(base_url) %>% 
+  req_*() %>% 
+  req_perform()    # Perform a request to get a response
+
+# Untungle what you obtain. 
+
+```
+
 
 
 ## Obtain OECD official statistics using an API {.smaller background="#43464B"}
