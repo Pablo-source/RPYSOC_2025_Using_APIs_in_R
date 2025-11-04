@@ -250,7 +250,8 @@
 <p><img data-src="figures/03%20API%20request%20response.png"></p>
 </div></div>
 <ul>
-<li>We will work with Open Notify API, which allows us to access NASA data.</li>
+<li>Example: Utility Rate Database API. Information and residential electricity rate by location.(Electricity consumption</li>
+<li>We can use the API for example to obtain a</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># Data.gov Utility Rates API</span></span>
@@ -278,7 +279,32 @@
 </section>
 <section id="configure-an-api-query" class="slide level2 smaller" data-background="#43464B">
 <h2>Configure an API query</h2>
+<p>Another API example, only required parameter is an address. You provide a key (API Key) if you would like to track the API requests being made.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>add1 <span class="ot">&lt;-</span> <span class="st">"1600 Amphitheatre Parkway, Mountain View, CA"</span></span>
+<span id="cb4-2"><a href=""></a>sample1 <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">"https://maps.googleapis.com/maps/api/geocode/json"</span>, <span class="at">query =</span> <span class="fu">list</span>(<span class="at">address =</span> add1))</span>
+<span id="cb4-3"><a href=""></a>result1 <span class="ot">&lt;-</span> <span class="fu">content</span>(sample1)</span>
+<span id="cb4-4"><a href=""></a>result1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$error_message
+[1] "You must use an API key to authenticate each request to Google Maps Platform APIs. For additional information, please refer to http://g.co/dev/maps-no-account"
+
+$results
+list()
+
+$status
+[1] "REQUEST_DENIED"</code></pre>
+</div>
+</div>
 </section>
+<section id="using-hhtr2-package-in-r" class="slide level2 smaller" data-background="#43464B">
+<h2>Using HHTR2 package in R</h2>
+<ul>
+<li><p>In R there is the <strong>httr2</strong> package, that is a comprehensive HHTP client that provides a modern, pipeable API for working with web APIs.It builds on top of {curl} to provide features like explicit request objects, built-in rate limiting &amp; retry tooling, comprehensive OAuth support, and secure handling of secrets and credentials:</p></li>
+<li><p><strong>httr2</strong> package: <a href="https://tidyverse.org/blog/2025/07/httr2-1-2-0/" class="uri">https://tidyverse.org/blog/2025/07/httr2-1-2-0/</a></p></li>
+</ul>
+
+<img data-src="figures/04%20httr2_package_tidyverse.png" class="r-stretch"></section>
 <section id="obtain-oecd-official-statistics-using-an-api" class="slide level2 smaller" data-background="#43464B">
 <h2>Obtain OECD official statistics using an API</h2>
 </section>

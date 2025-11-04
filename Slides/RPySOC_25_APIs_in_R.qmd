@@ -108,7 +108,18 @@ result1
 
 - **httr2** package: <https://tidyverse.org/blog/2025/07/httr2-1-2-0/>
 
+::::: columns
+::: {.column width="40%"}
 ![](figures/04 httr2_package_tidyverse.png)
+:::
+
+::: {.column width="60%"}
+```{r Using HTTR2 package with security features ,echo=TRUE}
+library(httr2)
+req <- request("http://example.com") |>
+  req_auth_basic("username", "password")
+req
+```
 
 
 
