@@ -101,7 +101,7 @@ Source: <https://www.dataquest.io/blog/r-api-tutorial/>
 
 ## Configure an API query {.smaller background="#43464B"}
 
-Another API example, only required parameter is an address. You provide a key (API Key) if you would like to track the API requests being made.
+Another `API example`, only required `parameter` is an `address`. You provide a key (`API Key`) if you would like to track the API requests being made.
 
 ```{r Get Lat Long coord API,echo=TRUE}
 add1 <- "1600 Amphitheatre Parkway, Mountain View, CA"
