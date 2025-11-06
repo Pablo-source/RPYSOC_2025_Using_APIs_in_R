@@ -10,8 +10,6 @@ format:
     smaller: true 
     theme: dark
     slide-number: true
-    chalkboard: 
-      buttons: false
     preview-links: auto
     logo: figures/quarto.png
     css: styles.css
