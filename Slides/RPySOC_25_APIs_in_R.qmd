@@ -21,15 +21,15 @@ format:
 
 I will cover the following topics:
 
--   What are APIs Application Programming Interface
+-   `What are APIs` Application Programming Interface
 
--   Key concepts using APIs: HTTP Requests, Authentication, Data Formats, Rate Limits, Error Handling
+-   Key `concepts` using APIs: HTTP Requests, Authentication, Data Formats, Rate Limits, Error Handling
 
--   Libraries required in R to interact and query APIs
+-   `Libraries` required in `R` to interact and query `APIs`
 
--   Using HHTR2 package in R
+-   Using `HHTR2 package` in R
 
--   Practical example obtaining weather data using an API
+-   `Practical example` obtaining `weather data` using an `API`
 
 ## What are APIs {.smaller background="#43464B"}
 
@@ -317,21 +317,21 @@ detailed_forecast
 
 ## Further topics API Authentication {.smaller background="#43464B"}
 
-1. API Authentication. Secure you API with any of these methods: 
+1. `API Authentication`. Secure you API with any of these `methods`: 
 
-- OAuth 2.0: Ideal for third-party integrations. Uses tokens for secure, delegated access.
+- `OAuth 2.0`: Ideal for third-party integrations. Uses tokens for secure, delegated access.
 
-- API Keys: Simple and easy for internal services but less secure without proper management.
+- `API Keys`: Simple and easy for internal services but less secure without proper management.
 
-- JWT (JSON Web Tokens): Stateless and efficient for microservices and distributed systems.
+- `JWT (JSON Web Tokens)`: Stateless and efficient for microservices and distributed systems.
 
-- Basic Authentication: Outdated but simple. Best for low-security internal systems.
+- `Basic Authentication`: Outdated but simple. Best for low-security internal systems.
 
-- Bearer Authentication: Token-based, modern, and scalable for web APIs.
+- `Bearer Authentication`: Token-based, modern, and scalable for web APIs.
 
-- mTLS (Mutual Transport Layer Security): High-security method using certificates for mutual verification.
+- `mTLS (Mutual Transport Layer Security)`: High-security method using certificates for mutual verification.
 
-- OpenID Connect: Built on OAuth 2.0, adds identity verification for managing user identities.
+- `OpenID Connect`: Built on OAuth 2.0, adds identity verification for managing user identities.
 
 
 ## Online resources {.smaller background="#43464B"}
