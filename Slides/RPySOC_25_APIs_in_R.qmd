@@ -316,7 +316,26 @@ detailed_forecast
 
 -   or **Parameterized reports** <https://github.com/Pablo-source/Eurostat_labour_market/tree/main/Parameterized%20reports>
 
-## Online resources
+## Further topics API Authentication {.smaller background="#43464B"}
+
+1. API Authentication. Secure you API with any of these methods: 
+
+- OAuth 2.0: Ideal for third-party integrations. Uses tokens for secure, delegated access.
+
+- API Keys: Simple and easy for internal services but less secure without proper management.
+
+- JWT (JSON Web Tokens): Stateless and efficient for microservices and distributed systems.
+
+- Basic Authentication: Outdated but simple. Best for low-security internal systems.
+
+- Bearer Authentication: Token-based, modern, and scalable for web APIs.
+
+- mTLS (Mutual Transport Layer Security): High-security method using certificates for mutual verification.
+
+- OpenID Connect: Built on OAuth 2.0, adds identity verification for managing user identities.
+
+
+## Online resources {.smaller background="#43464B"}
 
 -   Tidyverse. HTTR2 1.0.0 <https://tidyverse.org/blog/2023/11/httr2-1-0-0/>
 
@@ -328,7 +347,7 @@ detailed_forecast
 
 -   How to GET data from API using R in RStudio. Author: Dean Chereden <https://www.youtube.com/watch?v=AhZ42vSmDmE&t=366s>
 
-## THANKS ! {.smaller}
+## THANKS ! {.smaller background="#43464B"}
 
 -   Any questions?
 
