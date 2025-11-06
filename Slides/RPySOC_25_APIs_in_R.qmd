@@ -6,6 +6,7 @@ date-format: long
 editor: visual
 format:
   revealjs:
+    embed-resources: true
     smaller: true 
     theme: dark
     slide-number: true
@@ -15,26 +16,23 @@ format:
     logo: figures/quarto.png
     css: styles.css
     footer: <https://github.com/Pablo-source>
-resources:
-  - demo.pdf
 ---
 
 ## Introduction {.smaller background="#43464B"}
 
-- This presentations describes how to use **APIs** in R to obtain socio-economic indicators.
+-   This presentations describes how to use **APIs** in R to obtain socio-economic indicators.
 
 I will cover the following topics:
 
-- What are APIs Application Programming Interface
+-   What are APIs Application Programming Interface
 
-- Key concepts using APIs: HTTP Requests, Authentication, Data Formats, Rate Limits, Error Handling
+-   Key concepts using APIs: HTTP Requests, Authentication, Data Formats, Rate Limits, Error Handling
 
-- Libraries required in R to interact and query APIs
+-   Libraries required in R to interact and query APIs
 
-- Using HHTR2 package in R
+-   Using HHTR2 package in R
 
-- Practical example obtaining weather data using an API
-
+-   Practical example obtaining weather data using an API
 
 ## What are APIs {.smaller background="#43464B"}
 
@@ -201,15 +199,13 @@ NWS_response_JSON
 :::
 :::::
 
-
 ## Forecast data from API response {.smaller background="#43464B"}
 
-- Exploring the `API request() output` with the `glipse()` function, we can focus on the Hourly `forecast data`.
-- Section: $ properties:List of 17 : `forecastHourly`     : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"', $ 'forecastGridData   : chr "https://api.weather.gov/gridpoints/LWX/97,71"')
+-   Exploring the `API request() output` with the `glipse()` function, we can focus on the Hourly `forecast data`.
+-   Section: \$ properties:List of 17 : `forecastHourly` : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"', \$ 'forecastGridData : chr "https://api.weather.gov/gridpoints/LWX/97,71"')
 
 ::::: columns
 ::: {.column width="40%"}
-
 ```{r Locate forecast info in API response, echo = TRUE}
 NWS_base_url <- 'https://api.weather.gov' # Base URL 
 
@@ -245,8 +241,8 @@ forecast_response_glipmse
 
 ## Collect Forcast data {.smaller background="#43464B"}
 
-- From `API request() output` information under the `properties` section, we can extract from `periods` section, single temperature values.
-- We will obtain details for one of the list of 16 values displayed previously
+-   From `API request() output` information under the `properties` section, we can extract from `periods` section, single temperature values.
+-   We will obtain details for one of the list of 16 values displayed previously
 
 ```{r Gather temperature data as a table, echo = TRUE}
 library(dplyr)
@@ -281,11 +277,10 @@ detailed_forecast <- forecast_response %>% resp_body_json() %>%
 detailed_forecast
 ```
 
-
 ## Present it as a Tibble {.smaller background="#43464B"}
 
-- From the previous slide, we can simplify the code to present the required daily temperature to be used in a plots or dashboards: 
-- As explained earlier, making use of `map_df()` function we can select `time` and `temperature` to be used in **dashboards** or **Quarto reports**
+-   From the previous slide, we can simplify the code to present the required daily temperature to be used in a plots or dashboards:
+-   As explained earlier, making use of `map_df()` function we can select `time` and `temperature` to be used in **dashboards** or **Quarto reports**
 
 ```{r Tiblle daily temperature, echo=TRUE}
 library(dplyr)
@@ -309,44 +304,36 @@ detailed_forecast
 
 ## Store API data as Tibble or Dataframe {.smaller background="#43464B"}
 
-- Once we have the data extracted from the API in a Tibble format, we can easily transform it into a `Dataframe` and build `Dashboards` or `Parameterized reports`. 
-- So we can tweak any API we can extract data with to select and choose those fields with relevant information. Automating the data colection process.
+-   Once we have the data extracted from the API in a Tibble format, we can easily transform it into a `Dataframe` and build `Dashboards` or `Parameterized reports`.
 
-- **Shiny App example**
-![](figures/05 Shiny app example.png){width="50%"}
-- <https://github.com/Pablo-source/RPYSOC_2024_Docker_Shiny>
+-   So we can tweak any API we can extract data with to select and choose those fields with relevant information. Automating the data colection process.
 
-- **Shiny app Using Leaflet and geospatial data **
-- <https://github.com/Pablo-source/Basic-Shiny-app>
-![](figures/06 Geospatial data Shiny app.png){width="50%"}
+-   **Shiny App example** ![](figures/05%20Shiny%20app%20example.png){width="50%"}
 
+-   <https://github.com/Pablo-source/RPYSOC_2024_Docker_Shiny>
 
-- or **Parameterized reports**
-<https://github.com/Pablo-source/Eurostat_labour_market/tree/main/Parameterized%20reports>
+-   **Shiny app Using Leaflet and geospatial data**
 
+-   <https://github.com/Pablo-source/Basic-Shiny-app> ![](figures/06%20Geospatial%20data%20Shiny%20app.png){width="50%"}
+
+-   or **Parameterized reports** <https://github.com/Pablo-source/Eurostat_labour_market/tree/main/Parameterized%20reports>
 
 ## Online resources
 
-- Tidyverse. HTTR2 1.0.0
-<https://tidyverse.org/blog/2023/11/httr2-1-0-0/>
+-   Tidyverse. HTTR2 1.0.0 <https://tidyverse.org/blog/2023/11/httr2-1-0-0/>
 
-- Key API concepts. Geeksforgeeks
-<https://www.geeksforgeeks.org/r-language/access-collect-data-with-apis-in-r/>
+-   Key API concepts. Geeksforgeeks <https://www.geeksforgeeks.org/r-language/access-collect-data-with-apis-in-r/>
 
-- National Weather Service API
-<https://www.weather.gov/documentation/services-web-api>
+-   National Weather Service API <https://www.weather.gov/documentation/services-web-api>
 
-- How to Get Data From APIs with R and {httr2}.Author: Albert Rapp
-<https://www.youtube.com/watch?v=hmtE4QGIOuk&t=1347s>
+-   How to Get Data From APIs with R and {httr2}.Author: Albert Rapp <https://www.youtube.com/watch?v=hmtE4QGIOuk&t=1347s>
 
-- How to GET data from API using R in RStudio. Author: Dean Chereden
-<https://www.youtube.com/watch?v=AhZ42vSmDmE&t=366s>
-
+-   How to GET data from API using R in RStudio. Author: Dean Chereden <https://www.youtube.com/watch?v=AhZ42vSmDmE&t=366s>
 
 ## THANKS ! {.smaller}
 
 -   Any questions?
 
--   Email: pablo.leonrodenas@nhs.net
+-   Email: pablo.leonrodenas\@nhs.net
 
 -   My GitHub Repo: <https://github.com/Pablo-source>
