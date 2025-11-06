@@ -12,7 +12,6 @@ format:
     slide-number: true
     preview-links: auto
     logo: figures/quarto.png
-    css: styles.css
     footer: <https://github.com/Pablo-source>
 ---
 
