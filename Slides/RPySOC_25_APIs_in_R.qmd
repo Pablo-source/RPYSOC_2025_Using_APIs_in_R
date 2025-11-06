@@ -6,35 +6,30 @@ date-format: long
 editor: visual
 format:
   revealjs:
+    embed-resources: true
     smaller: true 
     theme: dark
     slide-number: true
-    chalkboard: 
-      buttons: false
     preview-links: auto
     logo: figures/quarto.png
-    css: styles.css
     footer: <https://github.com/Pablo-source>
-resources:
-  - demo.pdf
 ---
 
 ## Introduction {.smaller background="#43464B"}
 
-- This presentations describes how to use **APIs** in R to obtain socio-economic indicators.
+-   This presentations describes how to use **APIs** in R to obtain socio-economic indicators.
 
 I will cover the following topics:
 
-- What are APIs Application Programming Interface
+-   `What are APIs` Application Programming Interface
 
-- Key concepts using APIs: HTTP Requests, Authentication, Data Formats, Rate Limits, Error Handling
+-   Key `concepts` using APIs: HTTP Requests, Authentication, Data Formats, Rate Limits, Error Handling
 
-- Libraries required in R to interact and query APIs
+-   `Libraries` required in `R` to interact and query `APIs`
 
-- Using HHTR2 package in R
+-   Using `HHTR2 package` in R
 
-- Practical example obtaining weather data using an API
-
+-   `Practical example` obtaining `weather data` using an `API`
 
 ## What are APIs {.smaller background="#43464B"}
 
@@ -42,7 +37,7 @@ I will cover the following topics:
 
 This communication enables us to `collect data` from `various sources`, such as social network sites, news websites, online marketplaces or international organisations such as the OECD. Providing us `access` to multiple `health and social indicators` that we can download and query in an `automated way`.
 
-**APIs save time** avoiding the physical download of Excel or CSV files **facilitating** up the **data wrangling** process and also providing **real time data** that can be **made accessible** to online **apps** or **dashboards**. It can also be consumed by **predictive models** to provide latest data to time series or clustering models.
+`APIs save time` avoiding the physical download of Excel or CSV files `facilitating` the **data wrangling** process providing `real time data`  to online `apps` or `dashboards`. It can also be consumed by **predictive models** to provide latest data to time series or clustering models.
 
 ## Key concepts using APIs in R {.smaller background="#43464B"}
 
@@ -106,7 +101,7 @@ Source: <https://www.dataquest.io/blog/r-api-tutorial/>
 
 ## Configure an API query {.smaller background="#43464B"}
 
-Another API example, only required parameter is an address. You provide a key (API Key) if you would like to track the API requests being made.
+Another `API example`, only required `parameter` is an `address`. You provide a key (`API Key`) if you would like to track the API requests being made.
 
 ```{r Get Lat Long coord API,echo=TRUE}
 add1 <- "1600 Amphitheatre Parkway, Mountain View, CA"
@@ -201,15 +196,13 @@ NWS_response_JSON
 :::
 :::::
 
-
 ## Forecast data from API response {.smaller background="#43464B"}
 
-- Exploring the `API request() output` with the `glipse()` function, we can focus on the Hourly `forecast data`.
-- Section: $ properties:List of 17 : `forecastHourly`     : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"', $ 'forecastGridData   : chr "https://api.weather.gov/gridpoints/LWX/97,71"')
+-   Exploring the `API request() output` with the `glipse()` function, we can focus on the Hourly `forecast data`.
+-   Section: \$ properties:List of 17 : `forecastHourly` : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"', \$ 'forecastGridData : chr "https://api.weather.gov/gridpoints/LWX/97,71"')
 
 ::::: columns
 ::: {.column width="40%"}
-
 ```{r Locate forecast info in API response, echo = TRUE}
 NWS_base_url <- 'https://api.weather.gov' # Base URL 
 
@@ -245,8 +238,8 @@ forecast_response_glipmse
 
 ## Collect Forcast data {.smaller background="#43464B"}
 
-- From `API request() output` information under the `properties` section, we can extract from `periods` section, single temperature values.
-- We will obtain details for one of the list of 16 values displayed previously
+-   From `API request() output` information under the `properties` section, we can extract from `periods` section, single temperature values.
+-   We will obtain details for one of the list of 16 values displayed previously
 
 ```{r Gather temperature data as a table, echo = TRUE}
 library(dplyr)
@@ -281,11 +274,10 @@ detailed_forecast <- forecast_response %>% resp_body_json() %>%
 detailed_forecast
 ```
 
-
 ## Present it as a Tibble {.smaller background="#43464B"}
 
-- From the previous slide, we can simplify the code to present the required daily temperature to be used in a plots or dashboards: 
-- As explained earlier, making use of `map_df()` function we can select `time` and `temperature` to be used in **dashboards** or **Quarto reports**
+-   From the previous slide, we can simplify the code to present the required daily temperature to be used in a plots or dashboards:
+-   As explained earlier, making use of `map_df()` function we can select `time` and `temperature` to be used in **dashboards** or **Quarto reports**
 
 ```{r Tiblle daily temperature, echo=TRUE}
 library(dplyr)
@@ -309,44 +301,55 @@ detailed_forecast
 
 ## Store API data as Tibble or Dataframe {.smaller background="#43464B"}
 
-- Once we have the data extracted from the API in a Tibble format, we can easily transform it into a `Dataframe` and build `Dashboards` or `Parameterized reports`. 
-- So we can tweak any API we can extract data with to select and choose those fields with relevant information. Automating the data colection process.
+-   Once we have the data extracted from the API in a Tibble format, we can easily transform it into a `Dataframe` and build `Dashboards` or `Parameterized reports`.
 
-- **Shiny App example**
-![](figures/05 Shiny app example.png){width="50%"}
-- <https://github.com/Pablo-source/RPYSOC_2024_Docker_Shiny>
+-   So we can tweak any API we can extract data with to select and choose those fields with relevant information. Automating the data colection process.
 
-- **Shiny app Using Leaflet and geospatial data **
-- <https://github.com/Pablo-source/Basic-Shiny-app>
-![](figures/06 Geospatial data Shiny app.png){width="50%"}
+-   **Shiny App example** ![](figures/05%20Shiny%20app%20example.png){width="50%"}
+
+-   <https://github.com/Pablo-source/RPYSOC_2024_Docker_Shiny>
+
+-   **Shiny app Using Leaflet and geospatial data**
+
+-   <https://github.com/Pablo-source/Basic-Shiny-app> ![](figures/06%20Geospatial%20data%20Shiny%20app.png){width="50%"}
+
+-   or **Parameterized reports** <https://github.com/Pablo-source/Eurostat_labour_market/tree/main/Parameterized%20reports>
+
+## Further topics API Authentication {.smaller background="#43464B"}
+
+1. `API Authentication`. Secure you API with any of these `methods`: 
+
+- `OAuth 2.0`: Ideal for third-party integrations. Uses tokens for secure, delegated access.
+
+- `API Keys`: Simple and easy for internal services but less secure without proper management.
+
+- `JWT (JSON Web Tokens)`: Stateless and efficient for microservices and distributed systems.
+
+- `Basic Authentication`: Outdated but simple. Best for low-security internal systems.
+
+- `Bearer Authentication`: Token-based, modern, and scalable for web APIs.
+
+- `mTLS (Mutual Transport Layer Security)`: High-security method using certificates for mutual verification.
+
+- `OpenID Connect`: Built on OAuth 2.0, adds identity verification for managing user identities.
 
 
-- or **Parameterized reports**
-<https://github.com/Pablo-source/Eurostat_labour_market/tree/main/Parameterized%20reports>
+## Online resources {.smaller background="#43464B"}
 
+-   Tidyverse. HTTR2 1.0.0 <https://tidyverse.org/blog/2023/11/httr2-1-0-0/>
 
-## Online resources
+-   Key API concepts. Geeksforgeeks <https://www.geeksforgeeks.org/r-language/access-collect-data-with-apis-in-r/>
 
-- Tidyverse. HTTR2 1.0.0
-<https://tidyverse.org/blog/2023/11/httr2-1-0-0/>
+-   National Weather Service API <https://www.weather.gov/documentation/services-web-api>
 
-- Key API concepts. Geeksforgeeks
-<https://www.geeksforgeeks.org/r-language/access-collect-data-with-apis-in-r/>
+-   How to Get Data From APIs with R and {httr2}.Author: Albert Rapp <https://www.youtube.com/watch?v=hmtE4QGIOuk&t=1347s>
 
-- National Weather Service API
-<https://www.weather.gov/documentation/services-web-api>
+-   How to GET data from API using R in RStudio. Author: Dean Chereden <https://www.youtube.com/watch?v=AhZ42vSmDmE&t=366s>
 
-- How to Get Data From APIs with R and {httr2}.Author: Albert Rapp
-<https://www.youtube.com/watch?v=hmtE4QGIOuk&t=1347s>
-
-- How to GET data from API using R in RStudio. Author: Dean Chereden
-<https://www.youtube.com/watch?v=AhZ42vSmDmE&t=366s>
-
-
-## THANKS ! {.smaller}
+## THANKS ! {.smaller background="#43464B"}
 
 -   Any questions?
 
--   Email: pablo.leonrodenas@nhs.net
+-   Email: pablo.leonrodenas\@nhs.net
 
 -   My GitHub Repo: <https://github.com/Pablo-source>
