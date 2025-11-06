@@ -37,7 +37,7 @@ I will cover the following topics:
 
 This communication enables us to `collect data` from `various sources`, such as social network sites, news websites, online marketplaces or international organisations such as the OECD. Providing us `access` to multiple `health and social indicators` that we can download and query in an `automated way`.
 
-**APIs save time** avoiding the physical download of Excel or CSV files **facilitating** up the **data wrangling** process and also providing **real time data** that can be **made accessible** to online **apps** or **dashboards**. It can also be consumed by **predictive models** to provide latest data to time series or clustering models.
+`APIs save time` avoiding the physical download of Excel or CSV files `facilitating` the **data wrangling** process providing `real time data`  to online `apps` or `dashboards`. It can also be consumed by **predictive models** to provide latest data to time series or clustering models.
 
 ## Key concepts using APIs in R {.smaller background="#43464B"}
 
