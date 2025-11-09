@@ -1,0 +1,4 @@
+Storing API keys
+
+- This is a section where I will show how to storey API keys safely also in Python: In particular, I will be using as an example this eBird API. <pypi.org/project/ebird-api>
+The eBird API is designed for limited, recent and summary outputs of eBird data. A unique personal API key must be used for all queries through the eBird API and can be requested here.
