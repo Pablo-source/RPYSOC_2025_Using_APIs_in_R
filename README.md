@@ -23,24 +23,24 @@ API keys are used to track and control how the API is being used. When you reque
 
 - You musk keep your API Keys secure:
 - You MUST avoid committing your API Keys to a public GitHub page.
-- One recommended method is to store your API keys in a special file called .Rprofile. Making use of the edit_r_profile from {usethis} package to store and edit your .Rprofile
+- A recommended **method** is to **store** your **API keys** in a **special file** called **.Rprofile**. Making use of the edit_r_profile from {usethis} package to store and edit your .Rprofile
 - Make sure .Rprofile is included in your .gitignore file, otherwise it will be synced with Github
 
-Create a file in the same place as your .Rproj file.
+Create a **.Rprofile** file in the same place as your .Rproj file.
 
 - 'usethis::edit_r_profile(scope = "project")'
 
-- Then you can securely enter your API Key details in the .Rprofile file:
--  in .Rprofile 'options(this_is_my_key = "XXXX")'
+- Then you can securely enter your API Key details in the **.Rprofile** file:
+- In .Rprofile file intoduce this line: 'options(this_is_my_key = "XXXX")'
 - later, in the R script: You can securely call your API keys this way: 'key <- getOption("this_is_my_key")'
 
-- Important considerations when creating your .Rprofile file:
-Make sure your .Rprofile ends with a blank line
-    • Make sure .Rprofile is included in your .gitignore file, otherwise it will be synced with Github
-    • Restart RStudio after modifying .Rprofile in order to load any new keys into memory
-    • Spelling is important when you set the option in your .Rprofile
+Important considerations when creating your .Rprofile file:
+- Make sure your .Rprofile ends with a blank line
+- Make sure .Rprofile is included in your .gitignore file, otherwise it will be synced with Github
+- Restart RStudio after modifying .Rprofile in order to load any new keys into memory
+- Spelling is important when you set the option in your .Rprofile
 
-- Read mode about it:  
+Read mode about it:  
 -   API authentication: <https://info5001.infosci.>
 -   How to store and use webservice keys and authentication details with R:  <https://www.r-bloggers.com/2015/11/how-to-store-and-use-webservice-keys-and-authentication-details-with-r/>
 
