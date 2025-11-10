@@ -19,7 +19,7 @@ The talk documentation will be created as Quarto files and hosted alongside all 
 
 # Managing API keys in a secure way
 
--  API keys are used to track and control how the API is being used. When you request access to an API, you might obtain a unique set of API keys assigned to your user to authenticate and authorize you as a user.
+API keys are used to track and control how the API is being used. When you request access to an API, you might obtain a unique set of API keys assigned to your user to authenticate and authorize you as a user.
 
 - You musk keep your API Keys secure:
 - You MUST avoid committing your API Keys to a public GitHub page.
