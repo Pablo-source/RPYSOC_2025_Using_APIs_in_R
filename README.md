@@ -49,7 +49,7 @@ Read mode about it:
 
 ## Online resources
 
-- List of online resources used to create this presentation
+List of online resources used to create this presentation
 
 - Tidyverse. HTTR2 1.0.0
 <https://tidyverse.org/blog/2023/11/httr2-1-0-0/>
