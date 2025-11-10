@@ -24,7 +24,7 @@ API keys are used to track and control how the API is being used. When you reque
 - You musk keep your API Keys secure:
 - You MUST avoid committing your API Keys to a public GitHub page.
 - A recommended **method** is to **store** your **API keys** in a **special file** called **.Rprofile**. Making use of the edit_r_profile from {usethis} package to store and edit your .Rprofile
-- Make sure .Rprofile is included in your .gitignore file, otherwise it will be synced with Github
+- Make sure **.Rprofile** is **included** in your **.gitignore file**, otherwise it will be synced with Github
 
 Create a **.Rprofile** file in the same place as your .Rproj file.
 
