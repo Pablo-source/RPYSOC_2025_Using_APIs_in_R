@@ -7,6 +7,8 @@ First I introduce what are APIs, making requests to an API, understanding its re
 
 Using **{httr2}** and {rsdmx} R packages to make a request to the API, interpret the response building multiple function calls, {httr2} package is the successor to {httr}.
 
+<img width="1130" height="1193" alt="image" src="https://github.com/user-attachments/assets/531160ea-6850-4b65-9157-89d362f20f50" />
+
 Later on data downloaded as **tibble** or **dataframe** from any **API** can be used in {ggplot2} and {plotly} charts, {gt} tables and {leaflet} interactive maps. 
 
 Also, In future weeks I will include materials on how to create an API request for OECD data through a RESTful API based on SDMX standard. Using {rsdmx} package to fetch data programmatically.  Providing access to datasets within the catalogue of databases in SDMX format. The information downloaded from APIs can be used to create Shiny Dashboard. Using data from APIS we can feed information to dashboards displaying geographical information retrieved as an interactive {leaflet } or {ggplot2} map, and related indicators as Time series {plotly} charts and interactive {GT} tables. 
@@ -49,8 +51,6 @@ Make sure your .Rprofile ends with a blank line
 
 - Tidyverse. HTTR2 1.0.0
 <https://tidyverse.org/blog/2023/11/httr2-1-0-0/>
-
-<img width="1130" height="1193" alt="image" src="https://github.com/user-attachments/assets/531160ea-6850-4b65-9157-89d362f20f50" />
 
 - Key API concepts. Geeksforgeeks
 <https://www.geeksforgeeks.org/r-language/access-collect-data-with-apis-in-r/>
