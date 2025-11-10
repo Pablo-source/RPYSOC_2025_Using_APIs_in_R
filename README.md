@@ -40,6 +40,10 @@ Important considerations when creating your .Rprofile file:
 - Restart RStudio after modifying .Rprofile in order to load any new keys into memory
 - Spelling is important when you set the option in your .Rprofile
 
+This diagram from <https://cran.r-project.org/web/packages/nixtlar/vignettes/setting-up-your-api-key.html> explains a secure way of saving your API keys
+
+<img width="647" height="689" alt="image" src="https://github.com/user-attachments/assets/7ff6f886-3ec3-4447-8a56-7af29f437ade" />
+
 Read mode about it:  
 -   API authentication: <https://info5001.infosci.>
 -   How to store and use webservice keys and authentication details with R:  <https://www.r-bloggers.com/2015/11/how-to-store-and-use-webservice-keys-and-authentication-details-with-r/>
