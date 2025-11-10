@@ -21,16 +21,14 @@ The talk documentation will be created as Quarto files and hosted alongside all 
 
 API keys are used to track and control how the API is being used. When you request access to an API, you might obtain a unique set of API keys assigned to your user to authenticate and authorize you as a user.
 
-- You musk keep your API Keys secure:
+Some recommendations to keep your API keys secure: 
 - You MUST avoid committing your API Keys to a public GitHub page.
 - A recommended **method** is to **store** your **API keys** in a **special file** called **.Rprofile**. Making use of the edit_r_profile from {usethis} package to store and edit your .Rprofile
 - Make sure **.Rprofile** is **included** in your **.gitignore file**, otherwise it will be synced with Github
 
-Create a **.Rprofile** file in the same place as your .Rproj file.
-
+Creating a **.Rprofile** file in the same place as your .Rproj file:
 - 'usethis::edit_r_profile(scope = "project")'
-
-- Then you can securely enter your API Key details in the **.Rprofile** file:
+- Then you can securely enter your API Key details in the **.Rprofile** file
 - In .Rprofile file intoduce this line: 'options(this_is_my_key = "XXXX")'
 - later, in the R script: You can securely call your API keys this way: 'key <- getOption("this_is_my_key")'
 
