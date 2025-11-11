@@ -1,9 +1,18 @@
 # 03 Slides R scripts
+# File: 03 Slides APIs in R scripts.R
 
 # https://github.com/Pablo-source/RPYSOC_2025_Using_APIs_in_R/blob/main/Slides/RPySOC_25_APIs_in_R.qmd
 
+# R script sections: 
+# Install and load required packages {httr, httr2} and {jsonlite}
+# 3. PRACTICAL EXAMPLE
+# 3.1 Make a request through an API
+# 3.2 Obtain the API response as a list 
+# 3.3 Display API query reply using glimpse() 
+# 3.4 Extract  Forecasting data from API response
 
-# Install and load required packages {httr} and {jsonlite}
+
+# Install and load required packages {httr, httr2} and {jsonlite}
 install.packages(c("httr","httr2","jsonlite"),dependencies = TRUE)
 
 library(httr)
