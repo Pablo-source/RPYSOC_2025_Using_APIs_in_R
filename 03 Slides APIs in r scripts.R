@@ -90,3 +90,12 @@ NWS_response_JSON <- NWS_response %>% resp_body_json() %>%
 NWS_response_JSON
 
 
+# 3.4 Extracting Forecasting data from API response
+
+# In this section we will analyse the entire API response locating the header about forecasting data
+# We explore the API request output using glimpse() function
+# Identifying a section containing 'forecastHourly' and 'forecastGridData' metrics
+# Section: \$ properties:List of 17 : `forecastHourly` : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"',
+# \$ 'forecastGridData : chr "https://api.weather.gov/gridpoints/LWX/97,71"')
+# we now proceed to extract just that bit of information
+
