@@ -53,7 +53,7 @@ National_weather
 
 # 3.2 Obtain the API response as a list 
 
-#  We can `display` the contents of the JASON file in a more `readable` way:
+#  We can `display` the contents of the JSON file in a more `readable` way:
 # Then you have to identify from the API output query, which bits to use for your analysis.
 # For that we will use the `glimpse()` function from {dplyr} package
 
@@ -70,4 +70,23 @@ NWS_response <- request(NWS_base_url) %>%  # Append now further parts of the URL
 NWS_response
 
 NWS_response %>% resp_body_json() # Display JSON file contents
+
+
+# 3.3 Display API query reply using glimpse() 
+
+# We can display the contents of the JASON file in a more readable way:
+# Then you have to identify from the API output query, which bits to use for your analysis.
+# glimpse() function from {DPLYR} makes possible to see every column in a data frame.
+
+library(httr2)
+library(dplyr)
+NWS_base_url <- 'https://api.weather.gov' # Base URL 
+
+NWS_response <- request(NWS_base_url) %>%  # Append now further parts of the URL. Makes a GET() request to the API
+  req_url_path_append('points','38.8894,-77.0352')  %>%  # Append further parts to the initial URL
+  req_perform() # Perform a Request to get a response 
+NWS_response_JSON <- NWS_response %>% resp_body_json() %>% 
+  glimpse() # Display JSON file contents using glipmse()
+NWS_response_JSON
+
 
