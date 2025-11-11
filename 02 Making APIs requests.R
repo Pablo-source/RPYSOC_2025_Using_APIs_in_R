@@ -3,6 +3,7 @@
 library(httr)
 library(jsonlite)
 
+# 1. Using GET function from HTTR package to retrieve .JSON data from the API URL
 res = GET("https://api.open-notify.org/astros.json")
 res
 
