@@ -1,0 +1,355 @@
+---
+title: "Using APIs in R to obtain Indicators for visualizations"
+author: "`Pablo Leon-Rodenas|Data and Analytics|NHSE|RPySOC25`" 
+date: 11/13/2025
+date-format: long
+editor: visual
+format:
+  revealjs:
+    embed-resources: true
+    smaller: true 
+    theme: dark
+    slide-number: true
+    preview-links: auto
+    logo: figures/quarto.png
+    footer: <https://github.com/Pablo-source>
+---
+
+## Introduction {.smaller background="#43464B"}
+
+This presentations describes how to use `APIs`  in `R` to `obtain` socio-economic `indicators`.
+
+It will cover the following topics:
+
+-   `What are APIs`: Application Programming Interface
+
+-   Key `concepts` using APIs: HTTP Requests, Authentication, Data Formats, Rate Limits, Error Handling
+
+-   `R` `Libraries` to interact and `query` `APIs`
+
+-   Using `httr2` package in R
+
+-   `Practical example` obtaining `weather data` using an `API`
+
+## What are APIs {.smaller background="#43464B"}
+
+`APIs` stands for `Application Programming Interface`. They are set of `protocols` that enable `communication` between different software systems. And this can be the building blocks for software applications.
+
+This communication enables us to `collect data` from `various sources`, such as social network sites, news websites, online marketplaces or international organisations such as the OECD. Providing us `access` to multiple `health and social indicators` that we can download and query in an `automated way`.
+
+`APIs save time` avoiding the physical download of Excel or CSV files `facilitating` the **data wrangling** process providing `real time data` to online `apps` or `dashboards`. It can also be consumed by **predictive models** to provide latest data to time series or clustering models.
+
+## Key concepts using APIs in R {.smaller background="#43464B"}
+
+**`HTTP Requests`**: R communicates with APIs mainly through `HTTP methods` like GET, POST, PUT and DELETE using packages like httr or curl.
+
+**`Authentication`**: Many APIs require API keys, tokens or OAuth for access , these are included in the request headers or parameters.
+
+**`Data Formats`**: APIs usually return data in formats like JSON or XML, which can be easily parsed in R using packages like jsonlite or XML.
+
+**`Rate Limits`**: APIs often limit how many requests you can make in a given time. It’s important to stay within these limits to avoid getting blocked.
+
+**`Error Handling`**: Always handle potential issues like server errors, bad input or network failures. R packages provide tools to check and manage these gracefully.
+
+## R packages to setup APIS {.smaller background="#43464B"}
+
+-   We will start by using `{httr}` and `{jsonlite}` R libraries. These libraries handle the complexities of API request as functions, that can be easily used.
+
+```{r load and install httr jsonlite libraries, echo=TRUE}
+# install.packages(c("httr","jsonlite"),dependencies = TRUE)
+library(httr)
+library(jsonlite)
+```
+
+::::: columns
+::: {.column width="40%"}
+-   After loading required libraries, we make a **request** to the API in R.
+
+-   The request is sent to the computer that has the API. And I sends back a response
+
+-   The most simple request is to ask for data using a **GET** request. It requires a URL
+:::
+
+::: {.column width="60%"}
+![](figures/03 API request response.png)
+:::
+:::::
+
+-   Example: Utility Rate Database API. Information and residential electricity rate by location
+
+```{r GET request, echo=TRUE}
+# Data.gov Utility Rates API
+sample2 <- GET("http://api.data.gov/nrel/utility_rates/v3.json?api_key=sample_key&address=1600+Amphitheatre+Parkway,+Mountain+View,+CA")
+# Examine the GET() output:
+content(sample2)
+```
+
+Source: <https://www.dataquest.io/blog/r-api-tutorial/>
+
+## Different Types of APIs requests {.smaller background="#43464B"}
+
+-   Different Types of requests
+
+-   `GET`: Asking for data to an API. Using GET() function from {httr} library: <https://httr.r-lib.org/reference/GET.html>
+
+-   `POST`: It is used to send data to a server to create/update a resource:<https://httr.r-lib.org/reference/POST.html>
+
+-   `PUT`: is used to send data to a server to create/update a resource: <https://httr.r-lib.org/reference/PUT.html?q=PUT#null>
+
+-   Calling same PUT request multiple times will always produce the same result, whilst calling a POST request repeatedly have side effects of creating the same resource multiple times
+
+## Configure an API query {.smaller background="#43464B"}
+
+Another `API example`, only required `parameter` is an `address`. You provide a key (`API Key`) if you would like to track the API requests being made.
+
+```{r Get Lat Long coord API,echo=TRUE}
+add1 <- "1600 Amphitheatre Parkway, Mountain View, CA"
+sample1 <- GET("https://maps.googleapis.com/maps/api/geocode/json", query = list(address = add1))
+result1 <- content(sample1)
+result1
+```
+
+## Using HHTR2 package in R 2 {.smaller background="#43464B"}
+
+-   In R there is the `httr2` package, a comprehensive `HHTP client` that provides a modern, `pipeable API` for working with `web APIs`.
+-   Builds on top of `{curl}` to provide features like explicit request objects, built-in rate limiting & retry tooling.Comprehensive `OAuth support`
+-   And `secure` handling of `secrets` and `credentials`:
+
+::::: columns
+::: {.column width="40%"}
+![](figures/04 httr2_package_tidyverse.png){width="50%"}
+:::
+
+::: {.column width="60%"}
+```{r Using HTTR2 package with security features ,echo=TRUE}
+library(httr2)
+req <- request("http://example.com") |>
+  req_auth_basic("username", "password")
+req
+```
+:::
+:::::
+
+-   **httr2** package: <https://tidyverse.org/blog/2025/07/httr2-1-2-0/>
+
+## Making requests through an API {.smaller background="#43464B"}
+
+-   Get data from `US National Weather Service` using an `API`: <https://www.weather.gov/documentation/services-web-api>
+-   To obtain the grid forecast for a `point location`, use the /points endpoint to `retrieve` the current `grid forecast` endpoint by `coordinates`:
+-   Using website API query `example`: https://api.weather.gov/points/39.7456,-97.0892
+
+```{r initial weather data API,echo=TRUE}
+library(httr2)
+
+NWS_base_url <- 'https://api.weather.gov' # Base URL 
+
+National_weather <- request(NWS_base_url) %>%  # Append now further parts of the URL. Makes a GET() request to the API
+  req_url_path_append(
+    'points',
+    '38.8894,-77.0352'
+  )  %>%  # Append further parts to the initial URL
+  req_perform() # Perform a Request to get a response 
+National_weather
+```
+
+- API will usually return a `JSON` format (Structured data).
+
+## Obtain the API response as a list {.smaller background="#43464B"}
+
+-   We can `display` the contents of the JASON file in a more `readable` way: {dplyr} package `glimpse()` function 
+
+::::: columns
+::: {.column width="40%"}
+```{r format JASON API query response, echo = TRUE}
+library(httr2)
+NWS_base_url <- 'https://api.weather.gov' # Base URL 
+NWS_response <- request(NWS_base_url) %>%  # Append now further parts of the URL. Makes a GET() request to the API
+  req_url_path_append(
+    'points',
+    '38.8894,-77.0352'
+  )  %>%  # Append further parts to the initial URL
+  req_perform() # Perform a Request to get a response 
+NWS_response
+
+NWS_response %>% resp_body_json() # Display JSON file contents
+```
+:::
+
+::: {.column width="60%"}
+```{r display API query using glimpse, echo = TRUE}
+library(httr2)
+library(dplyr)
+NWS_base_url <- 'https://api.weather.gov' # Base URL 
+
+NWS_response <- request(NWS_base_url) %>%  # Append now further parts of the URL. Makes a GET() request to the API
+  req_url_path_append('points','38.8894,-77.0352')  %>%  # Append further parts to the initial URL
+  req_perform() # Perform a Request to get a response 
+NWS_response_JSON <- NWS_response %>% resp_body_json() %>% 
+  glimpse() # Display JSON file contents using glipmse()
+NWS_response_JSON
+```
+:::
+:::::
+
+## Forecast data from API response {.smaller background="#43464B"}
+
+-   Exploring the `API request() output` with the `glipse()` function, we can focus on the Hourly `forecast data`.
+-   Section: \$ properties:List of 17 : `forecastHourly` : chr "https://api.weather.gov/gridpoints/LWX/97,71/forecast/hourly"', \$ 'forecastGridData` :
+
+::::: columns
+::: {.column width="40%"}
+```{r Locate forecast info in API response, echo = TRUE}
+NWS_base_url <- 'https://api.weather.gov' # Base URL 
+
+NWS_response <- request(NWS_base_url) %>%  # Append now further parts of the URL. Makes a GET() request to the API
+  req_url_path_append('points','38.8894,-77.0352')  %>%  # Append further parts to the initial URL
+  req_perform() # Perform a Request to get a response 
+
+NWS_response %>%  resp_body_json() %>% 
+  glimpse() # Display JSON file contents using glimpse()
+```
+:::
+
+::: {.column width="60%"}
+```{r Obtaining Hourly forecast from API, echo = TRUE}
+library(httr2)
+library(dplyr)
+library(purrr)
+# 1. Isolate Forecast information from API response
+Forecast_url <- NWS_response %>% 
+  resp_body_json() %>% 
+  pluck('properties','forecastHourly')
+# 2. Display forecast data
+forecast_response <- request(Forecast_url) %>% req_perform()
+# 3. Finally evaluate response output
+forecast_response_glipmse <- forecast_response  %>% resp_body_json() %>%  glimpse() # We display forecast for one hour at a time.
+forecast_response_glipmse
+```
+:::
+:::::
+
+## Collect Forcast data {.smaller background="#43464B"}
+
+-   From `API request() output` information under the `properties` section, we can extract from `periods` section, single temperature values.
+-   We will obtain details for one of the list of 16 values displayed previously
+
+```{r Gather temperature data as a table, echo = TRUE}
+library(dplyr)
+library(purrr)
+# 1. Isolate periods information from API response
+library(httr2)
+
+# 1. Isolate Forecast information from API response
+Forecast_url <- NWS_response %>% 
+  resp_body_json() %>% 
+  pluck('properties','forecastHourly')
+# 2. Display forecast data
+forecast_response <- request(Forecast_url) %>% req_perform()
+# 3. Finally evaluate response output
+# Forecast data
+# RETURN TEMPERATURE INFO AS A TIBBLE
+# Iterate over the list and get StartTime, temperature using (pluck)
+detailed_forecast <- forecast_response %>% resp_body_json() %>% 
+  pluck('properties','periods') %>% 
+  map_dfr( 
+    \(x){
+      tibble(
+        time = x %>% pluck('startTime'),
+        temp_F = x %>%  pluck('temperature'))})
+detailed_forecast
+```
+
+## Present it as a Tibble {.smaller background="#43464B"}
+
+-   From the previous slide, we can simplify the code to present the required daily temperature to be used in a plots or dashboards:
+-   As explained earlier, making use of `map_df()` function we can select `time` and `temperature` to be used in **dashboards** or **Quarto reports**
+
+```{r Tiblle daily temperature, echo=TRUE}
+library(dplyr)
+library(purrr)
+# 1. Isolate periods information from API response
+library(httr2)
+
+detailed_forecast <- forecast_response %>% resp_body_json() %>% 
+  pluck('properties','periods') %>% 
+  map_dfr( 
+    \(x){
+      tibble(
+        time = x %>% pluck('startTime'),
+        temp_F = x %>%  pluck('temperature'))})
+detailed_forecast
+```
+
+## Store API data as Tibble or Dataframe {.smaller background="#43464B"}
+
+-   Once we have the data extracted from the API in a Tibble format, we can easily transform it into a `Dataframe` and build `Dashboards` or `Parameterized reports`.
+
+-   **Shiny app Using Leaflet and geospatial data**
+
+![](figures/09_Shiny_App_advanced.png){width="40%"}
+
+-   <https://github.com/Pablo-source/Basic-Shiny-app> 
+
+
+## Further topics API Authentication {.smaller background="#43464B"}
+
+`API Authentication`. Secure you API with any of these `methods`:
+
+-   `OAuth 2.0`: Ideal for third-party integration. Uses tokens for secure, delegated access.
+
+-   `API Keys`: Simple and easy for internal services but less secure without proper management.
+
+-   `JWT (JSON Web Tokens)`: Stateless and efficient for microservices and distributed systems.
+
+-   `Basic Authentication`: Outdated but simple. Best for low-security internal systems.
+
+-   `Bearer Authentication`: Token-based, modern, and scalable for web APIs.
+
+-   `mTLS (Mutual Transport Layer Security)`: High-security method using certificates for mutual verification.
+
+-   `OpenID Connect`: Built on OAuth 2.0, adds identity verification for managing user identities.
+
+## Keeping (API) secrets  {.smaller background="#43464B"}
+
+Some recommendations to keep your API keys secure: 
+- You MUST avoid committing your API Keys to a public GitHub page.
+- **recommended method:** **store** your **API keys** in a **special file** called **.Rprofile**. Making use of the edit_r_profile from {usethis} package to store and edit your .Rprofile
+
+
+- Ensure **.Rprofile** is **included** in your **.gitignore file**, otherwise it will be synced with Github
+
+Creating a **.Rprofile** file in the same place as your .Rproj file:
+- `usethis::edit_r_profile(scope = "project")`
+- Then you can securely enter your API Key details in the `.Rprofile` file
+- In `.Rprofile` file introduce this line: `options(this_is_my_key = "XXXX")`
+- You can securely call `in your R script` your `API keys` this way: `key <- getOption("this_is_my_key")`
+
+Rprofile file considerations:
+- Make sure your `.Rprofile` ends with a `blank line`
+- Make sure `.Rprofile` is included in your `.gitignore` file, `otherwise` it `will be` synced with `Github`
+- `Restart RStudio` after `modifying .Rprofile`  in order to `load` any `new keys` into `memory`
+- Spelling is important when you set the option in your `.Rprofile`
+
+## Online resources {.smaller background="#43464B"}
+
+-   Tidyverse. HTTR2 1.0.0 <https://tidyverse.org/blog/2023/11/httr2-1-0-0/>
+
+-   Key API concepts. Geeksforgeeks <https://www.geeksforgeeks.org/r-language/access-collect-data-with-apis-in-r/>
+
+-   National Weather Service API <https://www.weather.gov/documentation/services-web-api>
+
+-   How to Get Data From APIs with R and {httr2}.Author: Albert Rapp <https://www.youtube.com/watch?v=hmtE4QGIOuk&t=1347s>
+
+-   How to GET data from API using R in RStudio. Author: Dean Chereden <https://www.youtube.com/watch?v=AhZ42vSmDmE&t=366s>
+
+## THANKS ! {.smaller background="#43464B"}
+
+- Any questions?
+
+- Talk repo: RpySOC_2025_Using_APIs_in_R: <https://github.com/Pablo-source/RPYSOC_2025_Using_APIs_in_R/tree/main>
+
+- Slides: <https://pablo-source.github.io/RPySOC2025talk.html#/title-slide>
+
+- Email: pablo.leonrodenas@nhs.net
+
+- My GitHub Repo: <https://github.com/Pablo-source>
