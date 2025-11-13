@@ -1,6 +1,10 @@
 # Using-APIs-in-R-to-obtain-Indicators for visualizations
 Using APIs in R to obtain Indicators for interactive visualizations 
 
+## Presentation slides
+
+- Conference talk presentation available on GitHub website: <https://pablo-source.github.io/RPySOC2025talk.html#/title-slide>
+
 I will showcase how to use Application Programming Interfaces (APIs) in R to gather Health and Social indicators from WHO and OECD organisations.
 
 First I introduce what are APIs, making requests to an API, understanding its response, and transforming it into a JSON file,
