@@ -1,6 +1,19 @@
 # Using-APIs-in-R-to-obtain-Indicators for visualizations
 Using APIs in R to obtain Indicators for interactive visualizations 
 
+## New project: Spain State Meteorological Agency - AEMET - OpenDATA API
+
+Project to create daily a set of visualizations using ggplot and plotly libraries in R displaying MIN/MAX temperatures in Spain using AEMET OpenDATA API for these cities: Valencia, Sevilla, Barcelona and Madrid,  to display effect of extreme weather in Spain.
+
+Using API provided by AEMET: State Meteorological Agency – AEMET – Spanish Government
+
+<https://opendata.aemet.es/centrodedescargas/inicio>
+
+In progress !!
+
+<img width="1747" height="818" alt="image" src="https://github.com/user-attachments/assets/8f935696-5f01-41ad-bd2a-a2131a1e1ba2" />
+
+
 ## Presentation slides
 
 - Conference talk slides on GitHub: <https://pablo-source.github.io/RPySOC2025talk.html#/title-slide>
