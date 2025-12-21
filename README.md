@@ -13,6 +13,16 @@ In progress !!
 
 <img width="1747" height="818" alt="image" src="https://github.com/user-attachments/assets/8f935696-5f01-41ad-bd2a-a2131a1e1ba2" />
 
+## Validating my newly received API key
+
+I can test my new API query by using this URL on a new tab brower (providing my newly emailed API key): 
+<https://opendata.aemet.es/opendata/api/observacion/convencional/todas?api_key= MY_NEW_API_KEY>
+
+And I obtain a successful reply from AEMET API:
+
+<img width="542" height="147" alt="image" src="https://github.com/user-attachments/assets/e293708c-edee-4a06-8c62-604695878280" />
+
+
 - After requesting and obtaining my API Key (it's sent via email), I can start querying specific Weather information using the AEMET OpenData API, such as daily temperatures for specific cities in Spain: 
 
 <https://opendata.aemet.es/dist/index.html?#/predicciones-especificas/Predicci%C3%B3n%20por%20municipios%20diaria.%20Tiempo%20actual>
