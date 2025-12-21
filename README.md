@@ -13,7 +13,7 @@ In progress !!
 
 <img width="1747" height="818" alt="image" src="https://github.com/user-attachments/assets/8f935696-5f01-41ad-bd2a-a2131a1e1ba2" />
 
-- After requesting and obtaining my API Key I can start querying specific Weather information using the AEMET OpenData API, such as daily temperatures for specific cities in Spain: 
+- After requesting and obtaining my API Key (it's sent via email), I can start querying specific Weather information using the AEMET OpenData API, such as daily temperatures for specific cities in Spain: 
 
 <https://opendata.aemet.es/dist/index.html?#/predicciones-especificas/Predicci%C3%B3n%20por%20municipios%20diaria.%20Tiempo%20actual>
 <img width="924" height="548" alt="image" src="https://github.com/user-attachments/assets/bba8dfbe-1bfd-4974-8ba4-b885012d6ba4" />
