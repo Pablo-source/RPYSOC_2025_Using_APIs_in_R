@@ -13,6 +13,14 @@ In progress !!
 
 <img width="1747" height="818" alt="image" src="https://github.com/user-attachments/assets/8f935696-5f01-41ad-bd2a-a2131a1e1ba2" />
 
+We will start by requesting our API key providing and email address, they will send us the API key to that email:
+Selecting the **Obtaining API Key** from the menu below: 
+<https://opendata.aemet.es/centrodedescargas/altaUsuario?>
+
+<img width="1459" height="821" alt="image" src="https://github.com/user-attachments/assets/57f6a1e7-647a-4449-8783-4ffd99209a72" />
+
+
+
 ## Validating my newly received API key
 
 From the AEMET main website, I can  validate the  API_Key they previously emailed to me to obtain daily temperatures data for specific Spanish cities: 
