@@ -43,7 +43,7 @@ And I obtain a successful reply from AEMET API:
 
 - 1.2 Set your API key using this first method **aemet_api_key()** function:
 
-<img width="572" height="241" alt="image" src="https://github.com/user-attachments/assets/3dd24df0-f32f-4fb9-b0a5-d3578ffc0007" />
+<img width="662" height="342" alt="image" src="https://github.com/user-attachments/assets/e8f29461-aff9-4f43-af08-1ed9d196b123" />
 
 - In the next two days I will provide an example on how to use an **environment variable** to store our API key as described in section below in this project
 
