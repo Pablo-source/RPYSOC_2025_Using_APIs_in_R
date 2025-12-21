@@ -15,7 +15,11 @@ In progress !!
 
 ## Validating my newly received API key
 
-I can test my new API query by using this URL on a new tab brower (providing my newly emailed API key): 
+From the AEMET main website, I can  validate the  API_Key they previously emailed to me to obtain daily temperatures data for specific Spanish cities: 
+
+<img width="907" height="410" alt="image" src="https://github.com/user-attachments/assets/deae2a8c-6321-498b-bd6a-c95eb31835c1" />
+
+Also I can test it on a new browser tab using this URL (providing my newly emailed API key): 
 <https://opendata.aemet.es/opendata/api/observacion/convencional/todas?api_key= MY_NEW_API_KEY>
 
 And I obtain a successful reply from AEMET API:
@@ -28,9 +32,7 @@ And I obtain a successful reply from AEMET API:
 <https://opendata.aemet.es/dist/index.html?#/predicciones-especificas/Predicci%C3%B3n%20por%20municipios%20diaria.%20Tiempo%20actual>
 <img width="924" height="548" alt="image" src="https://github.com/user-attachments/assets/bba8dfbe-1bfd-4974-8ba4-b885012d6ba4" />
 
-Then I  validate the  API_Key they previously emailed to me to obtain daily temperatures data for specific Spanish cities: 
 
-<img width="907" height="410" alt="image" src="https://github.com/user-attachments/assets/deae2a8c-6321-498b-bd6a-c95eb31835c1" />
 
 
 
