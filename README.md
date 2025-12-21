@@ -32,8 +32,22 @@ And I obtain a successful reply from AEMET API:
 <https://opendata.aemet.es/dist/index.html?#/predicciones-especificas/Predicci%C3%B3n%20por%20municipios%20diaria.%20Tiempo%20actual>
 <img width="924" height="548" alt="image" src="https://github.com/user-attachments/assets/bba8dfbe-1bfd-4974-8ba4-b885012d6ba4" />
 
+## Creating a climate stripes graph for Valencia city using climaeemet library
 
+- This is an example on how to use the API to obtain a Climate Stripes graph for the city of Valencia
+- 1.2 Set your API key using this first method **aemet_api_key()** function:
 
+<img width="572" height="241" alt="image" src="https://github.com/user-attachments/assets/3dd24df0-f32f-4fb9-b0a5-d3578ffc0007" />
+
+- In the next two days I will provide an example on how to use an **environment variable** to store our API key as described in section below in this project
+
+- 2.2 Submit a query to the API using previous API key to obtain a Climate Strips chart for Valencia
+
+<img width="1687" height="752" alt="image" src="https://github.com/user-attachments/assets/104761fe-0276-4bc8-ad65-f71868c9b9a3" />
+ 
+- Finally this is the Climate Strtips chart for Valencia as final output, the data used in this Climaet Strip plot, has been obtained performing an **API query** to AEMETOpenData API:<https://opendata.aemet.es/centrodedescargas/productosAEMET?>
+
+<img width="657" height="651" alt="Valencia viveros climate stripes graph" src="https://github.com/user-attachments/assets/02d43d72-cdfe-40ce-889b-e5cff246190e" />
 
 
 ## Presentation slides
