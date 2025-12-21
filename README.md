@@ -19,6 +19,10 @@ Selecting the **Obtaining API Key** from the menu below:
 
 <img width="1459" height="821" alt="image" src="https://github.com/user-attachments/assets/57f6a1e7-647a-4449-8783-4ffd99209a72" />
 
+We need to fill in the form below: 
+<img width="1437" height="731" alt="image" src="https://github.com/user-attachments/assets/c32e8166-cf90-462b-97ec-75a7d4a6d71d" />
+
+Then we will receive our API Key for AEMET OpenData API in our Inbox
 
 
 ## Validating my newly received API key
