@@ -46,6 +46,13 @@ And I obtain a successful reply from AEMET API:
 
 ## Creating a climate stripes graph for Valencia city using climaeemet library
 
+- 1. Main {climaemet} package
+ <https://github.com/rOpenSpain/climaemet>
+
+- 1.1 Then I can use the API Key I obtained previously from AEMET ApenData API, to extract temperature dat for specific locations with this package
+<img width="897" height="294" alt="image" src="https://github.com/user-attachments/assets/efdaa54e-71fd-469f-9678-bd02530fe113" />
+
+
 - This is an example on how to use the API to obtain a Climate Stripes graph for the city of Valencia
 - First we need to obtain the AEMET weather station ID for the city of Valencia from this website: <https://ropenspain.github.io/climaemet/articles/aemet_stations.html>
 
