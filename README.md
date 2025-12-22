@@ -88,8 +88,9 @@ And I obtain a successful reply from AEMET API:
 
 Using **{httr2}** and {rsdmx} R packages to make a request to the API, interpret the response building multiple function calls, {httr2} package is the successor to {httr}.
 
-HTTR2 Main website: <https://httr2.r-lib.org/>
-HTTR2 Reference website: <https://httr2.r-lib.org/reference/index.html>
+- httr2 Main website: <https://httr2.r-lib.org/>
+
+- httr2 Reference website: <https://httr2.r-lib.org/reference/index.html>
 
 <img width="1130" height="1193" alt="image" src="https://github.com/user-attachments/assets/531160ea-6850-4b65-9157-89d362f20f50" />
 
