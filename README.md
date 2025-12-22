@@ -49,6 +49,8 @@ And I obtain a successful reply from AEMET API:
 - GitHub {climaemet} package for reference and documentation:
  <https://github.com/rOpenSpain/climaemet>
 
+<img width="1175" height="657" alt="image" src="https://github.com/user-attachments/assets/180b5376-d8b5-420f-848e-8e14959c54c8" />
+
 - 1.1 Then I can use the API Key I obtained previously from AEMET ApenData API, to extract temperature dat for specific locations with this package
 <img width="897" height="294" alt="image" src="https://github.com/user-attachments/assets/efdaa54e-71fd-469f-9678-bd02530fe113" />
 
