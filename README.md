@@ -87,6 +87,8 @@ First I introduce what are APIs, making requests to an API, understanding its re
 
 Using **{httr2}** and {rsdmx} R packages to make a request to the API, interpret the response building multiple function calls, {httr2} package is the successor to {httr}.
 
+<https://httr2.r-lib.org/>
+
 <img width="1130" height="1193" alt="image" src="https://github.com/user-attachments/assets/531160ea-6850-4b65-9157-89d362f20f50" />
 
 Later on data downloaded as **tibble** or **dataframe** from any **API** can be used in {ggplot2} and {plotly} charts, {gt} tables and {leaflet} interactive maps. 
