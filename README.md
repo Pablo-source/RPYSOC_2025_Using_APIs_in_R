@@ -1,6 +1,14 @@
 # Using-APIs-in-R-to-obtain-Indicators for visualizations
 Using APIs in R to obtain Indicators for interactive visualizations 
 
+## Presentation slides
+
+- Conference talk slides on GitHub: <https://pablo-source.github.io/RPySOC2025talk.html#/title-slide>
+
+I will showcase how to use Application Programming Interfaces (APIs) in R to gather Health, Social and Weather data.
+
+First I introduce what are APIs, making requests to an API, understanding its response, and transforming it into a JSON file,
+
 ## New section: Spain State Meteorological Agency - AEMET - OpenDATA API
 
 Ceate a new set of visualizations using ggplot and plotly libraries in R displaying MIN/MAX daily temperatures in Spain for the last 10 years using *AEMET OpenDATA* **API** for these cities: Valencia, Sevilla, Barcelona and Madrid,  to display effect of extreme weather in Spain.
@@ -75,15 +83,6 @@ And I obtain a successful reply from AEMET API:
 - Finally this is the Climate Strtips chart for Valencia as final output, the data used in this Climaet Strip plot, has been obtained performing an **API query** to AEMETOpenData API:<https://opendata.aemet.es/centrodedescargas/productosAEMET?>
 
 <img width="657" height="651" alt="Valencia viveros climate stripes graph" src="https://github.com/user-attachments/assets/02d43d72-cdfe-40ce-889b-e5cff246190e" />
-
-
-## Presentation slides
-
-- Conference talk slides on GitHub: <https://pablo-source.github.io/RPySOC2025talk.html#/title-slide>
-
-I will showcase how to use Application Programming Interfaces (APIs) in R to gather Health and Social indicators from WHO and OECD organisations.
-
-First I introduce what are APIs, making requests to an API, understanding its response, and transforming it into a JSON file,
 
 ## httr2 package and reference manual
 
