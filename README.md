@@ -102,7 +102,7 @@ Later I will create an API request string as the URL with parameters specifying
 
 The talk documentation will be created as Quarto files and hosted alongside all the R script on my personal GitHub repository for people to clone and run them. 
 
-# Managing API keys in a secure way
+## Managing API keys in a secure way
 
 API keys are used to control how the API is being used. After requesting access to an API, you obtain a unique set of API keys assigned to your user, they authenticate and authorize you as an API user.
 
@@ -136,7 +136,7 @@ Read mode about it:
 
 List of online resources used to create this presentation
 
-- Tidyverse. HTTR2 1.0.0
+- Tidyverse. httr2 1.0.0
 <https://tidyverse.org/blog/2023/11/httr2-1-0-0/>
 
 - Key API concepts. Geeksforgeeks
