@@ -85,7 +85,7 @@ I will showcase how to use Application Programming Interfaces (APIs) in R to gat
 
 First I introduce what are APIs, making requests to an API, understanding its response, and transforming it into a JSON file,
 
-## HHTR2 package and reference manual
+## httr2 package and reference manual
 
 Using **{httr2}** and {rsdmx} R packages to make a request to the API, interpret the response building multiple function calls, {httr2} package is the successor to {httr}.
 
