@@ -44,7 +44,7 @@ And I obtain a successful reply from AEMET API:
 <https://opendata.aemet.es/dist/index.html?#/predicciones-especificas/Predicci%C3%B3n%20por%20municipios%20diaria.%20Tiempo%20actual>
 <img width="924" height="548" alt="image" src="https://github.com/user-attachments/assets/bba8dfbe-1bfd-4974-8ba4-b885012d6ba4" />
 
-## Creating a climate stripes graph for Valencia city using climaeemet library
+## Creating a climate stripes graph for Valencia city using climaemet library
 
 - GitHub {climaemet} package for reference and documentation:
  <https://github.com/rOpenSpain/climaemet>
