@@ -127,8 +127,14 @@ This diagram from <https://cran.r-project.org/web/packages/nixtlar/vignettes/set
 
 <img width="647" height="689" alt="image" src="https://github.com/user-attachments/assets/7ff6f886-3ec3-4447-8a56-7af29f437ade" />
 
+- Storing security you API keys on your .Rprofile
+<img width="1003" height="420" alt="image" src="https://github.com/user-attachments/assets/36500264-de15-44ed-a457-f051856006f7" />
+
 Read mode about it:  
--   API authentication: <https://info5001.infosci.>
+-   API authentication: <https://info5001.infosci.cornell.edu/tutorials/store-api-keys.html>
+<img width="1487" height="851" alt="image" src="https://github.com/user-attachments/assets/92fbf09d-543d-45ef-83df-ae1e3f4cd55e" />
+
+
 -   How to store and use webservice keys and authentication details with R:  <https://www.r-bloggers.com/2015/11/how-to-store-and-use-webservice-keys-and-authentication-details-with-r/>
 
 
