@@ -137,6 +137,17 @@ Read mode about it:
 
 -   How to store and use webservice keys and authentication details with R:  <https://www.r-bloggers.com/2015/11/how-to-store-and-use-webservice-keys-and-authentication-details-with-r/>
 
+### Using {usethis} package to store API keys on your .Renviron file
+
+We can use {usethis} package to open and save your API keys on the .Renviron file
+
+- install.packages("usethis")
+- usethis::edit_r_environ()
+- Then you only have to paste this onto your .Renviron file:
+- MY_APIKEY <- "here_goes_your_API_key"
+
+This is a secure way of storing your API keys and making them available when working on your project
+- **Remeber to include** this **.Renviron file** on your **.gitignore** file.
 
 ## Online resources
 
