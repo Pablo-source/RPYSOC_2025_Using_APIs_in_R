@@ -16,3 +16,6 @@ library(usethis)
 # Store securely your API keys
 # usethis::edit_r_profile(scope = "project")
 
+# In .Rprofile file intoduce this line: 'options(this_is_my_key = "XXXX")'
+# later, in the R script:
+#  You can securely call your API keys this way: 'key <- getOption("this_is_my_key")'
