@@ -47,3 +47,6 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Makwe sure .Rprofile is included in your .gitignore file
+.Rprofile

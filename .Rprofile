@@ -1,0 +1,8 @@
+source("renv/activate.R")
+
+options(this_is_my_key = "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJwYWlwb3J0YXNlYUBnbWFpbC5jb20iLCJqdGkiOiJiZjA0NDI2NC05OTRjLTRkOTYtYjBlMi1hNjg5ZGZjMjc0NTkiLCJpc3MiOi
+JBRU1FVCIsImlhdCI6MTc2NjMzNzgxNiwidXNlcklkIjoiYmYwNDQyNjQtOTk0Yy00ZDk2LWIwZTItYTY4OWRmYzI3NDU5Iiwicm9sZSI6IiJ9.yvwR4LK7qAmRm1dwxYnc
+obxRu1oQc5KLfFdOrhViCW0")
+
+
+
