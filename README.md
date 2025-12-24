@@ -17,8 +17,6 @@ Using API provided by AEMET: State Meteorological Agency – AEMET – Spanish G
 
 <https://opendata.aemet.es/centrodedescargas/inicio>
 
-In progress !!
-
 <img width="1747" height="818" alt="image" src="https://github.com/user-attachments/assets/8f935696-5f01-41ad-bd2a-a2131a1e1ba2" />
 
 We will start by requesting our API key providing and email address, they will send us the API key to that email:
@@ -76,7 +74,14 @@ And I obtain a successful reply from AEMET API:
 
 - In the next two days I will provide an example on how to use an **environment variable** to store our API key as described in section below in this project
 
-- 2.2 Submit a query to the API using previous API key to obtain a Climate Strips chart for Valencia
+- 2.2 Set you API key with {**usethis**} package to include securely my API key in the **.Rprofile** file
+<img width="914" height="779" alt="image" src="https://github.com/user-attachments/assets/f754a5bc-01c9-4329-8c46-e09c4c96e631" />
+
+- Make sure .Rprofile is included in your .gitignore file, to avoid uploading it to Github 
+
+<img width="913" height="467" alt="image" src="https://github.com/user-attachments/assets/90c0f1c6-44ac-43e3-be16-f947b31fa850" />
+
+- Submit a query to the API using previous API key to obtain a Climate Strips chart for Valencia
 
 <img width="1687" height="752" alt="image" src="https://github.com/user-attachments/assets/104761fe-0276-4bc8-ad65-f71868c9b9a3" />
  
