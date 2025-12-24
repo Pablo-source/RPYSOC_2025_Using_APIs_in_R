@@ -152,11 +152,11 @@ We can use {usethis} package to open and save your API keys on the .Rprofile fil
 
 - install.packages("usethis")
 - usethis::edit_r_environ()
-- Then you only have to paste this onto your .Renviron file:
+- Then you only have to paste this onto your .Rprofile file:
 - MY_APIKEY <- "here_goes_your_API_key"
 
 This is a secure way of storing your API keys and making them available when working on your project
-- **Remeber to include** this **.Renviron file** on your **.gitignore** file.
+- **Remeber to include** this **.Rprofile file** on your **.gitignore** file.
 
 ## Online resources
 
