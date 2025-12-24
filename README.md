@@ -146,9 +146,9 @@ Read mode about it:
 
 -   How to store and use webservice keys and authentication details with R:  <https://www.r-bloggers.com/2015/11/how-to-store-and-use-webservice-keys-and-authentication-details-with-r/>
 
-### Using {usethis} package to store API keys on your .Renviron file
+### Using {usethis} package to store API keys on your .Rprofile file
 
-We can use {usethis} package to open and save your API keys on the .Renviron file
+We can use {usethis} package to open and save your API keys on the .Rprofile file
 
 - install.packages("usethis")
 - usethis::edit_r_environ()
