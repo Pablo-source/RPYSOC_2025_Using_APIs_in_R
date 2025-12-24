@@ -10,3 +10,9 @@
 
 library(climaemet)
 library(ggplot2)
+library(usethis)
+
+
+# Store securely your API keys
+# usethis::edit_r_profile(scope = "project")
+
