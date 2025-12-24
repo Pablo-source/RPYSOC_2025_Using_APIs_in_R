@@ -75,6 +75,8 @@ And I obtain a successful reply from AEMET API:
 - In the next two days I will provide an example on how to use an **environment variable** to store our API key as described in section below in this project
 
 - 2.2 Set you API key with {**usethis**} package to include securely my API key in the **.Rprofile** file
+<img width="913" height="181" alt="image" src="https://github.com/user-attachments/assets/c2a95c29-9c5f-4123-9159-01a4cfe8aecf" />
+
 <img width="914" height="779" alt="image" src="https://github.com/user-attachments/assets/f754a5bc-01c9-4329-8c46-e09c4c96e631" />
 
 - Make sure .Rprofile is included in your .gitignore file, to avoid uploading it to Github 
