@@ -19,4 +19,4 @@ library(httr2)
 # 4. Installing {climaemet} library
 # https://github.com/rOpenSpain/climaemet
 install.packages('climaemet',dependencies = TRUE)
-library(httr2)
+library(climaemet)
