@@ -17,8 +17,6 @@ If prompted, after running restore() function, choose "1: Activate the project a
 
 <img width="827" height="354" alt="image" src="https://github.com/user-attachments/assets/03f5ab0f-d6e0-4bf2-9cfd-ae0100cdfaa3" />
 
-<img width="709" height="261" alt="image" src="https://github.com/user-attachments/assets/ceb41aeb-66c4-42b4-8c7d-a743287b9aa9" />
-
 
 ## Presentation slides
 
@@ -94,6 +92,8 @@ And I obtain a successful reply from AEMET API:
 - In the next two days I will provide an example on how to use an **environment variable** to store our API key as described in section below in this project
 
 - 2.2 Set you API key with {**usethis**} package to include securely my API key in the **.Rprofile** file
+
+<img width="709" height="261" alt="image" src="https://github.com/user-attachments/assets/ceb41aeb-66c4-42b4-8c7d-a743287b9aa9" />
 
 -  In .Rprofile file intoduce this line: **'options(this_is_my_key = "XXXX")'**
 <img width="913" height="181" alt="image" src="https://github.com/user-attachments/assets/c2a95c29-9c5f-4123-9159-01a4cfe8aecf" />
