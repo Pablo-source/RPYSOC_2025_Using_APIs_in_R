@@ -15,6 +15,9 @@ Navigate to the cloned repo, then open Rproject by clicking on the Basic-Shiny-a
 renv::restore()
 If prompted, after running restore() function, choose "1: Activate the project and use the project library." from menu displayed in the R Console.
 
+<img width="827" height="354" alt="image" src="https://github.com/user-attachments/assets/03f5ab0f-d6e0-4bf2-9cfd-ae0100cdfaa3" />
+
+
 ## Presentation slides
 
 - Conference talk slides on GitHub: <https://pablo-source.github.io/RPySOC2025talk.html#/title-slide>
