@@ -93,14 +93,17 @@ And I obtain a successful reply from AEMET API:
 
 - 2.2 Set you API key with {**usethis**} package to include securely my API key in the **.Rprofile** file
 
-<img width="709" height="261" alt="image" src="https://github.com/user-attachments/assets/ceb41aeb-66c4-42b4-8c7d-a743287b9aa9" />
-
--  In .Rprofile file intoduce this line: **'options(this_is_my_key = "XXXX")'**
-
-<img width="914" height="779" alt="image" src="https://github.com/user-attachments/assets/f754a5bc-01c9-4329-8c46-e09c4c96e631" />
-<img width="913" height="181" alt="image" src="https://github.com/user-attachments/assets/c2a95c29-9c5f-4123-9159-01a4cfe8aecf" />
+- In .Rprofile file intoduce this line: **'options(this_is_my_key = "XXXX")'**
 
 - Remember to **Restart** your R session for the .Pprofile changes to take effect
+  
+<img width="709" height="261" alt="image" src="https://github.com/user-attachments/assets/ceb41aeb-66c4-42b4-8c7d-a743287b9aa9" />
+
+<img width="914" height="779" alt="image" src="https://github.com/user-attachments/assets/f754a5bc-01c9-4329-8c46-e09c4c96e631" />
+
+<img width="913" height="181" alt="image" src="https://github.com/user-attachments/assets/c2a95c29-9c5f-4123-9159-01a4cfe8aecf" />
+
+
 
 - Make sure .Rprofile is included in your .gitignore file, to avoid uploading it to Github 
 
