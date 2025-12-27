@@ -17,6 +17,8 @@ If prompted, after running restore() function, choose "1: Activate the project a
 
 <img width="827" height="354" alt="image" src="https://github.com/user-attachments/assets/03f5ab0f-d6e0-4bf2-9cfd-ae0100cdfaa3" />
 
+<img width="709" height="261" alt="image" src="https://github.com/user-attachments/assets/ceb41aeb-66c4-42b4-8c7d-a743287b9aa9" />
+
 
 ## Presentation slides
 
