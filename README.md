@@ -101,10 +101,6 @@ And I obtain a successful reply from AEMET API:
 
 <img width="914" height="779" alt="image" src="https://github.com/user-attachments/assets/f754a5bc-01c9-4329-8c46-e09c4c96e631" />
 
-<img width="913" height="181" alt="image" src="https://github.com/user-attachments/assets/c2a95c29-9c5f-4123-9159-01a4cfe8aecf" />
-
-
-
 - Make sure .Rprofile is included in your .gitignore file, to avoid uploading it to Github 
 
 <img width="913" height="467" alt="image" src="https://github.com/user-attachments/assets/90c0f1c6-44ac-43e3-be16-f947b31fa850" />
