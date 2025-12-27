@@ -6,7 +6,9 @@ Using APIs in R to obtain Indicators for interactive visualizations
 To run this project locally, please follow these three steps below to restore project environment using {renv} library:
 
 1-2. Clone RPYSOC_2025_Using_APIs_in_R repo using git on your IDE or terminal using local **clone HTTPS** option: <https://github.com/Pablo-source/RPYSOC_2025_Using_APIs_in_R.git>
-git clone https://github.com/Pablo-source/RPYSOC_2025_Using_APIs_in_R.git
+
+- git clone https://github.com/Pablo-source/RPYSOC_2025_Using_APIs_in_R.git
+
 Navigate to the cloned repo, then open Rproject by clicking on the Basic-Shiny-app.Rproj file. This will display the Shiny app files on your "Files" tab in RStudio.
 
 2-2. Run **renv::restore()** in a new Rscript. The first time the app finshed running, I captured its **final state using renv::snapshot()** To ensure all required packages are loaded, **we reinstall exact packages declared in the project lockfile renv.lock** Then we run renv::restore(), **this ensures we have all required packages loaded** and ready in our **local R environment**.
