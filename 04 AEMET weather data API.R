@@ -88,7 +88,4 @@ ggstripes(temp_data, plot_title = "Barcelona Drassanes") +
 
 # Indicative: 3195
 # Indsinop 08222
-MADRID, RETIRO
-667
--3.678056
-40.411667
+# WIP
