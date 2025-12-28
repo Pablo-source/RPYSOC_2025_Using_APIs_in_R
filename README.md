@@ -113,10 +113,6 @@ And I obtain a successful reply from AEMET API:
 
 <img width="657" height="651" alt="Valencia viveros climate stripes graph" src="https://github.com/user-attachments/assets/02d43d72-cdfe-40ce-889b-e5cff246190e" />
 
-<img width="688" height="701" alt="Zaragoza Airport Climate Stripes" src="https://github.com/user-attachments/assets/63507376-4217-4b0f-a403-23156ff725b4" />
-
-
-
 ## httr2 package and reference manual
 
 Using **{httr2}** and {rsdmx} R packages to make a request to the API, interpret the response building multiple function calls, {httr2} package is the successor to {httr}.
