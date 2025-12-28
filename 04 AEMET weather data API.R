@@ -44,10 +44,18 @@ library(ggplot2)
 
 temp_data <- climaemet::climaemet_8416Y_temp
 
-ggstripes(temp_data, plot_title = "Valencia viveros") + labs (subtitle = "(1950-2020)")
+ggstripes(temp_data, plot_title = "Valencia viveros") + l
+abs (subtitle = "(1950-2020)")
 
 
 # 2. Execute a query to the API for the city of Zaragoza in Spain
+
+# Indicativo: 9434
+# indsinop: 08160
+# Name: ZARAGOZA, AEROPUERTO
+# Altitude: 249
+# LONG:-1.004167, LAT: 41.660556
+
 temp_data <- climaemet::climaemet_9434_temp
 
 ggstripes(temp_data, plot_title = "Zaragoza Airport") +
@@ -59,6 +67,15 @@ ggstripes(temp_data, plot_title = "Zaragoza Airport") +
 # https://ropenspain.github.io/climaemet/articles/aemet_stations.html
 # 0201X
 # BARCELONA, DRASSANES
+
+# Indicativo:
+# Indsinop: 
+
+temp_data <- climaemet::climaemet_0201X_temp
+
+ggstripes(temp_data, plot_title = "Barcelona Drassanes") +
+  labs(subtitle = "(1950-2020)")
+
 
 
 # 4. Execute a query to (AEMET OpenData) API for a weatehr station in the City of Madrid
