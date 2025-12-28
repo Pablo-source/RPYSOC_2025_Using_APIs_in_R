@@ -28,7 +28,7 @@ key <- getOption("this_is_my_key")
 # 1. Execute a query to the API for the city of Valencia
 library(climaemet)
 
-aemet_api_key(key, install = TRUE)
+aemet_api_key(key, install = TRUE, overwrite = TRUE)
 
 # Then I can obtain Valencia Climate Strips using the API and the same method from above: 
 
