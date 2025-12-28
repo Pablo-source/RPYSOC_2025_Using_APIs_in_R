@@ -54,6 +54,21 @@ ggstripes(temp_data, plot_title = "Zaragoza Airport") +
   labs(subtitle = "(1950-2020)")
 
 
-# 3. Execute a query to the API for the city of Barcelona
+# 3. Execute a query to (AEMET OpenData) API for the city of Barcelona
+# AEMET Stations: Weather stations details for the API
+# https://ropenspain.github.io/climaemet/articles/aemet_stations.html
+# 0201X
+# BARCELONA, DRASSANES
 
 
+# 4. Execute a query to (AEMET OpenData) API for a weatehr station in the City of Madrid
+# AEMET Stations: Weather stations details for the API
+# https://ropenspain.github.io/climaemet/articles/aemet_stations.html
+# MADRID, RETIRO
+
+# Indicative: 3195
+# Indsinop 08222
+MADRID, RETIRO
+667
+-3.678056
+40.411667
