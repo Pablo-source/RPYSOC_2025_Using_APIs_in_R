@@ -29,7 +29,10 @@ key <- getOption("this_is_my_key")
 # 1. Execute a query to the API for the city of Valencia
 library(climaemet)
 
-aemet_api_key(key, install = TRUE, overwrite = TRUE)
+library(tibble)
+stations <- aemet_stations()
+stations
+stations2 <- aemet_stations(verbose = TRUE)
 
 # Then I can obtain Valencia Climate Strips using the API and the same method from above: 
 
@@ -42,10 +45,12 @@ aemet_last_obs("8416Y") # Valencia vireos AEMET weather station
 # 1.2 Plot a climate stripes graph for a period of years for a station
 library(ggplot2)
 
+aemet_last_obs("8416Y") # Valencia Viveros 
+
 temp_data <- climaemet::climaemet_8416Y_temp
 
-ggstripes(temp_data, plot_title = "Valencia viveros") + l
-abs (subtitle = "(1950-2020)")
+ggstripes(temp_data, plot_title = "Valencia viveros") +
+  labs(subtitle = "(1950-2020)")
 
 
 # 2. Execute a query to the API for the city of Zaragoza in Spain
@@ -68,15 +73,13 @@ ggstripes(temp_data, plot_title = "Zaragoza Airport") +
 # 0201X
 # BARCELONA, DRASSANES
 
-# Indicativo:
+# Indicativo: 0201X
 # Indsinop: 
 
-temp_data <- climaemet::climaemet_0201X_temp
+temp_data <- climaemet::climaemet_0106X_temp
 
 ggstripes(temp_data, plot_title = "Barcelona Drassanes") +
   labs(subtitle = "(1950-2020)")
-
-
 
 # 4. Execute a query to (AEMET OpenData) API for a weatehr station in the City of Madrid
 # AEMET Stations: Weather stations details for the API
