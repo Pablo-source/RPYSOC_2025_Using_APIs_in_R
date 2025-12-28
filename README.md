@@ -113,6 +113,8 @@ And I obtain a successful reply from AEMET API:
 
 <img width="657" height="651" alt="Valencia viveros climate stripes graph" src="https://github.com/user-attachments/assets/02d43d72-cdfe-40ce-889b-e5cff246190e" />
 
+- See R Script: **04 AEMET weather data API.R** for details on how I created the above Climate strips chart for Valencia city.
+
 ## httr2 package and reference manual
 
 Using **{httr2}** and {rsdmx} R packages to make a request to the API, interpret the response building multiple function calls, {httr2} package is the successor to {httr}.
