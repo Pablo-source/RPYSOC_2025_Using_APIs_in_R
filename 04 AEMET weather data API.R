@@ -11,6 +11,7 @@
 library(climaemet)
 library(ggplot2)
 library(usethis)
+library(httr2)
 
 
 # Store securely your API keys
@@ -38,12 +39,21 @@ aemet_api_key(key, install = TRUE, overwrite = TRUE)
 # (This is the Station ID for the API ): 8416Y
 aemet_last_obs("8416Y") # Valencia vireos AEMET weather station 
 
-# 2. Plot a climate stripes graph for a period of years for a station
+# 1.2 Plot a climate stripes graph for a period of years for a station
 library(ggplot2)
 
 temp_data <- climaemet::climaemet_8416Y_temp
 
 ggstripes(temp_data, plot_title = "Valencia viveros") + labs (subtitle = "(1950-2020)")
 
+
+# 2. Execute a query to the API for the city of Zaragoza in Spain
+temp_data <- climaemet::climaemet_9434_temp
+
+ggstripes(temp_data, plot_title = "Zaragoza Airport") +
+  labs(subtitle = "(1950-2020)")
+
+
+# 3. Execute a query to the API for the city of Barcelona
 
 
