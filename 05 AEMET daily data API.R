@@ -11,3 +11,17 @@ library(climaemet)
 library(ggplot2)
 library(usethis)
 library(httr2)
+
+# 1. Get My APY key 
+usethis::edit_r_profile(scope = "project")
+
+key <- getOption("this_is_my_key")
+
+
+# 1. Execute a query to the API for the city of Valencia
+library(climaemet)
+
+library(tibble)
+stations <- aemet_stations()
+stations
+stations2 <- aemet_stations(verbose = TRUE)
