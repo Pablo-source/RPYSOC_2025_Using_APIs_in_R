@@ -6,3 +6,8 @@
 
 # Obtain daily temperatures for these Spanish cities: Valencia, Sevilla, Barcelona, Madrid, for the 
 # last 20 years if available.
+
+library(climaemet)
+library(ggplot2)
+library(usethis)
+library(httr2)
