@@ -18,6 +18,7 @@ renv::install('dplyr')
 renv::install('ggplot2')
 renv::install('janitor')
 
+
 # 3 Check status of your lockfile using renv::status() function:
 ## status() reports issues caused by inconsistencies across the project lockfile
 
