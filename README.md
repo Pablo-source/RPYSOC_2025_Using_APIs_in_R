@@ -67,7 +67,7 @@ And I obtain a successful reply from AEMET API:
 
 ## Creating a climate stripes graph for Valencia city using climaemet library
 
-- See script **O4 AEMET weatehr data API.R** for details on how to **use an API key**  and create this **climate stripes** charts for **Valencia** city.
+- See script **O4 AEMET weather data API.R** for details on how to **use an API key**  and create this **climate stripes** charts for **Valencia** city.
 
 - GitHub {climaemet} package for reference and documentation:
  <https://github.com/rOpenSpain/climaemet>
