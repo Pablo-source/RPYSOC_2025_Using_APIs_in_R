@@ -103,6 +103,8 @@ And I obtain a successful reply from AEMET API:
 
 <img width="913" height="467" alt="image" src="https://github.com/user-attachments/assets/90c0f1c6-44ac-43e3-be16-f947b31fa850" />
 
+- See script "**04 AEMET weather data API.R" for details of the ggstrips charts below:
+  
 - Submit a query to the API using previous API key to obtain a Climate Strips chart for Valencia
 
 <img width="1687" height="752" alt="image" src="https://github.com/user-attachments/assets/104761fe-0276-4bc8-ad65-f71868c9b9a3" />
