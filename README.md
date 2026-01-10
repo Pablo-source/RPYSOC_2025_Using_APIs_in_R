@@ -95,6 +95,8 @@ And I obtain a successful reply from AEMET API:
 
 - In .Rprofile file intoduce this line: **'options(this_is_my_key = "XXXX")'**
 
+<img width="709" height="261" alt="image" src="https://github.com/user-attachments/assets/ceb41aeb-66c4-42b4-8c7d-a743287b9aa9" />
+
 - Remember to **Restart** your R session for the .Pprofile changes to take effect
 
 - Now I can check with {httr2} that I am able to connect to **AEMET Open Data API** using {hhtr2} library.
@@ -108,8 +110,6 @@ And I obtain a successful reply from AEMET API:
 
 - Now I proceed to obtain weather data for Valencia using the API
  
-<img width="709" height="261" alt="image" src="https://github.com/user-attachments/assets/ceb41aeb-66c4-42b4-8c7d-a743287b9aa9" />
-
 - Make sure .Rprofile is included in your .gitignore file, to avoid uploading it to Github 
 
 <img width="913" height="467" alt="image" src="https://github.com/user-attachments/assets/90c0f1c6-44ac-43e3-be16-f947b31fa850" />
