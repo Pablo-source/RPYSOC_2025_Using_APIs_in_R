@@ -98,6 +98,8 @@ And I obtain a successful reply from AEMET API:
 - Remember to **Restart** your R session for the .Pprofile changes to take effect
 
 - Now I can check with {httr2} that I am able to connect to **AEMET Open Data API** using {hhtr2} library.
+<img width="914" height="779" alt="image" src="https://github.com/user-attachments/assets/f754a5bc-01c9-4329-8c46-e09c4c96e631" />
+
 - As it returns **status 200** meaning the connection has been successfully. Now I can start **querying data** using **httr2 package*** with my **API KEY**
 
 <img width="851" height="311" alt="image" src="https://github.com/user-attachments/assets/075534a4-6a39-42eb-b4ef-96e9e548e0f6" />
@@ -107,8 +109,6 @@ And I obtain a successful reply from AEMET API:
 - Now I proceed to obtain weather data for Valencia using the API
  
 <img width="709" height="261" alt="image" src="https://github.com/user-attachments/assets/ceb41aeb-66c4-42b4-8c7d-a743287b9aa9" />
-
-<img width="914" height="779" alt="image" src="https://github.com/user-attachments/assets/f754a5bc-01c9-4329-8c46-e09c4c96e631" />
 
 - Make sure .Rprofile is included in your .gitignore file, to avoid uploading it to Github 
 
