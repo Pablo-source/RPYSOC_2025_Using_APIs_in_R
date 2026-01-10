@@ -96,7 +96,16 @@ And I obtain a successful reply from AEMET API:
 - In .Rprofile file intoduce this line: **'options(this_is_my_key = "XXXX")'**
 
 - Remember to **Restart** your R session for the .Pprofile changes to take effect
-  
+
+- Now I can check with {httr2} that I am able to connect to **AEMET Open Data API** using {hhtr2} library.
+- As it returns **status 200** meaning the connection has been successfully. Now I can start **querying data** using **httr2 package*** with my **API KEY**
+
+<img width="851" height="311" alt="image" src="https://github.com/user-attachments/assets/075534a4-6a39-42eb-b4ef-96e9e548e0f6" />
+
+<img width="464" height="267" alt="image" src="https://github.com/user-attachments/assets/2bb4b00f-1322-4803-bc8c-09a8bbd6370c" />
+
+- Now I proceed to obtain weather data for Valencia using the API
+ 
 <img width="709" height="261" alt="image" src="https://github.com/user-attachments/assets/ceb41aeb-66c4-42b4-8c7d-a743287b9aa9" />
 
 <img width="914" height="779" alt="image" src="https://github.com/user-attachments/assets/f754a5bc-01c9-4329-8c46-e09c4c96e631" />
