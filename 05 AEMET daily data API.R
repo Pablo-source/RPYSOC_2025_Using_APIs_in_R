@@ -33,7 +33,9 @@ stations <- aemet_stations()
 stations
 stations2 <- aemet_stations(verbose = TRUE)
 
-# 3. Obtain yearly temperatures for 
+# 3. Check API Connection with "opendata.aemet.es" is working fine
+
+# I should obtain a "Status: 200 " indicating the API key has worked and I have established the connection with opendata.aemet.es API
 
 # 3.1 Using GET method using httr2 library
 library(httr2)
@@ -59,16 +61,16 @@ Body: In memory (825 bytes)
 # 3.2 Display contents of the response returned by the API query using glimpse() function
 # glimpse() function from {dplyr} package
 
-AEMET_json_weather_data <- request(AEMET_conn) %>%  # Append now further parts of the URL. Makes a GET() request to the API
+AEMET_html_weather_data <- request(AEMET_conn) %>%  # Append now further parts of the URL. Makes a GET() request to the API
   req_perform() %>%  # Perform a Request to get a response 
-  glimpse() # Now we want to obtain that response as a JSON FILE
-AEMET_json_weather_data
+  glimpse() 
+
+AEMET_html_weather_data
 
 
-# The object created "AEMET_json_weather_data" contains now all the required info from the API query
+# The object created "AEMET_html_weather_data" contains now all the required info from the API query.
 
-$ request    :List of 8
-..$ url     : chr "opendata.aemet.es"
-..$ method  : NULL
-..$ headers : list()
+
+
+
 
