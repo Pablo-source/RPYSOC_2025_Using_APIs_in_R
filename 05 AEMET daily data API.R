@@ -25,6 +25,12 @@ usethis::edit_r_profile(scope = "project")
 
 key <- getOption("this_is_my_key")
 
+aemet_api_key(key)
+
+library(climaemet)
+aemet_last_obs("9434")
+
+
 # 2. Execute a query to the API for the city of Valencia
 library(climaemet)
 
@@ -70,7 +76,49 @@ AEMET_html_weather_data
 
 # The object created "AEMET_html_weather_data" contains now all the required info from the API query.
 
+# 4. PERFORM A Query to the API for specific staion and Time interval
 
+# Using Key from my R profile (it includes my API KEY)  stored in a secure way. 
+key
+
+library(climaemet)
+library(ggplot2)
+library(dplyr)
+
+
+aemet_api_key(key)
+
+# 4.1 Obtain different weather sations ID codes (Indicativo) from website below:
+https://ropenspain.github.io/climaemet/articles/aemet_stations.html
+
+aemet_api_key()
+aemet_stations(verbose = TRUE, return_sf = FALSE)
+
+# 4.1 Obtain yearly data for Zaragoza
+
+
+# Indicativo: 9434
+# indsinop: 08160
+# Name: ZARAGOZA, AEROPUERTO
+
+temp_data_Zaragoza <- climaemet::climaemet_9434_temp
+
+temp_data_zaragoza <- climaemet::climaemet_9434_temp
+
+ggstripes(temp_data_zaragoza, plot_title = "Zaragoza Airport") +
+  labs(subtitle = "(1950-2020)")
+
+# Valencia
+# Name: Valencia VIVEROS
+# indicativo: 8416Y
+
+# # (This is the Station ID for the API ): 8416Y
+temp_data_Valencia <- climaemet::climaemet_8416Y_temp
+temp_data_Valencia
+
+# Madrid
+# Getafe 3200
+temp_data_Madrid <- climaemet::climaemet_3200_temp
 
 
 
