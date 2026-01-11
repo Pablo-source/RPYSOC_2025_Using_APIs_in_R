@@ -17,7 +17,8 @@ renv::install('here')
 renv::install('dplyr')
 renv::install('ggplot2')
 renv::install('janitor')
-
+# Included {usethis} library to manage API keys
+renv::install('usethis')
 
 # 3 Check status of your lockfile using renv::status() function:
 ## status() reports issues caused by inconsistencies across the project lockfile
