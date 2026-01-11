@@ -78,7 +78,7 @@ AEMET_html_weather_data
 
 # The object created "AEMET_html_weather_data" contains now all the required info from the API query.
 
-# 4. PERFORM A Query to the API for specific staion and Time interval
+# 4. PERFORM A Query to the API for specific CITY station
 
 # Using Key from my R profile (it includes my API KEY)  stored in a secure way. 
 key
@@ -90,18 +90,19 @@ library(dplyr)
 
 aemet_api_key(key)
 
-# 4.1 Obtain different weather sations ID codes (Indicativo) from website below:
+# Obtain different weather sations ID codes (Indicativo) from website below:
 https://ropenspain.github.io/climaemet/articles/aemet_stations.html
 
 aemet_api_key()
 aemet_stations(verbose = TRUE, return_sf = FALSE)
 
-# 4.1 Obtain yearly data for Zaragoza
-
+# 4.1 Obtain yearly data for Zaragoza city
 
 # Indicativo: 9434
 # indsinop: 08160
 # Name: ZARAGOZA, AEROPUERTO
+# URL: ZARAGOZA Weather Station: https://ropenspain.github.io/climaemet/reference/climaemet_9434_temp.html
+
 Zaragoza_city_Latest_obs <-  aemet_last_obs("9434")
 
 temp_data_Zaragoza <- climaemet::climaemet_9434_temp
@@ -110,11 +111,28 @@ ggstripes(temp_data_zaragoza, plot_title = "Zaragoza Airport") +
   labs(subtitle = "(1950-2020)")
 
 
+# 4.2 Obtain Daily forecast for VALENCIA city from API
+
 # Indicativo Valencia city 
+# Valencia (Valencia, viveros AEMET weather station)
+# (This is the Station ID for the API ): 8416Y
+Valencia_city_Latest_obs <-  aemet_last_obs(" 8416Y")
+
+# Display all cities from AEMET API
+data(aemet_munic)
+aemet_munic
+
+library(dplyr)
+
+munis <- aemet_munic |>
+  filter(municipio %in% c("46250")) |>
+  pull(municipio)
+
+daily <- aemet_forecast_daily(munis)
 
 
 
-# 5. Obtain daily termperatures 
+# 5. Obtain daily termperatures on specific Time interval
 # Source: {climaemet} reference manual
 # Example from: https://cran.r-project.org/web/packages/climaemet/climaemet.pdf. Page 16
 
