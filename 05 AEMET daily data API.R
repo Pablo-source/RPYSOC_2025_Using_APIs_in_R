@@ -30,6 +30,8 @@ aemet_api_key(key)
 library(climaemet)
 aemet_last_obs("9434")
 
+# Zaragoza City Latest observations
+Zaragoza_city_Latest_obs <-  aemet_last_obs("9434")
 
 # 2. Execute a query to the API for the city of Valencia
 library(climaemet)
@@ -100,25 +102,76 @@ aemet_stations(verbose = TRUE, return_sf = FALSE)
 # Indicativo: 9434
 # indsinop: 08160
 # Name: ZARAGOZA, AEROPUERTO
+Zaragoza_city_Latest_obs <-  aemet_last_obs("9434")
 
 temp_data_Zaragoza <- climaemet::climaemet_9434_temp
-
-temp_data_zaragoza <- climaemet::climaemet_9434_temp
 
 ggstripes(temp_data_zaragoza, plot_title = "Zaragoza Airport") +
   labs(subtitle = "(1950-2020)")
 
-# Valencia
-# Name: Valencia VIVEROS
-# indicativo: 8416Y
 
-# # (This is the Station ID for the API ): 8416Y
-temp_data_Valencia <- climaemet::climaemet_8416Y_temp
-temp_data_Valencia
-
-# Madrid
-# Getafe 3200
-temp_data_Madrid <- climaemet::climaemet_3200_temp
+# Indicativo Valencia city 
 
 
+
+# 5. Obtain daily termperatures 
+# Source: {climaemet} reference manual
+# Example from: https://cran.r-project.org/web/packages/climaemet/climaemet.pdf. Page 16
+
+# Select a city
+data("aemet_munic")
+
+library(dplyr)
+munis <- aemet_munic %>%
+  filter(municipio_nombre %in% c("Santiago de Compostela", "Lugo")) %>%
+  pull(municipio)
+daily <- aemet_forecast_daily(munis)
+# Metadata
+meta <- aemet_forecast_daily(munis, extract_metadata = TRUE)
+glimpse(meta$campos)
+# Vars available
+aemet_forecast_vars_available(daily)
+# This is nested
+daily %>%
+  select(municipio, fecha, nombre, temperatura)
+# Select and unnest
+daily_temp <- aemet_forecast_tidy(daily, "temperatura")
+# This is not
+daily_temp
+# Wrangle and plot
+daily_temp_end <- daily_temp %>%
+  select(
+    elaborado, fecha, municipio, nombre, temperatura_minima,
+    temperatura_maxima
+  ) %>%
+  tidyr::pivot_longer(cols = contains("temperatura"))
+# Plot
+library(ggplot2)
+ggplot(daily_temp_end) +
+  geom_line(aes(fecha, value, color = name)) +
+  facet_wrap(~nombre, ncol = 1
+  ) +
+    scale_color_manual(
+    values = c("red", "blue"),
+    labels = c("max", "min")
+  ) +
+  scale_x_date(
+    labels = scales::label_date_short(),
+    breaks = "day"
+  ) +
+  scale_y_continuous(
+    labels = scales::label_comma(suffix = "º")
+  ) +
+  theme_minimal() +
+  labs(
+    x = "", y = "",
+    color = "",
+    title = "Forecast: 7-day temperature",
+    subtitle = paste(
+      "Forecast produced on",
+      format(daily_temp_end$elaborado[1], usetz = TRUE)
+    )
+  )
+  
+  
 
