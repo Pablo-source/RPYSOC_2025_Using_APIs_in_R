@@ -1,0 +1,8 @@
+"municipio","fecha","nombre","temperatura.maxima","temperatura.minima","temperatura.dato"
+"46250",20464,"València",16,5,list(value = c(0, 15, 12, 8), hora = c(6, 12, 18, 24))
+"46250",20465,"València",18,6,list(value = c(8, 17, 13, 8), hora = c(6, 12, 18, 24))
+"46250",20466,"València",17,5,list()
+"46250",20467,"València",18,7,list()
+"46250",20468,"València",17,7,list()
+"46250",20469,"València",18,8,list()
+"46250",20470,"València",13,8,list()

@@ -119,6 +119,8 @@ ggstripes(temp_data_zaragoza, plot_title = "Zaragoza Airport") +
 Valencia_city_Latest_obs <-  aemet_last_obs(" 8416Y")
 
 # Display all cities from AEMET API
+# Replicating the steps below from this website for the city of Valencia
+# https://ropenspain.github.io/climaemet/reference/aemet_forecast.html
 data(aemet_munic)
 aemet_munic
 
@@ -128,10 +130,23 @@ munis <- aemet_munic |>
   filter(municipio %in% c("46250")) |>
   pull(municipio)
 
-daily <- aemet_forecast_daily(munis)
+daily_VALENCIA <- aemet_forecast_daily(munis)
+
+# Valencia DAILY FORECASTED TEMPERATURES NEXT 7 days
+# SAVE DAILY VALENCIA TEMPERATURES. Daily Min and Max temperatures for Valencia
+daily_VALENCIA |>
+  select(municipio, fecha, nombre, temperatura)
+
+Valencia_7D_TEMPERATURE_forecast <- daily_VALENCIA |>
+  select(municipio, fecha, nombre, temperatura)
+
+# Save them in the New folder "API_queries_output_data" as a .csv file.
+# 4 Finally we write out combined file as a new .csv file
+
+write.csv(Valencia_7D_TEMPERATURE_forecast,"./API_queries_output_data/Valencia_7D_Forecast_Temperatures_from_11JAN2026.csv", row.names = FALSE)
 
 
-
+# WIP section
 # 5. Obtain daily termperatures on specific Time interval
 # Source: {climaemet} reference manual
 # Example from: https://cran.r-project.org/web/packages/climaemet/climaemet.pdf. Page 16
