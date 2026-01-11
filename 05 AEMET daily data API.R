@@ -121,6 +121,7 @@ Valencia_city_Latest_obs <-  aemet_last_obs(" 8416Y")
 # Display all cities from AEMET API
 # Replicating the steps below from this website for the city of Valencia
 # https://ropenspain.github.io/climaemet/reference/aemet_forecast.html
+
 data(aemet_munic)
 aemet_munic
 
@@ -144,6 +145,8 @@ Valencia_7D_TEMPERATURE_forecast <- daily_VALENCIA |>
 # 4 Finally we write out combined file as a new .csv file
 
 write.csv(Valencia_7D_TEMPERATURE_forecast,"./API_queries_output_data/Valencia_7D_Forecast_Temperatures_from_11JAN2026.csv", row.names = FALSE)
+
+
 
 
 # WIP section
