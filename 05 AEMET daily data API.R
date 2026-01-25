@@ -58,11 +58,10 @@ AEMET_National_weather <- request(AEMET_conn) %>%  # Append now further parts of
 AEMET_National_weather
 
 # Response
-<httr2_response>
-  GET https://opendata.aemet.es/
-  Status: 200 OK
-Content-Type: text/html
-Body: In memory (825 bytes)
+#GET https://opendata.aemet.es/
+#  Status: 200 OK
+#Content-Type: text/html
+#Body: In memory (825 bytes)
 
 # We can see that this time Data is returned as HTML as described by the "content-Type: text/html
 
@@ -131,6 +130,7 @@ munis <- aemet_munic |>
   filter(municipio %in% c("46250")) |>
   pull(municipio)
 
+# Obtain Valencia daily forecast from API response:
 daily_VALENCIA <- aemet_forecast_daily(munis)
 
 # Valencia DAILY FORECASTED TEMPERATURES NEXT 7 days
@@ -145,6 +145,39 @@ Valencia_7D_TEMPERATURE_forecast <- daily_VALENCIA |>
 # 4 Finally we write out combined file as a new .csv file
 
 write.csv(Valencia_7D_TEMPERATURE_forecast,"./API_queries_output_data/Valencia_7D_Forecast_Temperatures_from_11JAN2026.csv", row.names = FALSE)
+
+
+# 4.3 Obtain Daily forecast for BARCELONA city from API
+data(aemet_munic)
+aemet_munic
+
+library(dplyr)
+
+munis <- aemet_munic
+write.csv(munis,"./API_queries_output_data/AEMET_municipalities_metadata.csv", row.names = FALSE)
+
+# Subset municipalities to obtain Barcelona temperature data from AEMET API: 
+# Barcelona (municipio_nombre - API column - response | 08019 (municipio (AEMET code) -API column - response)
+data(aemet_munic)
+aemet_munic
+
+munis <- aemet_munic |>
+  filter(municipio %in% c("08019")) |>
+  pull(municipio)
+
+# Obtain Barcelona daily forecast from API response:
+daily_BARCELONA <- aemet_forecast_daily(munis)
+
+# Obtain 7Days Forecasted temperature for Barcelona
+daily_BARCELONA |>
+  select(municipio, fecha, nombre, temperatura)
+
+Barcelona_7D_TEMPERATURE_forecast <- daily_BARCELONA |>
+  select(municipio, fecha, nombre, temperatura)
+
+# Save BARCELONA forecasted next 7D temperaure as a .csv file in the /API_queries_output_data sub-folder
+write.csv(Barcelona_7D_TEMPERATURE_forecast,"./API_queries_output_data/Barcelona_7D_Forecast_Temperatures_from_25JAN2026.csv", row.names = FALSE)
+
 
 
 
